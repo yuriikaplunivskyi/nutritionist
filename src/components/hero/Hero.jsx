@@ -23,6 +23,19 @@ const textVariants = {
         }
     }
 }
+const sliderVariants = {
+    initial: {
+        x: 0
+    },
+    animate: {
+        x: "-220%",
+        transition: {
+            duration: 20,
+            repeatType: "mirror",
+            repeat: Infinity
+        }
+    }
+}
 
 const Hero = () => {
     return (
@@ -51,7 +64,9 @@ const Hero = () => {
 
             <motion.div 
                 className="slidingTextContainer"
-                variants={textVariants}
+                initial="initial"
+                animate="animate" 
+                variants={sliderVariants}
             >
                 Нутріціолог Тренер Кріейтор Інфлюенсер
             </motion.div>
