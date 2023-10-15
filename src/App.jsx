@@ -1,4 +1,3 @@
-import Test from "./Test";
 import "./app.scss"
 import Navbar from "./components/navbar/navbar";
 
