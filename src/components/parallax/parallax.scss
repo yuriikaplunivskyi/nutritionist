@@ -19,6 +19,7 @@
         height: 100%;
         position: absolute;
         z-index: 3;
+        filter: grayscale(65%);
     }
     .planets {
         background-image: url("/planets.png");
