@@ -1,6 +1,7 @@
-import { useRef } from "react";
+import { useRef, useState } from "react";
 import "./contact.scss";
 import { motion, useInView } from "framer-motion";
+import emailjs from "@emailjs/browser";
 
 const variants = {
     initial: {
@@ -19,10 +20,23 @@ const variants = {
 }
 
 const Contact = () => {
-
     const ref = useRef();
+    const formRef = useRef();
+    const [error, setError] = useState(null);
+    const [success, setSuccess] = useState(false);
 
-    const isInView = useInView(ref, { margin:"-100px" })
+    const isInView = useInView(ref, { margin:"-100px" });
+
+    const sendEmail = (e) => {
+        e.preventDefault();
+
+        emailjs.sendForm('service_jg9jdpa', 'template_fm6flo8', formRef.current, '-6q0vNkbrH6QslrGg')
+            .then((result) => {
+                setSuccess(true);
+            }, (error) => {
+                setError(true);
+            })
+    }
 
     return (
         <motion.div 
@@ -77,15 +91,29 @@ const Contact = () => {
                     </svg>
                 </motion.div>
                 <motion.form 
+                    onSubmit={sendEmail}
                     action=""
+                    ref={formRef}
                     initial={{ opacity: 0 }}
                     whileInView={{ opacity: 1 }}
                     transition={{ delay: 4, duration: 1 }}>
-                    <input type="text" required placeholder="Ім'я"/>
-                    <input type="email" required placeholder="Елетронная пошта"/>
-                    <textarea name="" rows={8} placeholder="Повідомлення"/>
+                    <input 
+                        type="text" 
+                        required 
+                        placeholder="Ім'я" 
+                        name="name"/>
+                    <input 
+                        type="email" 
+                        required 
+                        placeholder="Елетронная пошта" 
+                        name="email"/>
+                    <textarea 
+                        name="message" 
+                        rows={8} 
+                        placeholder="Повідомлення"/>
                     <button>Відправити</button>
-
+                    {success && "Успішно відправлено"} 
+                    {error && "Помилка при відправці"} 
                 </motion.form>
             </div>
         </motion.div>
