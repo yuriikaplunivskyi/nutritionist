@@ -29,7 +29,7 @@ const Services = () => {
         <motion.div 
             className="services" 
             variants={variants} 
-            animate={/* isInView && */ "animate"} 
+            animate={ /* isInView && */ "animate"} 
             initial="initial" 
             ref={ref} 
             /*whileInView="animate" 
