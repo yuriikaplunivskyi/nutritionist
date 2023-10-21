@@ -23,7 +23,7 @@ const App = () => {
     <section>
       <Parallax type="reviews"/>
     </section>
-      <Review/>
+    <Review/>
     <section id="contacts">
       <Contact/>
     </section>
