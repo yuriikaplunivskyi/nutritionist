@@ -10,7 +10,7 @@ import Services from "./components/services/Services";
 const App = () => {
   return <div>
     <Cursor/>
-    {/* <section id="homepage">
+    <section id="homepage">
       <Navbar/>
       <Hero/>
     </section>
@@ -23,11 +23,11 @@ const App = () => {
     <section>
       <Parallax type="reviews"/>
     </section>
-    <Review/> */}
+    <Review/>
     <section id="contacts">
       <Contact/>
     </section>
-  </div>;
+  </div>
 };
 
 export default App;
