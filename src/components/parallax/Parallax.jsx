@@ -23,8 +23,8 @@ const Parallax = ({type}) => {
             style={{
             background:
             type==="services"
-                ? "linear-gradient(180deg, #3a112f, #3f0a1e)"
-                : "linear-gradient(180deg, #111132, #505064"}}>
+                ? "linear-gradient(180deg, #0d0d11, #e2a3ab)"
+                : "linear-gradient(180deg, #0d0d11, #e2a3ab"}}>
             <motion.h1 style={{y: yText}}>{type==="services" ? "Що я роблю?": "Що я зробила? "}</motion.h1>
             <motion.div className="mountains"></motion.div>
             <motion.div 
