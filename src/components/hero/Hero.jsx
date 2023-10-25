@@ -3,7 +3,7 @@ import { motion } from "framer-motion";
 
 const textVariants = {
     initial: {
-        x: -500,
+        x: -900,
         opacity: 0
     },
     animate: {
@@ -30,7 +30,7 @@ const sliderVariants = {
     animate: {
         x: "-220%",
         transition: {
-            duration: 20,
+            duration: 50,
             repeatType: "mirror",
             repeat: Infinity
         }
@@ -48,7 +48,7 @@ const Hero = () => {
                     animate="animate"
                     >
                     <motion.h2 variants={textVariants}>Катерина Каплунівська</motion.h2>
-                    <motion.h1 variants={textVariants}>Нутриціолог та персональний тренер</motion.h1>
+                    <motion.h1 variants={textVariants}>Персональний тренер та нутриціолог</motion.h1>
                     <motion.div variants={textVariants} className="buttons">
                         <motion.button variants={textVariants}>Про мене</motion.button>
                         <motion.button variants={textVariants}>Зв&#39;язатися зі мною</motion.button>
@@ -68,8 +68,7 @@ const Hero = () => {
                 animate="animate" 
                 variants={sliderVariants}
             >
-                Нутріціолог Тренер Кріейтор Інфлюенсер
-            </motion.div>
+                NUTRITIONIST PERSONAL COACH HEALTH COACH  ---------------------------------------------            </motion.div>
             
             <div className="imageContainer">
                 <img src="/hero.png" alt="hero img" />

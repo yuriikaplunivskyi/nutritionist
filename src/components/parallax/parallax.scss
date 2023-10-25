@@ -27,7 +27,7 @@
         height: 100%;
         position: absolute;
         z-index: 3;
-        filter: grayscale(65%);
+        filter:  grayscale(65);
 
         @include mobile {
             background-size: contain;
