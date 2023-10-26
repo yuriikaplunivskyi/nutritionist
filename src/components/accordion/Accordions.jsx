@@ -1,6 +1,8 @@
-
+import { useState } from "react";
+import "./accordions.scss";
 
 const Accordions = () => {
+    const [activeIndex, setActiveIndex] = useState(false);
 
     const accordionDate = [
         {
@@ -29,16 +31,25 @@ const Accordions = () => {
         }
     ];
 
+    const toggleAccordion = (index) => {
+        setActiveIndex(index === activeIndex ? null: index);
+    };
+
     return (
         <>
             <div className="accordion">
             {accordionDate.map(item =>(
             <div className="accordion-item" key={item.id}>
                 <div className="accordion-title">
-                    <div >{item.title}</div>
-                    <div>+</div>
+                    <div>{item.title}</div>
+                    <button
+                    className="accordion-btn"
+                    onClick={() => toggleAccordion(item.id)}
+                    >
+                        {item.id === activeIndex ? '-': '+'}
+                    </button>
                 </div>
-                <div className="accordion-content">{item.content}</div>
+                {item.id == activeIndex && <div className="accordion-content">{item.content}</div>}
             </div>
             ))}
                 </div>
