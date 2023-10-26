@@ -1,4 +1,5 @@
 import "./app.scss"
+import Accordions from "./components/accordion/Accordions";
 import Contact from "./components/contact/Contact";
 import Cursor from "./components/cursor/Cursor";
 import Hero from "./components/hero/Hero";
@@ -23,6 +24,9 @@ const App = () => {
     </section>
     <section id="services">
       <Services/>
+    </section>
+    <section id="warning">
+      <Accordions/>
     </section>
     <section id="contacts">
       <Contact/>

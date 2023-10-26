@@ -2,7 +2,6 @@
 @import "../../variables.scss";
 
 .services {
-    background: $bg-linear-gradient-color;
     height: 100%;
     display: flex;
     flex-direction: column;
@@ -25,7 +24,7 @@
         p {
             font-weight: 200;
             font-size: 20px;
-            color: $text-color;
+            color: white;
             text-align: right;
         }
         hr {
@@ -115,7 +114,7 @@
         .box {
             padding: 25px;
             border: 0.5px solid $text-color;
-            color: rgb(197, 197, 197);
+            color: white;
             border-radius: 5px;
             display: flex;
             flex-direction: column;
