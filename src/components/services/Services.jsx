@@ -1,6 +1,7 @@
-import { useRef } from "react";
+import { useRef, useState } from "react";
 import "./services.scss";
 import { motion, useInView } from "framer-motion";
+import Popup from "../popup/Popup";
 
 const variants = {
     initial: {
@@ -20,10 +21,17 @@ const variants = {
 }
 
 const Services = () => {
-
     const ref = useRef();
-
     const isInView = useInView(ref, {margin: "-50px"})
+    const [isPopupOpen, setIsPopupOpen] = useState(false);
+
+    const openPopup = () => {
+        setIsPopupOpen(true);
+    };
+
+    const closePopup = () => {
+        setIsPopupOpen(false);
+    }
 
     return (
         <motion.div 
@@ -46,7 +54,7 @@ const Services = () => {
                 variants={variants}
                 >
                 <div className="title">        
-                    <img src="/people.webp" alt="people" />
+                    <img src="/banana.JPG" alt="people" />
                     <h1><motion.b whileHover={{color: "white"}}>Унікальні</motion.b> ідеї</h1>
                 </div>
                 <div className="title">
@@ -61,7 +69,8 @@ const Services = () => {
                     >
                     <h2>Наставництво</h2>
                     <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.Lorem ipsum dolor sit amet, consectetur adipisicing elit.Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
-                    <button>Переглянути</button>
+                    <button onClick={openPopup}>Переглянути</button>
+                    {isPopupOpen && <Popup onClose={closePopup}/>}
                 </motion.div>
                 <motion.div 
                     className="box" 
@@ -69,7 +78,8 @@ const Services = () => {
                     >
                     <h2>Наставництво</h2>
                     <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.Lorem ipsum dolor sit amet, consectetur adipisicing elit.Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
-                    <button>Переглянути</button>
+                    <button onClick={openPopup}>Переглянути</button>
+                    {isPopupOpen && <Popup onClose={closePopup}/>}
                 </motion.div>
                 <motion.div 
                     className="box" 
@@ -77,7 +87,8 @@ const Services = () => {
                     >
                     <h2>Наставництво</h2>
                     <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.Lorem ipsum dolor sit amet, consectetur adipisicing elit.Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
-                    <button>Переглянути</button>
+                    <button onClick={openPopup}>Переглянути</button>
+                    {isPopupOpen && <Popup onClose={closePopup}/>}
                 </motion.div>
                 <motion.div 
                     className="box" 
@@ -85,7 +96,8 @@ const Services = () => {
                     >
                     <h2>Наставництво</h2>
                     <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.Lorem ipsum dolor sit amet, consectetur adipisicing elit.Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
-                    <button>Переглянути</button>
+                    <button onClick={openPopup}>Переглянути</button>
+                    {isPopupOpen && <Popup onClose={closePopup}/>}
                 </motion.div>
             </motion.div>
         </motion.div>
