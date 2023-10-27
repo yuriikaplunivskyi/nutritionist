@@ -57,35 +57,35 @@ const Services = () => {
             <motion.div className="listContainer" variants={variants}>
                 <motion.div 
                     className="box" 
-                    whileHover={{background:"lightgray", color: "black"}}
+                    whileHover={{background:"white", color: "#e2a3ab"}}
                     >
                     <h2>Наставництво</h2>
                     <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.Lorem ipsum dolor sit amet, consectetur adipisicing elit.Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
-                    <button>Go</button>
+                    <button>Переглянути</button>
                 </motion.div>
                 <motion.div 
                     className="box" 
-                    whileHover={{background:"lightgray", color: "black"}}
+                    whileHover={{background:"white", color: "#e2a3ab"}}
                     >
                     <h2>Наставництво</h2>
                     <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.Lorem ipsum dolor sit amet, consectetur adipisicing elit.Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
-                    <button>Go</button>
+                    <button>Переглянути</button>
                 </motion.div>
                 <motion.div 
                     className="box" 
-                    whileHover={{background:"lightgray", color: "black"}}
+                    whileHover={{background:"white", color: "#e2a3ab"}}
                     >
                     <h2>Наставництво</h2>
                     <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.Lorem ipsum dolor sit amet, consectetur adipisicing elit.Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
-                    <button>Go</button>
+                    <button>Переглянути</button>
                 </motion.div>
                 <motion.div 
                     className="box" 
-                    whileHover={{background:"lightgray", color: "black"}}
+                    whileHover={{background:"white", color: "#e2a3ab"}}
                     >
-                    <h2>Lorem impsum</h2>
+                    <h2>Наставництво</h2>
                     <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.Lorem ipsum dolor sit amet, consectetur adipisicing elit.Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
-                    <button>Go</button>
+                    <button>Переглянути</button>
                 </motion.div>
             </motion.div>
         </motion.div>

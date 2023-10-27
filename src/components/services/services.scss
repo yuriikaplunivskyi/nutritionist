@@ -135,13 +135,13 @@
 
             button {
                 padding: 10px;
-                background-color: $button-color;
+                background-color: #e2a3ab;
                 border: none;
                 cursor: pointer;
                 border-radius: 5px;
 
                 :hover, :active {
-                    background-color: $button-color;
+                    background-color: #e2a3ab;
                 }
 
                 @include mobile {

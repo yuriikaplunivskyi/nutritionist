@@ -14,7 +14,7 @@ const Accordions = () => {
             voluptatem.`
         },
         {
-            title: 'Section 3',
+            title: 'Section 2',
             id: 2,
             content: `Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quis sapiente
             laborum cupiditate possimus labore, hic temporibus velit dicta earum
@@ -22,8 +22,24 @@ const Accordions = () => {
             voluptatem.`
         },
         {
-            title: 'Section 2',
+            title: 'Section 3',
             id: 3,
+            content: `Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quis sapiente
+            laborum cupiditate possimus labore, hic temporibus velit dicta earum
+            suscipit commodi eum enim atque at? Et perspiciatis dolore iure
+            voluptatem.`
+        },
+        {
+            title: 'Section 4',
+            id: 4,
+            content: `Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quis sapiente
+            laborum cupiditate possimus labore, hic temporibus velit dicta earum
+            suscipit commodi eum enim atque at? Et perspiciatis dolore iure
+            voluptatem.`
+        },
+        {
+            title: 'Section 5',
+            id: 5,
             content: `Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quis sapiente
             laborum cupiditate possimus labore, hic temporibus velit dicta earum
             suscipit commodi eum enim atque at? Et perspiciatis dolore iure
@@ -38,6 +54,7 @@ const Accordions = () => {
     return (
         <>
             <div className="accordion">
+                <h2 className="accordion-header"><span>&#x26A0;</span>Важливо</h2>
             {accordionDate.map(item =>(
             <div className="accordion-item" key={item.id}>
                 <div className="accordion-title">

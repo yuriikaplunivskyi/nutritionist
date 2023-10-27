@@ -2,22 +2,29 @@
 @import "../../variables.scss";
 
 .accordion {
+    padding: 100px;
     height: 100%;
     width: auto;
     margin: auto;
     display: flex;
     justify-content: center;
     flex-direction: column;
-    align-items: center;
+    align-items: flex-start;
+    gap: 20px;
+    &-header {
+        font-size: 24px;
+        span {
+            color: red;
+            padding: 20px;
+        }
+    }
     &-item {
         display: flex;
-        justify-content: center;
+        justify-content: flex-start;
         flex-direction: column;
         align-items: center;
-        max-width: 400px;
-        min-width: 350px;
+        width: 800px;
         height: 300px;
-        overflow: auto;
     }
     &-title {
         width: 100%;
@@ -37,6 +44,7 @@
     &-content {
         padding: 10px;
         background-color: #f8c3ca;
+        overflow: auto;
     }
 
 }
