@@ -59,14 +59,11 @@
                     cursor: pointer;
                     font-weight: 300;
                     background-color: $bg-main-color;
-                    filter: opacity(0.7);
                     color: $header-text-color;
-                    /* box-shadow:  inset  1px 1px 3px #fbfbfb,
-                    inset -3px -3px 6px #020202; */
                 }
                 :hover, :active {
                     background-color: $header-text-color;
-                    filter: opacity(0.95);
+                    filter: opacity(0.8);
                     color: $sidebar-bg-color;
                 }
             }

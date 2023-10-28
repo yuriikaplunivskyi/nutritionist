@@ -2,6 +2,7 @@ import { useRef, useState } from "react";
 import "./services.scss";
 import { motion, useInView } from "framer-motion";
 import Popup from "../popup/Popup";
+import Accordions from "../accordion/Accordions";
 
 const variants = {
     initial: {
@@ -27,10 +28,12 @@ const Services = () => {
 
     const openPopup = () => {
         setIsPopupOpen(true);
+        document.body.classList.add("popup-open");
     };
 
     const closePopup = () => {
         setIsPopupOpen(false);
+        document.body.classList.remove("popup-open");
     }
 
     return (
@@ -70,7 +73,10 @@ const Services = () => {
                     <h2>Наставництво</h2>
                     <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.Lorem ipsum dolor sit amet, consectetur adipisicing elit.Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
                     <button onClick={openPopup}>Переглянути</button>
-                    {isPopupOpen && <Popup onClose={closePopup}/>}
+                    {isPopupOpen && 
+                    <Popup onClose={closePopup}>
+                        <Accordions/>
+                    </Popup>}
                 </motion.div>
                 <motion.div 
                     className="box" 

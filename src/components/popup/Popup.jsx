@@ -1,3 +1,4 @@
+import Accordions from "../accordion/Accordions";
 import "./popup.scss";
 
 const Popup = ({onClose}) => {
@@ -6,6 +7,7 @@ const Popup = ({onClose}) => {
             <div className="popup">
                 <h2>Popup content</h2>
                 <p>This is some popup content.</p>
+                <Accordions/>
                 <button onClick={onClose}>Close</button>
             </div>
         </div>
