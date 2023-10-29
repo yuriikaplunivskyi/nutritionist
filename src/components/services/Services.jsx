@@ -21,6 +21,37 @@ const variants = {
     }
 }
 
+const serviceDate = [
+    {
+        title: 'Наставництво',
+        id: 1,
+        content: `Повний комплекс підтримки
+        +входить "Покричати в голосових" + життя — цікаве, і мотивація то є сильна: філософія, психологія. саме головне — залишайтеся людьми і кричіть, що ви живі 
+
+        Я ЖИВИИИИИЙ! Я СИЛЬНИЙ!`,
+        price: '200₴'
+    },
+    {
+        title: 'Персональний тренер',
+        id: 2,
+        content: `Супроводжую вас на тренування онлайн. Пишу план тренувань.`,
+        price: '200₴'
+    },
+    {
+        title: 'Консультація',
+        id: 3,
+        content: `Обговоримо план дій`,
+        price: '200₴'
+    },
+    {
+        title: 'Покричу, щоб ходили в зал',
+        id: 4,
+        content: `Голосові повідомлення з мотивацією, три рази в тиждень
+        .`,
+        price: '200₴'
+    }
+];
+
 const Services = () => {
     const ref = useRef();
     const isInView = useInView(ref, {margin: "-50px"})
@@ -66,45 +97,26 @@ const Services = () => {
                 </div>
             </motion.div>
             <motion.div className="listContainer" variants={variants}>
-                <motion.div 
-                    className="box" 
-                    whileHover={{background:"white", color: "#e2a3ab"}}
-                    >
-                    <h2>Наставництво</h2>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.Lorem ipsum dolor sit amet, consectetur adipisicing elit.Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
-                    <button onClick={openPopup}>Переглянути</button>
-                    {isPopupOpen && 
-                    <Popup onClose={closePopup}>
-                        <Accordions/>
-                    </Popup>}
-                </motion.div>
-                <motion.div 
-                    className="box" 
-                    whileHover={{background:"white", color: "#e2a3ab"}}
-                    >
-                    <h2>Наставництво</h2>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.Lorem ipsum dolor sit amet, consectetur adipisicing elit.Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
-                    <button onClick={openPopup}>Переглянути</button>
-                    {isPopupOpen && <Popup onClose={closePopup}/>}
-                </motion.div>
-                <motion.div 
-                    className="box" 
-                    whileHover={{background:"white", color: "#e2a3ab"}}
-                    >
-                    <h2>Наставництво</h2>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.Lorem ipsum dolor sit amet, consectetur adipisicing elit.Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
-                    <button onClick={openPopup}>Переглянути</button>
-                    {isPopupOpen && <Popup onClose={closePopup}/>}
-                </motion.div>
-                <motion.div 
-                    className="box" 
-                    whileHover={{background:"white", color: "#e2a3ab"}}
-                    >
-                    <h2>Наставництво</h2>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.Lorem ipsum dolor sit amet, consectetur adipisicing elit.Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
-                    <button onClick={openPopup}>Переглянути</button>
-                    {isPopupOpen && <Popup onClose={closePopup}/>}
-                </motion.div>
+                {serviceDate.map((item) => 
+                                    (<motion.div 
+                                    className="box" /* 
+                                    whileHover={{background:"white", color: "#e2a3ab"}} */
+                                    key={item.id}
+                                    >
+                                    <h2 className="box-title">{item.title}</h2>
+                                    <p className="box-text">{item.content}</p>
+                                    <button className="learn-more" onClick={openPopup}>
+                                        <span className="circle" aria-hidden="true">
+                                            <span className="icon arrow"></span>
+                                        </span>
+                                        <span className="button-text">Переглянути</span>
+                                    </button>
+                                    {isPopupOpen && 
+                                    <Popup item={item} onClose={closePopup}>
+                                        <Accordions/>
+                                    </Popup>}
+                                </motion.div>)
+                )}
             </motion.div>
         </motion.div>
     )
