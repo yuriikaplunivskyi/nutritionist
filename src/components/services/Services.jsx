@@ -2,7 +2,6 @@ import { useRef, useState } from "react";
 import "./services.scss";
 import { motion, useInView } from "framer-motion";
 import Popup from "../popup/Popup";
-import Accordions from "../accordion/Accordions";
 
 const variants = {
     initial: {
@@ -21,7 +20,7 @@ const variants = {
     }
 }
 
-const serviceDate = [
+const serviceData = [
     {
         title: 'Наставництво',
         id: 1,
@@ -29,43 +28,151 @@ const serviceDate = [
         +входить "Покричати в голосових" + життя — цікаве, і мотивація то є сильна: філософія, психологія. саме головне — залишайтеся людьми і кричіть, що ви живі 
 
         Я ЖИВИИИИИЙ! Я СИЛЬНИЙ!`,
-        price: '200₴'
+        price: '200₴',
+        warnings: [
+            {
+                title: 'Гострий геморой',
+                id: 1,
+                content: `Проходьте мимо`
+            },
+            {
+                title: 'Простатит',
+                id: 2,
+                content: `Проходьте мимо`
+            },
+            {
+                title: 'Алкоголізм',
+                id: 3,
+                content: `Проходьте мимо`
+            },
+            {
+                title: 'Наркозвлежність',
+                id: 4,
+                content: `Проходьте мимо`
+            },
+            {
+                title: 'Розбите серце',
+                id: 5,
+                content: `Проходьте мимо`
+            }
+        ]
     },
     {
         title: 'Персональний тренер',
         id: 2,
         content: `Супроводжую вас на тренування онлайн. Пишу план тренувань.`,
-        price: '200₴'
+        price: '200₴',
+        warnings: [
+            {
+                title: 'Гострий геморой',
+                id: 1,
+                content: `Проходьте мимо`
+            },
+            {
+                title: 'Простатит',
+                id: 2,
+                content: `Проходьте мимо`
+            },
+            {
+                title: 'Алкоголізм',
+                id: 3,
+                content: `Проходьте мимо`
+            },
+            {
+                title: 'Наркозвлежність',
+                id: 4,
+                content: `Проходьте мимо`
+            },
+            {
+                title: 'Розбите серце',
+                id: 5,
+                content: `Проходьте мимо`
+            }
+        ]
     },
     {
         title: 'Консультація',
         id: 3,
         content: `Обговоримо план дій`,
-        price: '200₴'
+        price: '200₴',
+        warnings: [
+            {
+                title: 'Гострий геморой',
+                id: 1,
+                content: `Проходьте мимо`
+            },
+            {
+                title: 'Простатит',
+                id: 2,
+                content: `Проходьте мимо`
+            },
+            {
+                title: 'Алкоголізм',
+                id: 3,
+                content: `Проходьте мимо`
+            },
+            {
+                title: 'Наркозвлежність',
+                id: 4,
+                content: `Проходьте мимо`
+            },
+            {
+                title: 'Розбите серце',
+                id: 5,
+                content: `Проходьте мимо`
+            }
+        ]
     },
     {
         title: 'Покричу, щоб ходили в зал',
         id: 4,
         content: `Голосові повідомлення з мотивацією, три рази в тиждень
         .`,
-        price: '200₴'
+        price: '200₴',
+        warnings: [
+            {
+                title: 'Гострий геморой',
+                id: 1,
+                content: `Проходьте мимо`
+            },
+            {
+                title: 'Простатит',
+                id: 2,
+                content: `Проходьте мимо`
+            },
+            {
+                title: 'Алкоголізм',
+                id: 3,
+                content: `Проходьте мимо`
+            },
+            {
+                title: 'Наркозвлежність',
+                id: 4,
+                content: `Проходьте мимо`
+            },
+            {
+                title: 'Розбите серце',
+                id: 5,
+                content: `Проходьте мимо`
+            }
+        ]
     }
 ];
 
 const Services = () => {
     const ref = useRef();
     const isInView = useInView(ref, {margin: "-50px"})
-    const [isPopupOpen, setIsPopupOpen] = useState(false);
+    const [selectedService, setSelectedService] = useState(null);
 
-    const openPopup = () => {
-        setIsPopupOpen(true);
+    const openPopup = (item) => {
+        setSelectedService(item);
         document.body.classList.add("popup-open");
     };
 
     const closePopup = () => {
-        setIsPopupOpen(false);
+        setSelectedService(null);
         document.body.classList.remove("popup-open");
-    }
+    };
 
     return (
         <motion.div 
@@ -97,25 +204,25 @@ const Services = () => {
                 </div>
             </motion.div>
             <motion.div className="listContainer" variants={variants}>
-                {serviceDate.map((item) => 
-                                    (<motion.div 
-                                    className="box" /* 
-                                    whileHover={{background:"white", color: "#e2a3ab"}} */
-                                    key={item.id}
-                                    >
-                                    <h2 className="box-title">{item.title}</h2>
-                                    <p className="box-text">{item.content}</p>
-                                    <button className="learn-more" onClick={openPopup}>
-                                        <span className="circle" aria-hidden="true">
-                                            <span className="icon arrow"></span>
-                                        </span>
-                                        <span className="button-text">Переглянути</span>
-                                    </button>
-                                    {isPopupOpen && 
-                                    <Popup item={item} onClose={closePopup}>
-                                        <Accordions/>
-                                    </Popup>}
-                                </motion.div>)
+                {serviceData.map((item) => 
+                        (<motion.div 
+                        className="box"
+                        key={item.id}
+                        >
+                        <h2 className="box-title">{item.title}</h2>
+                        <p className="box-text">{item.content}</p>
+                        <button className="learn-more" onClick={() => openPopup(item)}>
+                            <span className="circle" aria-hidden="true">
+                                <span className="icon arrow"></span>
+                            </span>
+                            <span className="button-text">Переглянути</span>
+                        </button>
+                        {selectedService && 
+                            <Popup 
+                            item={selectedService} 
+                            onClose={closePopup} 
+                            />}
+                    </motion.div>)
                 )}
             </motion.div>
         </motion.div>

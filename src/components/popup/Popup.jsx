@@ -12,11 +12,14 @@ const Popup = ({onClose, item}) => {
     return (
         <div className="popup-container" onClick={handleBackgroundClick}>
             <div className="popup">
-                <h2>{item.title}</h2>
-                <p>{item.content}</p>
+                <h2 className="popup-title">{item.title}</h2>
+                <p className="popup-text">{item.content}</p>
                 <span className="popup-price">{item.price}</span>
-                <Accordions/>
-                <button onClick={onClose}>Close</button>
+                <Accordions  data={item.warnings}/>
+                <button 
+                    className="popup-btn_close"
+                    onClick={onClose}
+                    >Close</button>
             </div>
         </div>
     )

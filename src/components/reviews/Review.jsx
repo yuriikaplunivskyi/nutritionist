@@ -5,28 +5,28 @@ import { motion, useScroll, useSpring, useTransform} from "framer-motion";
 const items = [
     {
         id: 1,
-        title: "Review Title 1",
+        title: "Я рижа мавпа",
         img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ8CldTqNpzN9ENCGC79zNXg6EfcqEHXTLjQg&usqp=CAU",
         desc: "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Illum nam molestiae, harum, sapiente deserunt architecto eos sunt saepe doloremque veniam, quod quaerat autem laborum at reprehenderit soluta ducimus hic inventore."
 
     },
     {
         id: 2,
-        title: "Review Title 2",
+        title: "Я дибіл ?",
         img: "https://images.pexels.com/photos/17697824/pexels-photo-17697824.jpeg?auto=compress&cs=tinysrgb&w=1600&lazy=load",
         desc: "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Illum nam molestiae, harum, sapiente deserunt architecto eos sunt saepe doloremque veniam, quod quaerat autem laborum at reprehenderit soluta ducimus hic inventore."
 
     },
     {
         id: 3,
-        title: "Review Title 3",
+        title: "І ти дибіл",
         img: "https://images.pexels.com/photos/16991411/pexels-photo-16991411.jpeg?auto=compress&cs=tinysrgb&w=1600&lazy=load",
         desc: "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Illum nam molestiae, harum, sapiente deserunt architecto eos sunt saepe doloremque veniam, quod quaerat autem laborum at reprehenderit soluta ducimus hic inventore."
 
     },
     {
         id: 4,
-        title: "Review Title 4",
+        title: "Я наполен 15",
         img: "https://images.pexels.com/photos/14723477/pexels-photo-14723477.jpeg?auto=compress&cs=tinysrgb&w=1600&lazy=load",
         desc: "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Illum nam molestiae, harum, sapiente deserunt architecto eos sunt saepe doloremque veniam, quod quaerat autem laborum at reprehenderit soluta ducimus hic inventore."
 
@@ -80,7 +80,7 @@ const Review = () => {
     return (
         <div className="review" ref={ref}> 
             <div className="progress">
-                <h1> Відгуки про співпрацю</h1>
+                <h1> Як я працюю</h1>
                 <motion.div style={{scaleX:scaleX}} className="progressBar"></motion.div>
             </div>
             {items.map(item => (
