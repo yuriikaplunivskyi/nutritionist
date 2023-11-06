@@ -5,30 +5,51 @@ import { motion, useScroll, useSpring, useTransform} from "framer-motion";
 const items = [
     {
         id: 1,
-        title: "Я рижа мавпа",
-        img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ8CldTqNpzN9ENCGC79zNXg6EfcqEHXTLjQg&usqp=CAU",
-        desc: "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Illum nam molestiae, harum, sapiente deserunt architecto eos sunt saepe doloremque veniam, quod quaerat autem laborum at reprehenderit soluta ducimus hic inventore."
+        title: "Я сертифікований фітнес-тренер та нутриціолог, health-coach",
+        img: "/expr.jpg",
+        desc: "Вже більше 2-х років я прививаю любов до спорту та збалансованого харчуванню своїм клієнтам. допомагаю людям робити здоровий вибір у харчуванні та житті, набувати фігури мрії, повертати енергію та значно покращувати здоров'я. Я можу вам показати великі можливості збалансованого харчування, а не обмеження, привити любов до фізичної активності без болей і втоми"
 
     },
     {
         id: 2,
-        title: "Я дибіл ?",
-        img: "https://images.pexels.com/photos/17697824/pexels-photo-17697824.jpeg?auto=compress&cs=tinysrgb&w=1600&lazy=load",
-        desc: "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Illum nam molestiae, harum, sapiente deserunt architecto eos sunt saepe doloremque veniam, quod quaerat autem laborum at reprehenderit soluta ducimus hic inventore."
+        title: "Ви заповнюєте анкету та ведете щоденник харчування протягом 3-5 днів.",
+        img: "/whoami.jpg",
+        desc: ""
 
     },
     {
         id: 3,
-        title: "І ти дибіл",
-        img: "https://images.pexels.com/photos/16991411/pexels-photo-16991411.jpeg?auto=compress&cs=tinysrgb&w=1600&lazy=load",
-        desc: "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Illum nam molestiae, harum, sapiente deserunt architecto eos sunt saepe doloremque veniam, quod quaerat autem laborum at reprehenderit soluta ducimus hic inventore."
+        title: "Ми проводимо першу консультацію, де обговорюємо  історію вашого схуднення, оцінюємо рівень активності,  та фіксуємо цілі, бажання, тобто все те, що допоможе вам досягти бажаного без зусиль та заборон.",
+        img: "/paper.jpg",
+        desc: ""
 
     },
     {
         id: 4,
-        title: "Я наполен 15",
-        img: "https://images.pexels.com/photos/14723477/pexels-photo-14723477.jpeg?auto=compress&cs=tinysrgb&w=1600&lazy=load",
-        desc: "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Illum nam molestiae, harum, sapiente deserunt architecto eos sunt saepe doloremque veniam, quod quaerat autem laborum at reprehenderit soluta ducimus hic inventore."
+        title: "Я розробляю вам рекомендації, які враховують ваші потреби, стан здоров'я та особливості життєвого стилю. Процес може зайняти 2-3 дні. ",
+        img: "/paper.jpg",
+        desc: ""
+
+    },
+    {
+        id: 5,
+        title: "Ніяких дієтичних добавок, БАДів та аналізів не призначаю, адже їх має призначати лише ваш лікар, не забороняю їсти улюблені продукти, солодке, їсти глютен, лактозу (якщо для цього не має рекомендацій від лікаря), не змушую рахувати калорії ",
+        img: "/paper.jpg",
+        desc: ""
+
+    },
+    {
+        id: 6,
+        title: "Ви дотримуєтесь моїх рекомендацій, скидаєте на перевірку звіти по харчуванню. Ми розбираємо кожний незрозумілий момент і робимо корективи в процесі співпраці, аби досягти бажаного результату. Паралельно ви отримуєте знання про харчування, які в подальшому допоможуть вам самостійно керувати своїм раціоном. ",
+        img: "/paper.jpg",
+        desc: ""
+
+    },
+    {
+        id: 7,
+        title: "Пам'ятайте, що результат на 99% залежить від вашої віддачі. Я не змушую вас їсти, звітувати і змінюватися, якщо ви цього самі не хочете. ",
+        img: "/paper.jpg",
+        desc: ""
 
     }
 ]
@@ -53,8 +74,8 @@ const Single = ({item}) => {
                     </div>
                     <motion.div className="textContainer" style={{y}}>
                         <h2>{item.title}</h2>
-                        <p>{item.desc}</p>
-                        <button>Глянути</button>
+                        <p>{item.desc}</p>{/* 
+                        <button>Глянути</button> */}
                     </motion.div>             
                 </div>
             </div>
@@ -80,7 +101,6 @@ const Review = () => {
     return (
         <div className="review" ref={ref}> 
             <div className="progress">
-                <h1> Як я працюю</h1>
                 <motion.div style={{scaleX:scaleX}} className="progressBar"></motion.div>
             </div>
             {items.map(item => (

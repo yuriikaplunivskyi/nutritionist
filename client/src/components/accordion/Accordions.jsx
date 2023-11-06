@@ -11,14 +11,13 @@ const Accordions = ({data}) => {
     return (
         <>
             <div className="accordion">
-                <h2 className="accordion-header"><span>&#x26A0;</span>Як проходить</h2>
+                <h2 className="accordion-header"><span>&#x26A0;</span>Кому підходить?</h2>
                 {data.length ? data.map(item =>(
                 <div className="accordion-item" key={item.id}>
-                    <div className="accordion-title">
+                    <div className="accordion-title" onClick={() => toggleAccordion(item.id)}>
                         <div>{item.title}</div>
                         <button
                         className="accordion-btn"
-                        onClick={() => toggleAccordion(item.id)}
                         >
                             {item.id === activeIndex ? '-': '+'}
                         </button>

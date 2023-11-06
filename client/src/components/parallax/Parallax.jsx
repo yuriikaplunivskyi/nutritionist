@@ -25,7 +25,7 @@ const Parallax = ({type}) => {
             type==="services"
                 ? "linear-gradient(180deg, rgba(17,17,17,1) 0%, rgba(226,163,171,1) 100%, rgba(255,255,255,0.9401961468181023) 100%)"
                 : "linear-gradient(180deg, rgba(17,17,17,1) 0%, rgba(226,163,171,1) 100%, rgba(255,255,255,0.9401961468181023) 100%)"}}>
-            <motion.h1 style={{y: yText}}>{type==="services" ? "Що я роблю?": "Хто я? "}</motion.h1>
+            <motion.h1 style={{y: yText}}>{type==="services" ? "Як я працюю?": "Хто я? "}</motion.h1>
             <motion.div className="mountains"></motion.div>
             <motion.div 
                 className="planets"
