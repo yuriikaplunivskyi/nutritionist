@@ -4,12 +4,13 @@
 .accordion {
     padding: 0;
     margin-left: 0;
-    height: 100%;
+    height: auto;
     width: auto;
     display: flex;
     justify-content: center;
     flex-direction: column;
     align-items: flex-start;
+    gap: 20px;
     &-header {
         font-size: 24px;
         span {
@@ -23,7 +24,7 @@
         flex-direction: column;
         align-items: center;
         width: 800px;
-        height: 300px;
+        height: auto;
     }
     &-title {
         width: 100%;
@@ -34,17 +35,30 @@
         flex-direction: row;
         background-color: #f7b3bc;
         font-size: 18px;
+        border-radius: 10px;
     }
     &-btn {
-        font-size: 20px;
+        font-size: 40px;
+        line-height: 40px;
+        padding: 0;
+        margin: 0;
         background-color: transparent;
         border: none;
+        transition:  0.3s ease;
+        color: black
     }
     &-content {
-        padding: 10px;
         background-color: #f8c3ca;
         overflow: auto;
         width: 100%;
+        max-height: 0;
+        padding-top: 0; /* Приховати падінги при закритті */
+        padding-bottom: 0; /* Приховати падінги при закритті */
+        transition: max-height 0.3s ease;
+        border-radius: 10px;
+        & p {
+            padding: 10px 20px;
+        }
     }
 
 }

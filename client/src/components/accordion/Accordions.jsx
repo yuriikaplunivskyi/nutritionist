@@ -19,10 +19,14 @@ const Accordions = ({data}) => {
                         <button
                         className="accordion-btn"
                         >
-                            {item.id === activeIndex ? '-': '+'}
+                            {item.id === activeIndex ? '➖': '➕'}
                         </button>
                     </div>
-                    {item.id == activeIndex && <div className="accordion-content">{item.content}</div>}
+                    <div className="accordion-content"
+                        style={{ maxHeight: item.id === activeIndex ? "300px" : "0" }}
+                        >
+                            <p>{item.content}</p>
+                        </div>
                 </div>
                 )): console.log("error data accordions")}
             </div>
