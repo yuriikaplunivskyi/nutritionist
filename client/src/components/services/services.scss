@@ -99,7 +99,7 @@
 
     }
     .listContainer {
-        flex: 2;
+        flex: 1;
         display: flex;
         max-width: 1366px;
         margin: auto;
@@ -112,6 +112,7 @@
         }
 
         .box {
+            flex: 1;
             padding: 25px;
             border: 0.5px solid $text-color;
             border-radius: 5px;

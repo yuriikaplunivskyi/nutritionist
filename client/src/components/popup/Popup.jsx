@@ -20,9 +20,13 @@ const Popup = ({onClose, item}) => {
                         <li key={item.id}>{item.option}</li>
                     )): console.log("error data accordions")}
                     </ol>
-                    {item.prices.length ? item.prices.map(item =>(
-                        <span className="popup-price" key={item.id}>Вартість: <span>{item.price}</span></span>
-                    )): console.log("error data accordions")}
+                    
+                    <ul>
+                        <span className="popup-price-title"> Вартість: </span>
+                        {item.prices.length ? item.prices.map(item =>(
+                            <li className="popup-price" key={item.id}>{item.price}</li>
+                        )): console.log("error data accordions")}
+                    </ul>
                 </div>
                 <Accordions data={item.warnings}/>
                 <button 

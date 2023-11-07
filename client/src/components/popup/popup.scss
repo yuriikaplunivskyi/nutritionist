@@ -56,11 +56,15 @@
     }
     &-price {
         color: black;
-        font-size: 22px;
-        text-transform: uppercase;
+        font-size: 18px;
+        list-style: none;
         align-items: flex-start;
+        text-decoration: none;
+        margin-left: 20px;
+        &-title {
+            font-size: 22px;
+        }
         span {
-            color: red;
             text-transform: lowercase;
         }
     }

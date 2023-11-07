@@ -11,7 +11,7 @@ const Accordions = ({data}) => {
     return (
         <>
             <div className="accordion">
-                <h2 className="accordion-header"><span>&#x26A0;</span>Кому підходить?</h2>
+                <h2 className="accordion-header"><span>&#10003;</span>Кому підходить?</h2>
                 {data.length ? data.map(item =>(
                 <div className="accordion-item" key={item.id}>
                     <div className="accordion-title" onClick={() => toggleAccordion(item.id)}>

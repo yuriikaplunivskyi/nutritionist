@@ -134,7 +134,7 @@ const serviceData = [
         ],
         prices: [
             {
-                price: '0 грн/ 4 тижні',
+                price: '3000 грн/ 4 тижні',
                 id: 1,
             }
         ],
@@ -322,8 +322,8 @@ const Services = () => {
                         className="box"
                         key={item.id}
                         >
-                        <h2 className="box-title">{item.title}</h2>
-                        <p className="box-text">{item.content}</p>
+                        <h2 className="box-title">{item.title}</h2>{/* 
+                        <p className="box-text">{item.content}</p> */}
                         <button className="learn-more" onClick={() => openPopup(item)}>
                             <span className="circle" aria-hidden="true">
                                 <span className="icon arrow"></span>
