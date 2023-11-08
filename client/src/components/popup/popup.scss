@@ -3,38 +3,17 @@
 .popup{
     background-color: white;
     display: flex;
-    justify-content: center;
+    justify-content: flex-start;
     flex-direction: column;
-    padding: 120px 100px;
-    margin: 20px;
+    padding: 50px 100px;
     border-radius: 10px;
     box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.079);
-    overflow: auto;
+    overflow-y:auto;
     height: 800px;
     width: 1200px;
     position: relative;
-    &-textContainer {
-        margin-top: 150px;
-    }
-    h2 {
-        font-size: 30px;
-        top: 0;
-        margin-top: 20px;
-        padding: 20px ;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-    }
-    ol {
-        margin-left: 100px;
-        margin-top: 40px;
-        li {
-            padding: 10px;
-        }
-        span {
-            font-size: 20px;
-        }
-    }
+    box-sizing: border-box;
+    
     &-container{
         position: fixed;
         top: 0;
@@ -47,9 +26,35 @@
         justify-content: center;
         align-items: center;
         z-index: 1000;
+        padding: 200px;
+    }
+    &-textContainer {
+    }
+    &-title {
+        font-size: 30px;
+        padding: 20px ;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    ol {
+        margin-left: 100px;
+        margin-top: 40px;
+        li {
+            padding: 10px;/* 
+            border: 1px solid black; */
+            border-radius: 10px;
+            text-decoration: underline;
+            /* &:not(:last-child){
+                border-bottom: none;
+            } */
+        }
+        span {
+            font-size: 20px;
+        }
     }
     &-text {
-        width: 80%;
+        width: 100%;
         display: flex;
         align-items:center;
         justify-content: center;
