@@ -96,21 +96,43 @@ const Contact = () => {
                     ref={formRef}
                     initial={{ opacity: 0 }}
                     whileInView={{ opacity: 1 }}
-                    transition={{ delay: 2.5, duration: 1 }}>
+                    transition={{ delay: 2.5, duration: 1 }}
+                    >
+                    {/* <div className="input-group">
+                        <label className="label" htmlFor="name">Ім&apos;я</label>
+                        
+                    </div>
+                    <div className="input-group">
+                        <label className="label" htmlFor="email">Елетронная пошта</label>
+                        
+                    </div>
+                    <div className="input-group">
+                        <label className="label" htmlFor="message">Повідомлення</label>
+                        
+                    </div> */}
                     <input 
-                        type="text" 
-                        required 
-                        placeholder="Ім'я" 
-                        name="name"/>
+                            type="text" 
+                            required 
+                            placeholder="Ім&apos;я" 
+                            name="name"
+                            id="name"
+                            className="input"
+                        />
                     <input 
-                        type="email" 
-                        required 
-                        placeholder="Елетронная пошта" 
-                        name="email"/>
+                            type="email" 
+                            required 
+                            placeholder="Елетронная пошта" 
+                            name="email"
+                            id="email"
+                            className="input"
+                        />
                     <textarea 
-                        name="message" 
-                        rows={8} 
-                        placeholder="Повідомлення"/>
+                            name="message" 
+                            id="message" 
+                            rows={8} 
+                            placeholder="Повідомлення"
+                            className="input"
+                        />
                     <button>Відправити</button>
                     {success && "Успішно відправлено"} 
                     {error && "Помилка при відправці"} 

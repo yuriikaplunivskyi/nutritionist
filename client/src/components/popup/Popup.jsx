@@ -1,7 +1,32 @@
-import Accordions from "../accordion/Accordions";
+import { useState, useEffect, useRef } from "react";
 import "./popup.scss";
+import Accordions from "../accordion/Accordions";
+
 
 const Popup = ({onClose, item}) => {
+    const [scrollPercentage, setScrollPercentage] = useState(0);
+    const containerRef = useRef(null);
+
+    useEffect(() => {
+        const container = containerRef.current;
+    
+        if (container) {
+            const handleScroll = () => {
+                const scrollPosition = container.scrollTop;
+                const maxScroll = container.scrollHeight - container.clientHeight;
+                const percentage = (scrollPosition / maxScroll) * 100;
+        
+                setScrollPercentage(percentage);
+            };
+        
+            container.addEventListener("scroll", handleScroll);
+        
+            return () => {
+                container.removeEventListener("scroll", handleScroll);
+            };
+            }
+        }, [containerRef]);
+
 
     const handleBackgroundClick = e => {
         if (e.target.classList.contains("popup-container")) {
@@ -11,7 +36,10 @@ const Popup = ({onClose, item}) => {
 
     return (
         <div className="popup-container" onClick={handleBackgroundClick}>
-            <div className="popup">
+            <div 
+                ref={containerRef}
+                className="popup"
+                >
                 <div className="popup-textContainer">
                     <h2 className="popup-title">{item.title}</h2>
                     <p className="popup-text">{item.content}</p>
@@ -28,6 +56,16 @@ const Popup = ({onClose, item}) => {
                         )): console.log("error data accordions")}
                     </ul>
                 </div>
+                {scrollPercentage < 50 && (
+                    <button className="scroll-button" onClick={() => containerRef.current.scrollBy(0, 50)}>
+                        ⬇️
+                    </button>
+                )}
+                {scrollPercentage >= 50 && (
+                    <button className="scroll-button" onClick={() => containerRef.current.scrollBy(0, -50)}>
+                        ⬆️
+                    </button>
+                )}
                 <Accordions data={item.warnings}/>
                 <button 
                     className="popup-btn_close"
