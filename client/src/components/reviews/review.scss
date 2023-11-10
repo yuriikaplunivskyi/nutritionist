@@ -16,7 +16,7 @@
         font-size: 36px;
 
         @include mobile {
-            padding-top: calc(100vh - 100px);
+            padding-top: calc(100vh - 15px);
             font-size: 18px;
         }
 
@@ -45,6 +45,8 @@
 
             @include mobile {
                 flex-direction: column;
+                padding: 20px;
+                gap: 10px;
             }
             .imageContainer {
                 flex: 1;
@@ -53,6 +55,7 @@
                 @include mobile {
                     width: 100%;
                     max-width: 300px;
+                    margin-top: 20px;
                 }
 
                 img {
@@ -78,6 +81,7 @@
                     padding: 10px;
                     align-items: center;
                     text-align: center;
+                    padding: 20px 0 40px;
                 }
 
                 h2 {

@@ -70,7 +70,7 @@ const Popup = ({onClose, item}) => {
                 <button 
                     className="popup-btn_close"
                     onClick={onClose}
-                    >Close</button>
+                    >❌</button>
             </div>
         </div>
     )
