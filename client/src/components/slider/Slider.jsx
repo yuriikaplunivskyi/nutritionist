@@ -32,13 +32,13 @@ const Slider = (props) => {
     return (
         <div className="carousel-container">
             <button className="prev-button" onClick={goToPrevSlide}>
-                Prev
+            &#10094;
             </button>
 
             {renderSlide()}
-            
+
             <button className="next-button" onClick={goToNextSlide}>
-                Next
+                &#10095;
             </button>
         </div>
     )

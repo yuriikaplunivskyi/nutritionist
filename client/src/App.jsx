@@ -10,8 +10,8 @@ import Slider from "./components/slider/Slider";
 
 const slides = [
   <img src="/people.webp" key="1" alt="Slide 1" />,
-  <img src="/paper.png" key="2" alt="Slide 2" />,
-  <img src="//sun.png" key="3" alt="Slide 3" />
+  <img src="/paper.jpg" key="2" alt="Slide 2" />,
+  <img src="/sun.png" key="3" alt="Slide 3" />
 ];
 
 const App = () => {
