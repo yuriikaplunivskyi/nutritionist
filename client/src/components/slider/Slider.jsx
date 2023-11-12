@@ -1,6 +1,7 @@
 import { useState } from "react";
 import "./slider.scss";
 
+
 const Slider = (props) => {
     const [index, setCurrentIndex] = useState(0);
     let startX = 0;

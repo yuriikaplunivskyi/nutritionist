@@ -62,9 +62,6 @@ const slides = [
 const App = () => {
   return <div>
     <Cursor/>
-    <section>
-      <Slider slides={slides}/>
-    </section>
     <section id="homepage">
       <Navbar/>
       <Hero/>
@@ -73,6 +70,9 @@ const App = () => {
       <Parallax type="reviews"/>
     </section>
     <Review/>
+    <section id="certs">
+      <Slider slides={slides}/>
+    </section>
     <section id="about">
       <Parallax type="services"/>
     </section>

@@ -54,6 +54,7 @@ const items = [
     }
 ]
 
+
 const Single = ({item}) => {
 
     const ref = useRef(); 
@@ -76,7 +77,7 @@ const Single = ({item}) => {
                         <h2>{item.title}</h2>
                         <p>{item.desc}</p>{/* 
                         <button>Глянути</button> */}
-                    </motion.div>             
+                    </motion.div>  
                 </div>
             </div>
         </section>
@@ -103,9 +104,11 @@ const Review = () => {
             <div className="progress">
                 <motion.div style={{scaleX:scaleX}} className="progressBar"></motion.div>
             </div>
+            
             {items.map(item => (
                 <Single item={item} key={item.id} />
             ))}
+            
         </div>
     )
 }
