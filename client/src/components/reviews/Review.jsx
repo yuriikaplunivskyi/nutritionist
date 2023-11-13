@@ -1,6 +1,6 @@
 import { useRef } from "react";
 import "./review.scss";
-import { motion, useScroll, useSpring, useTransform} from "framer-motion";
+import { motion, useScroll, useSpring, useTransform } from "framer-motion";
 
 const items = [
     {
@@ -73,9 +73,9 @@ const Single = ({item}) => {
                     <div className="imageContainer" ref={ref}>
                         <img src={item.img} alt="" />
                     </div>
-                    <motion.div className="textContainer" style={{y}}>
+                    <motion.div className="textContainer" style={{ y}}>
                         <h2>{item.title}</h2>
-                        <p>{item.desc}</p>{/* 
+                        <p>{item.id}.{item.desc}</p>{/* 
                         <button>Глянути</button> */}
                     </motion.div>  
                 </div>
@@ -99,8 +99,9 @@ const Review = () => {
         damping: 30
     });
 
+
     return (
-        <div className="review" ref={ref}> 
+        <div className="review" ref={ref} > 
             <div className="progress">
                 <motion.div style={{scaleX:scaleX}} className="progressBar"></motion.div>
             </div>
