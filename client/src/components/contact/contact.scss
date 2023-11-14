@@ -72,17 +72,38 @@
         form {
             display: flex;
             flex-direction: column;
-            gap: 20px;
         }
 
         input, textarea {
+            width: 100%;
             padding: 20px;
-            background-color: transparent;
+            background-color: white;
             border: 1px solid $hero-button-border-text-form-color;
             color: $hero-button-border-text-form-color;
             border-radius: 5px;
+            resize: none;
         }
 
+        .input-wrapper {
+            position: relative;
+            padding-bottom: 20px;
+        }
+
+        .input.error {
+            border: 1px solid red;
+            position: relative;
+            outline-color: red;
+        }
+        
+        .error-message {
+            font-size: 16px;
+            display: block;
+            position: absolute;
+            bottom: 0;
+            color: red;
+            left: 20px;
+        }
+        
         /* .input-group {
             font-size: 1.25rem;
             position: relative;

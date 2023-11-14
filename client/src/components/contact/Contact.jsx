@@ -1,6 +1,9 @@
-import { useRef, useState } from "react";
 import "./contact.scss";
+import { useRef, useState } from "react";
 import { motion, useInView } from "framer-motion";
+import { useForm } from "react-hook-form";
+import { yupResolver } from "@hookform/resolvers/yup";
+import * as yup from "yup";
 import emailjs from "@emailjs/browser";
 
 const variants = {
@@ -19,20 +22,48 @@ const variants = {
     }
 }
 
+const schema = yup.object({
+    name: yup
+    .string()
+    .required('Ім\'я є обов\'язковим полем')
+    .matches(/^[A-Za-zА-Яа-яҐґЄєІіЇї]{2,140}$/, 'Ім\'я повинно містити від 2 до 140 символів літер'),
+    email: yup
+        .string()
+        .required('Електронна пошта є обов\'язковим полем')
+        .email('Некоректний формат електронної пошти'),
+    message: yup
+        .string()
+        .required('Повідомлення є обов\'язковим полем')
+        .min(10, 'Мінімум 10 символів')
+        .max(240, 'Максимум 240 символів')
+        .matches(/^[A-Za-z0-9А-Яа-яҐґЄєІіЇї]+$/, 'Допустимі латинські та кириличні літери, та цифри'),
+    });
+
 const Contact = () => {
     const ref = useRef();
     const formRef = useRef();
     const [error, setError] = useState(null);
     const [success, setSuccess] = useState(false);
+    
+    const {
+        register,
+        handleSubmit,
+        formState: { errors },
+        } = useForm({
+            resolver: yupResolver(schema),
+        })
 
     const isInView = useInView(ref, { margin:"-100px" });
 
-    const sendEmail = (e) => {
-        e.preventDefault();
+    const sendEmail = (data) => {
 
         emailjs.sendForm('service_jg9jdpa', 'template_fm6flo8', formRef.current, '-6q0vNkbrH6QslrGg')
             .then((result) => {
                 setSuccess(true);
+                formRef.current.reset({ name: '', email: '', message: '' });
+                setTimeout(() => {
+                    setSuccess(false);
+                }, 3000);
             }, (error) => {
                 setError(true);
             })
@@ -90,56 +121,63 @@ const Contact = () => {
                         />
                     </svg>
                 </motion.div>
+
                 <motion.form 
-                    onSubmit={sendEmail}
+                    onSubmit={handleSubmit(sendEmail)}
                     action=""
                     ref={formRef}
                     initial={{ opacity: 0 }}
                     whileInView={{ opacity: 1 }}
                     transition={{ delay: 2.5, duration: 1 }}
-                    >
-                    {/* <div className="input-group">
-                        <label className="label" htmlFor="name">Ім&apos;я</label>
-                        
-                    </div>
-                    <div className="input-group">
-                        <label className="label" htmlFor="email">Елетронная пошта</label>
-                        
-                    </div>
-                    <div className="input-group">
-                        <label className="label" htmlFor="message">Повідомлення</label>
-                        
-                    </div> */}
-                    <input 
+                >
+                    <div className="input-wrapper">
+                        <input 
                             type="text" 
                             required 
                             placeholder="Ім&apos;я" 
                             name="name"
                             id="name"
-                            className="input"
-                        />
-                    <input 
+                            className={`input ${errors && errors.name ? 'error' : ''}`}
+                            {...register('name')}
+                            />
+                        {errors && errors.name && <p className="error-message">{errors.name.message}</p>}
+                    </div>
+                    <div className="input-wrapper">
+                        <input 
                             type="email" 
                             required 
                             placeholder="Елетронная пошта" 
                             name="email"
                             id="email"
-                            className="input"
+                            className={`input ${errors && errors.email ? 'error' : ''}`}
+                            {...register('email')}
                         />
-                    <textarea 
+                        {errors && errors.email && <p className="error-message">{errors.email.message}</p>}
+                    </div>
+                    
+                    <div className="input-wrapper">
+                        <textarea 
                             name="message" 
                             id="message" 
                             rows={8} 
                             placeholder="Повідомлення"
-                            className="input"
+                            className={`input ${errors && errors.message ? 'error' : ''}`}
+                            {...register('message')}
+                            
                         />
-                    <button>Відправити</button>
-                    {success && "Успішно відправлено"} 
-                    {error && "Помилка при відправці"} 
+                        {errors && errors.message && <p className="error-message">{errors.message.message}</p>}
+                    </div>
+                    
+                    
+                    <button type="submit" disabled={success || error}>
+                        {success ? 'Успішно відправлено' : error ? 'Помилка при відправці' : 'Відправити'}
+                    </button>
+                    {/* {success && <p className="success-message">Успішно відправлено</p>} 
+                    {error && <p className="error-message">Помилка при відправці</p>}  */}
                 </motion.form>
             </div>
         </motion.div>
     )
 }
 
-export default Contact
+export default Contact;
