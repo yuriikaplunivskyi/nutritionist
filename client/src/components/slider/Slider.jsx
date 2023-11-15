@@ -1,6 +1,6 @@
 import { useState } from "react";
+import { motion } from "framer-motion";
 import "./slider.scss";
-
 
 const Slider = (props) => {
     const [index, setCurrentIndex] = useState(0);
@@ -9,34 +9,33 @@ const Slider = (props) => {
     const handleTouchStart = (e) => {
         startX = e.touches[0].clientX;
     };
-    
+
     const handleTouchMove = (e) => {
         const currentX = e.touches[0].clientX;
         const deltaX = startX - currentX;
-    
+
         if (deltaX > 50) {
             goToNextSlide();
         } else if (deltaX < -50) {
             goToPrevSlide();
         }
     };
-    
 
     const goToNextSlide = () => {
         setCurrentIndex((prevIndex) =>
-        prevIndex === props.slides.length - 1 ? 0 : prevIndex + 1
+            prevIndex === props.slides.length - 1 ? 0 : prevIndex + 1
         );
     };
 
     const goToPrevSlide = () => {
         setCurrentIndex((prevIndex) =>
-        prevIndex === 0 ? props.slides.length - 1 : prevIndex - 1
+            prevIndex === 0 ? props.slides.length - 1 : prevIndex - 1
         );
     };
 
     return (
-        <div 
-            className="carousel-container"
+        <div
+            className="slider carousel-container"
             onTouchStart={handleTouchStart}
             onTouchMove={handleTouchMove}
         >
@@ -46,16 +45,25 @@ const Slider = (props) => {
 
             <div className="carousel-slideCard">
                 {props.slides.map((item, i) => (
-                <div
-                    key={item.id}
-                    className={`slide ${index === i ? "active" : ""}`}
-                >
-                    <img src={item.img} alt={`Slide ${i}`} />
-                    <div className="slide-textContainer">
-                        <span>{item.school}</span>
-                        <h6>&quot;{item.title}&quot;</h6>
-                    </div>
-                </div>
+                    <motion.div
+                        key={item.id}
+                        className={`slide ${index === i ? "active" : ""}`}
+                        initial={{ opacity: 0, x: 300 }}
+                        animate={{
+                            opacity: index === i ? 1 : 0,
+                            x: index === i ? 0 : (i > index ? 300 : -300)
+                        }}
+                        exit={{ opacity: 0, x: i > index ? 300 : -300 }}
+                        transition={{ duration: 0.05 }}
+                    >
+                        <div className="slide-imgContainer">
+                            <img src={item.img} alt={`Slide ${i}`} />
+                        </div>
+                        <div className="slide-textContainer">
+                            <span>{item.school}</span>
+                            <h6>&quot;{item.title}&quot;</h6>
+                        </div>
+                    </motion.div>
                 ))}
             </div>
 
@@ -67,4 +75,3 @@ const Slider = (props) => {
 };
 
 export default Slider;
-
