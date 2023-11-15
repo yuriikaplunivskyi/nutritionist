@@ -82,6 +82,7 @@
             color: $hero-button-border-text-form-color;
             border-radius: 5px;
             resize: none;
+            
         }
 
         .input-wrapper {
@@ -92,7 +93,7 @@
         .input.error {
             border: 1px solid red;
             position: relative;
-            outline-color: red;
+            outline: red solid 3px;
         }
         
         .error-message {
