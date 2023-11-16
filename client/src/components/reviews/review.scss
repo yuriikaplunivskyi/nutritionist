@@ -86,6 +86,16 @@
                     gap: 10px;
                 }
 
+                img {
+                    height: 200px;
+                    width: 200px;
+                    & ::before {
+                        width: 100px;
+                        height: 100px;
+                        content: '';
+                    }
+                }
+
                 h2 {
                     font-size: 52px;
                     line-height: 48px;

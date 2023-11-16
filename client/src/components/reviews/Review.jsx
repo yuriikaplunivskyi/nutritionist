@@ -1,3 +1,4 @@
+import React from "react";
 import { useRef } from "react";
 import "./review.scss";
 import { motion, useScroll, useSpring, useTransform } from "framer-motion";
@@ -6,42 +7,42 @@ const items = [
 
     {
         id: 1,
-        title: "",
+        icon: "/icon/about/profile.svg",
         img: "/about/about-1.JPG",
         desc: "Ви заповнюєте анкету та ведете щоденник харчування протягом 3-5 днів."
 
     },
     {
         id: 2,
-        title: "",
+        icon: "/icon/about/consultation.svg",
         img: "/about/about-2.JPG",
         desc: "Ми проводимо першу консультацію, де обговорюємо  історію вашого схуднення, оцінюємо рівень активності,  та фіксуємо цілі, бажання, тобто все те, що допоможе вам досягти бажаного без зусиль та заборон."
 
     },
     {
         id: 3,
-        title: "",
+        icon: "/icon/about/advice.svg",
         img: "/about/about-3.JPG",
         desc: "Я розробляю вам рекомендації, які враховують ваші потреби, стан здоров'я та особливості життєвого стилю. Процес може зайняти 2-3 дні. "
 
     },
     {
         id: 4,
-        title: "",
+        icon: "/icon/about/no-bads.svg",
         img: "/about/about-4.JPG",
         desc: "Ніяких дієтичних добавок, БАДів та аналізів не призначаю, адже їх має призначати лише ваш лікар, не забороняю їсти улюблені продукти, солодке, їсти глютен, лактозу (якщо для цього не має рекомендацій від лікаря), не змушую рахувати калорії."
 
     },
     {
         id: 5,
-        title: "",
+        icon: "/icon/about/looking.svg",
         img: "/about/about-5.JPG",
         desc: "Ви дотримуєтесь моїх рекомендацій, скидаєте на перевірку звіти по харчуванню. Ми розбираємо кожний незрозумілий момент і робимо корективи в процесі співпраці, аби досягти бажаного результату. Паралельно ви отримуєте знання про харчування, які в подальшому допоможуть вам самостійно керувати своїм раціоном. "
 
     },
     {
         id: 6,
-        title: "",
+        icon: "/icon/about/growth.svg",
         img: "/about/about-6.JPG",
         desc: "Пам'ятайте, що результат на 99% залежить від вашої віддачі. Я не змушую вас їсти, звітувати і змінюватися, якщо ви цього самі не хочете. "
 
@@ -65,10 +66,12 @@ const Single = ({item}) => {
             <div className="container">
                 <div className="wrapper">
                     <div className="imageContainer" ref={ref}>
-                        <img src={item.img} alt="" />
+                        <img src={item.img} alt={item.id} />
                     </div>
                     <motion.div className="textContainer" style={{ y}}>
-                        <h2>{item.title}</h2>
+                        <div>
+                        <motion.img src={item.icon} alt={item.id}/>
+                        </div>
                         <p>{item.desc}</p>{/* 
                         <button>Глянути</button> */}
                     </motion.div>  
