@@ -4,7 +4,7 @@ import Slider from "../slider/Slider";
 const slides = [
     {
       id: 1, 
-      img: "/certificates/noDiet-nutritionists.jpg",
+      img: "/certificates/nodiet.png",
       school: "Nodiet school",
       title: "Нутриціологія"
     },
@@ -55,13 +55,14 @@ const slides = [
 const About = () => {
     return (
         <div className="about">
-            <div className="about-imgContainer">
-                <img src="/whoami.jpg" alt="eee" />
+            <div className="wrapper">
+                <div className="about-imgContainer">
+                    <img src="/whoami.jpg" alt="eee" />
+                </div>
+                <Slider slides={slides}/>
+                <h3 className="about-title">Я сертифікований фітнес-тренер та нутриціолог, health-coach</h3>
+                <p className="about-text">Вже більше 2-х років я прививаю любов до спорту та збалансованого харчуванню своїм клієнтам. допомагаю людям робити здоровий вибір у харчуванні та житті, набувати фігури мрії, повертати енергію та значно покращувати здоров&apos;я. Я можу вам показати великі можливості збалансованого харчування, а не обмеження, привити любов до фізичної активності без болей і втоми</p>
             </div>
-            <Slider slides={slides}/>
-            <h3 className="about-title">Я сертифікований фітнес-тренер та нутриціолог, health-coach</h3>
-            <p className="about-text">Вже більше 2-х років я прививаю любов до спорту та збалансованого харчуванню своїм клієнтам. допомагаю людям робити здоровий вибір у харчуванні та житті, набувати фігури мрії, повертати енергію та значно покращувати здоров&apos;я. Я можу вам показати великі можливості збалансованого харчування, а не обмеження, привити любов до фізичної активності без болей і втоми</p>
-            <div className="block-none"></div>
         </div>
     )
 }
