@@ -69,9 +69,7 @@ const Single = ({item}) => {
                         <img src={item.img} alt={item.id} />
                     </div>
                     <motion.div className="textContainer" style={{ y}}>
-                        <div>
                         <motion.img src={item.icon} alt={item.id}/>
-                        </div>
                         <p>{item.desc}</p>{/* 
                         <button>Глянути</button> */}
                     </motion.div>  
@@ -100,7 +98,7 @@ const Review = () => {
     return (
         <div className="review" ref={ref} > 
             <div className="progress">
-                <p>План дії</p>
+                <h6>Як я працюю</h6>
                 <motion.div style={{scaleX:scaleX}} className="progressBar"></motion.div>
             </div>
             
