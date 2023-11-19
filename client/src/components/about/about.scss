@@ -7,7 +7,7 @@
     padding: 100px 50px;
 
     @include mobile {
-        padding: 100px 20px;
+        padding: 0px 20px;
     }
     
     .wrapper {
@@ -23,8 +23,9 @@
         
         @include mobile {
             grid-template-areas:
-            " title title "
             " img  img"
+            " title title "
+            
             "text text"
             " slider slider";
 
@@ -37,8 +38,6 @@
         display: flex;
         justify-content: center;
         align-items: center;
-
-        display: none;
         
         img {
             margin-top: 0;
@@ -70,7 +69,7 @@
         font-weight: bolder;
         color: rgb(255, 255, 255);
         position: relative;
-        font-family: 'Ruslan Display', sans-serif;
+        font-family: 'Lobster', sans-serif;
 
         @include mobile {
             font-size: 29px;
@@ -88,8 +87,6 @@
         justify-content: flex-start;
         align-items: flex-start;
         text-wrap: balance;
-
-        display: none;
 
         @include mobile {
             font-size: 18px;
