@@ -24,13 +24,15 @@
         p {
             font-weight: 200;
             font-size: 20px;
-            color: white;
+            color: $white-text-color;
             text-align: right;
+            font-family: $font-comfortaa;
+            font-weight: 500;
         }
         hr {
             width: 200px;
             border: none;
-            border-top: 0.5px solid $text-color;
+            border-top: 0.5px solid $white-color;
 
             @include mobile {
                 width: 300px;
@@ -52,6 +54,7 @@
             display: flex;
             align-items: center;
             gap: 50px;
+            font-family: $font-lobster;
 
             @include mobile {
                 text-align: center;
@@ -71,12 +74,18 @@
                 }
             }
 
-            h1 {
+            h2 {
                 font-size: 96px;
-                font-weight: 100;
+                font-family: $font-lobster;
+                color: $white-text-color;
 
                 @include mobile {
                     font-size: 36px;
+                }
+
+                b {
+
+                    font-family: $font-lobster;
                 }
             }
 
@@ -84,9 +93,10 @@
                 width: 300px;
                 height: 100px;
                 border-radius: 50px;
-                background-color: $button-color;
+                background-color: $bg-white-color;
                 border: none;
                 font-size: 24px;
+                font-family: $font-comfortaa;
                 cursor: pointer;
 
                 @include mobile {
@@ -99,6 +109,7 @@
 
     }
     .listContainer {
+        flex: 1;
         display: flex;
         max-width: 1366px;
         margin: auto;
@@ -115,7 +126,7 @@
         .box {
             flex: 1;
             padding: 25px;
-            border: 0.5px solid $text-color;
+            border: 0.5px solid $black-color;
             border-radius: 5px;
             display: flex;
             flex-direction: column;
@@ -135,11 +146,13 @@
                 height: 50px;
             }
             &-title {
-                color: black;
+                color: $black-text-color;
+                font-family: $font-comfortaa;
+                font-weight: 400;
             }
 
             &-text {
-                color: black;
+                color: $black-text-color;
                 @include mobile {
                     display: none;
                 }
@@ -159,7 +172,6 @@
                 padding: 0;
                 font-size: inherit;
                 font-family: inherit;
-            
                 width: 12rem;
                 height: auto;
             }
@@ -218,6 +230,7 @@
                 line-height: 1.6;
                 text-align: center;
                 text-transform: uppercase;
+                font-family: $font-tektur;
             }
             
             button:hover .circle {

@@ -12,9 +12,9 @@
 
     h1 {
         font-size: 100px;
-        color: rgb(255, 255, 255);
+        color: $white-color;
         text-shadow: 4px 4px 2px rgba(255,255,255,0.6);
-        font-family: 'Tektur', sans-serif;
+        font-family: $font-lobster;
 
         @include mobile {
             font-size: 72px;

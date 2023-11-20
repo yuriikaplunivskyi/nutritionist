@@ -1,10 +1,31 @@
-$bg-main-color: white;
+//Colors
+
+$bg-white-color: white;
+$white-color: #ffffff;
+$white-text-color: #ffffff;
+$white-button-color: #fafafa;
+
+$bg-black-color: #0c0909;
+$black-color: #000000;
+$black-text-color: #000000;
+$black-button-color: #000000;
+
+$bg-grey-color: grey;
+$grey-color: grey;
+$grey-text-color: grey;
+$grey-button-color: grey;
+
 $pink-main-text-color:  #e2a3ab;
-$header-text-color: #090101;
-$sidebar-bg-color: #fff;
-$progress-bar-color: #292226;
-$sidebar-text-color: black;
-$bg-linear-gradient-color:linear-gradient(0deg, rgba(17,17,17,1) 0%, rgba(226,163,171,1) 100%, rgba(255,255,255,0.9401961468181023) 100%);
-$text-color: #0c0909;
-$button-color: #fcfafb;
-$hero-button-border-text-form-color: rgb(0, 0, 0);
+$bg-pink-color: #e2a3ab;
+$pink-color: #e2a3ab;
+$pink-text-color: #e2a3ab;
+$pink-button-color: #e2a3ab;
+
+
+//Fonts
+
+$font-lobster: 'Lobster', sans-serif;
+$font-comfortaa: 'Comfortaa', sans-serif;
+$font-tektur: 'Tektur', sans-serif;
+$font-ysabeau: 'Ysabeau SC', sans-serif;
+$font-Alumni: 'Alumni Sans', sans-serif;

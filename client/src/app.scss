@@ -9,10 +9,11 @@ html {
     padding: 0;
     margin: 0;
     box-sizing: border-box;
+    font-family: 'Comfortaa', sans-serif;
     font-family: 'Lobster', sans-serif;
-font-family: 'Ruslan Display', sans-serif;
-font-family: 'Tektur', sans-serif;
-font-family: 'Ysabeau SC', sans-serif;
+    font-family: 'Tektur', sans-serif;
+    font-family: 'Ysabeau SC', sans-serif;
+    font-family: 'Alumni Sans', sans-serif;
 }
 
 body {
@@ -31,11 +32,44 @@ section {
     scroll-snap-align: center;
 }
 
+/* .container {
+    width: 1220px;
+    margin: 0 auto;
+    @media (max-width: 1240px) {
+        width: 970px;
+    }
+    @media (max-width: 992px) {
+        width: 720px;
+    }
+    @media (max-width: 767px) {
+      width: 540px;
+    }
+    @media (max-width: 576px) {
+        width: 100%;
+        padding: 0 15px;
+    }
+  } */
+@mixin mobile320 {
+    @media (max-width: 320px) {
+        @content;
+    }
+}
+@mixin mobile375 {
+    @media (max-width: 375px) {
+        @content;
+    }
+}
+@mixin mobile {
+    @media (max-width: 576px) {
+        @content;
+    }
+}
 @mixin mobile {
     @media (max-width: 738px) {
         @content;
     }
 }
+
 @mixin tablet {
     @media (max-width: 1024px) {
         @content;

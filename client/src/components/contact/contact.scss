@@ -33,17 +33,20 @@
         h2 {
             font-size: 100px;
             line-height: 88px;
+            font-family: $font-comfortaa;
+            font-weight: 400;
 
             @include mobile {
                 font-size: 36px;
             }
         }
         h3 {
-
+            font-family: $font-comfortaa;
         }
 
         span {
             font-weight: 300;
+            font-family: $font-comfortaa;
         }
     }
     .formContainer {
@@ -58,7 +61,7 @@
         .phoneSvg {
             position: absolute;
             margin: auto;
-            stroke: $button-color;
+            stroke: $white-color;
             z-index: -1;
             @include mobile {
                 left: 0;
@@ -77,12 +80,12 @@
         input, textarea {
             width: 100%;
             padding: 20px;
-            background-color: white;
-            border: 1px solid $hero-button-border-text-form-color;
-            color: $hero-button-border-text-form-color;
+            background-color: $bg-white-color;
+            border: 1px solid $black-color;
+            color: $black-text-color;
             border-radius: 5px;
             resize: none;
-            
+            font-family: $font-tektur;
         }
 
         .input-wrapper {
@@ -94,6 +97,8 @@
             border: 1px solid red;
             position: relative;
             outline: red solid 3px;
+            
+            font-family: $font-tektur;
         }
         
         .error-message {
@@ -101,8 +106,9 @@
             display: block;
             position: absolute;
             bottom: 0;
-            color: red;
+            color: rgb(255, 0, 0);
             left: 20px;
+            font-family: $font-comfortaa;
         }
         
         /* .input-group {
@@ -141,11 +147,12 @@
         button {
             padding: 20px;
             border: none;
-            background-color: $button-color;
+            background-color: $bg-white-color;
             cursor: pointer;
-            font-weight: 500;
+            font-weight: 100;
             border-radius: 5px;
-
+            font-family: $font-comfortaa;
+            font-size: 22px;
             @include mobile {
                 padding: 10px;
             }

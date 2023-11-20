@@ -2,11 +2,11 @@
 @import "../../app.scss";
 
 .popup{
-    background-color: white;
+    background-color: $bg-white-color;
     display: flex;
     justify-content: flex-start;
     flex-direction: column;
-    padding: 50px 100px;
+    padding: 40px 80px;
     border-radius: 10px;
     box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.079);
     overflow-y:auto;
@@ -32,12 +32,10 @@
         justify-content: center;
         align-items: center;
         z-index: 1000;
-        padding: 200px;
+        padding: 50px 200px;
         @include mobile {
             padding: 20px 20px;
         }
-    }
-    &-textContainer {
     }
     &-title {
         font-size: 30px;
@@ -45,26 +43,38 @@
         display: flex;
         justify-content: center;
         align-items: center;
+        font-family: $font-comfortaa;
+        font-weight: 700;
+    }
+    ul, ol {
+        margin-top: 10px;
     }
     ol {
-        margin-left: 100px;
-        margin-top: 40px;
+        margin-left: 50px;
+        margin-top: 20px;
+        font-family: $font-comfortaa;
+        font-weight: 300;
+        font-size: 28px;
 
         @include mobile {
-            margin-left: 50px;
-            margin-top: 20px;
+            margin-left: 30px;
+            margin-top: 15px;
         }
         li {
-            padding: 10px;/* 
-            border: 1px solid black; */
+            margin-top: 10px;
             border-radius: 10px;
             text-decoration:none;
+            font-size: 22px;
+            font-weight: 300;
+            font-family: $font-Alumni;
             /* &:not(:last-child){
                 border-bottom: none;
             } */
         }
         span {
-            font-size: 20px;
+            font-size: 30px;
+            font-weight: 500;
+            font-family: $font-Alumni;
         }
     }
     &-text {
@@ -72,19 +82,26 @@
         display: flex;
         align-items:center;
         justify-content: center;
+        font-family: $font-Alumni;
+        font-weight: 300;
+        font-size: 24px;
+
     }
     &-price {
-        color: black;
-        font-size: 18px;
+        color: $black-text-color;
+        font-size: 22px;
         list-style: none;
         align-items: flex-start;
         text-decoration: none;
-        margin-left: 20px;
+        margin-left: 30px;
+        font-family: $font-comfortaa;
+        font-weight: 300;
+        
         &-title {
             font-size: 22px;
-        }
-        span {
-            text-transform: lowercase;
+            font-family: $font-comfortaa;
+            font-weight: 300;
+            margin-top: 15px;
         }
     }
     &-btn_close {
@@ -94,13 +111,13 @@
         border-radius: 5px;
         padding: 20px;
         font-size: 50px;
-        border: 1px solid $pink-main-text-color;
+        border: none;
         padding: 5px;
         display: flex;
         justify-content: center;
         align-items: center;
-        background-color: white;
-        color: rgb(13, 12, 12);
+        background-color: transparent;
+        color: $black-text-color;
 
         @include mobile {
             top: 0px;

@@ -309,10 +309,10 @@ const Services = () => {
                 >
                 <div className="title">        
                     <img src="/banana.JPG" alt="people" />
-                    <h1><motion.b whileHover={{color: "white"}}>Унікальні</motion.b> ідеї</h1>
+                    <h2><motion.b whileHover={{color: "white"}}>Унікальні</motion.b> ідеї</h2>
                 </div>
                 <div className="title">
-                    <h1><motion.b whileHover={{color: "white"}}>для вашого</motion.b> здоров&apos;я</h1>
+                    <h2><motion.b whileHover={{color: "white"}}>для вашого</motion.b> здоров&apos;я</h2>
                     <button>Що робимо?</button>
                 </div>
             </motion.div>
