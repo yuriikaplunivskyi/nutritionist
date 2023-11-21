@@ -47,7 +47,7 @@
             }
 
             h2 {
-                font-size: 30px;
+                font-size: 45px;
                 color: $white-text-color;
                 letter-spacing: 1px;
                 font-family: $font-lobster;
@@ -75,7 +75,7 @@
                 width: 50%;
 
                 @include tablet992 {
-                    font-size: 78px;
+                    font-size: 82px;
                 }
                 
                 @include mobile768 {
@@ -84,13 +84,16 @@
                 
                 @include mobile576 {
                     font-size: 32px;
+                    width: 100%;
                 }
 
                 @include mobile375 {
                     font-size: 38px;
+                    width: 100%;
                 }
                 @include mobile375 {
                     font-size: 30px;
+                    width: 100%;
                 }
             }
 
