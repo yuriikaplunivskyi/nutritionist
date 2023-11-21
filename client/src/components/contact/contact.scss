@@ -9,7 +9,7 @@
     align-items: center;
     gap: 50px;
 
-    @include mobile {
+    @include mobile768 {
         width: 100%;
         padding: 10px;
         flex-direction: column;
@@ -23,7 +23,7 @@
         gap: 40px;
         margin: auto;
 
-        @include mobile {
+        @include mobile768 {
             gap: 20px;
             text-align: left;
             align-items: left;
@@ -36,7 +36,7 @@
             font-family: $font-comfortaa;
             font-weight: 400;
 
-            @include mobile {
+            @include mobile768 {
                 font-size: 36px;
             }
         }
@@ -53,7 +53,7 @@
         flex: 1;
         position: relative;
 
-        @include mobile {
+        @include mobile768 {
             width: 100%;
             padding: 50px;
         }
@@ -63,7 +63,7 @@
             margin: auto;
             stroke: $white-color;
             z-index: -1;
-            @include mobile {
+            @include mobile768 {
                 left: 0;
                 right: 0;
                 top: 0;
@@ -153,7 +153,7 @@
             border-radius: 5px;
             font-family: $font-comfortaa;
             font-size: 22px;
-            @include mobile {
+            @include mobile768 {
                 padding: 10px;
             }
         }

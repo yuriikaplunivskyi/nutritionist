@@ -11,7 +11,7 @@
         justify-content: flex-end;
         height: 100%;
 
-        @include mobile{
+        @include mobile768{
             justify-content: flex-end;
             padding: 20px;
         }
@@ -19,7 +19,7 @@
         span {
             font-weight: bold;
 
-            @include mobile{
+            @include mobile768{
                 display: none;
             }
         }

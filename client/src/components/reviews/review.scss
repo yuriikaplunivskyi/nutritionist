@@ -18,7 +18,7 @@
             color: $white-text-color;
         }
 
-        @include mobile {
+        @include mobile768 {
             padding-top: calc(100vh - 35px);
             font-size: 18px;
         }
@@ -32,9 +32,7 @@
     }
 
     &:last-child .textContainer{
-        
-            color: $white-text-color !important;
-        
+        color: $white-text-color !important;
     }
 
     .container {
@@ -54,7 +52,7 @@
             justify-content: center;
             gap: 50px;
 
-            @include mobile {
+            @include mobile768 {
                 flex-direction: column;
                 padding: 20px;
                 gap: 10px;
@@ -63,7 +61,7 @@
                 flex: 10;
                 height: 50%;
 
-                @include mobile {
+                @include mobile768 {
                     width: 100%;
                     max-width: 300px;
                     margin-top: 20px;
@@ -75,7 +73,7 @@
                     object-fit: cover;
                     border-radius: 25px;
 
-                    @include mobile {
+                    @include mobile768 {
                         object-fit: cover;
                     }
 
@@ -89,7 +87,7 @@
                 gap: 30px;
                 padding: 0 20px;
 
-                @include mobile {
+                @include mobile768 {
                     transform: none !important;
                     align-items: center;
                     justify-content: flex-start;
@@ -108,7 +106,7 @@
                     border: 6px solid;
                     border-radius: 100px;
 
-                    @include mobile {
+                    @include mobile768 {
                         height: 60px;
                         width: 60px;
                     }
@@ -119,7 +117,7 @@
                     font-family: $font-comfortaa;
                     font-size: 28px;
 
-                    @include mobile {
+                    @include mobile768 {
                         font-size: 16px;
                     }
                 }
