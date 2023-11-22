@@ -3,15 +3,20 @@
 
 .about {
     margin: auto;
-    max-width: 1366px;
     height: 100%;
     margin: auto;
     display: flex;
     align-items: center;
     justify-content: center;
-
+    padding: 10px 30px;
     @include mobile768 {
-        padding: 0px 20px;
+        padding: 25px 25px;
+    }
+    @include mobile576 {
+        overflow-y: auto;
+    }
+    @include mobile375 {
+        height: auto;
     }
     
     .wrapper {
@@ -19,55 +24,83 @@
         margin: auto;
         display: grid;
         place-items: center;
-        grid-gap: 50px;
+        grid-gap: 50px 20px;
         grid-template-areas:
             " title title img img img img"
             " slider slider text text text text"
             " slider slider text text text text";
-        
+
+        @include laptop1280 {
+            grid-gap: 40px 20px;
+            grid-template-areas:
+            " title    img img"
+            " slider    text text"
+            " slider    text text";
+
+        }
+
         @include mobile768 {
+            grid-gap: 10px;
+            margin-top: 0;
+            grid-template-areas:
+            " img img "
+            " title  title "
+            "text  text slider slider ";
+        }
+        
+        @include mobile576 {
             grid-template-areas:
             " img  img"
             " title title "
-            
             "text text"
             " slider slider";
+        }
 
+        @include mobile375 {
+            margin: 0;
+            padding: 0;
         }
     }
     &-imgContainer {
         grid-area: img;
         max-width:100%;
-        max-height: 350px;
+        max-height: 100%;
+        min-width:100%;
+        min-height: 100%;
         display: flex;
         justify-content: center;
         align-items: center;
-
-        ::after {
-            position: absolute;
-            z-index: -1;
-            content: '';
-            width: 1900px;
-            height: 1900px;
-            left:  0;
-            bottom: 0;
-            background: radial-gradient(circle, rgba(226,163,171,1) 2%, rgba(251,251,251,1) 6%, rgba(226,163,171,0.7637255585828081) 18%, rgba(251,251,251,0.5284314409357493) 26%, rgba(226,163,171,1) 37%);
-        }
         
         img {
             margin-top: 0;
             object-fit: cover;
             object-position: center 35%;
-            width: 500px;
-            height: 300px;
+            max-width:100%;
+            max-height: 300px;
+            min-width:100%;
+            min-height: auto;
             filter: grayscale(15%);
             border-radius: 200px 150px 200px 150px;
+            box-shadow: 0px 0px 86px 21px rgba(255,255,255,0.52);
             
+            /* @include laptop1280 {
+                max-width: 450px;
+            } */
+    
+            @include tablet1024 {
+                width: 320px;
+                height: 220px;
+            }
 
             @include mobile768 {
-                max-width: 100%;
+                max-width: 80%;
                 max-height: 200px;
                 border-radius: 20px 50px 100px 150px;
+            }
+
+            @include mobile576 {
+                max-width: 80%;
+                max-height: 120px;
             }
         }
     }
@@ -85,11 +118,26 @@
         font-size: 75px;
         line-height: 68px;
 
+        @include laptop1280 {
+            font-size: 60px;
+        }
+
+        @include tablet992 {
+            font-size: 50px;
+            line-height: 55px;
+        }
+
         @include mobile768 {
             font-size: 29px;
             line-height: 38px;
             max-width: 100%;
             margin-bottom: 0;
+            line-height: 40px;
+        }
+
+        @include mobile576 {
+            font-size: 25px;
+            line-height: 30px;
         }
     }
 
@@ -102,9 +150,33 @@
         justify-content: flex-start;
         align-items: flex-start;
         text-wrap: balance;
+        position: relative;
+
+        @include laptop1280 {
+            font-size: 24px;
+        }
+
+        @include tablet992 {
+            font-size: 22px;
+        }
 
         @include mobile768 {
             font-size: 18px;
+        }
+
+        @include mobile576 {
+            font-size: 16px;
+        }
+
+        &::after {
+            position: absolute;
+            z-index: -1;
+            content: '';
+            width: 900px;
+            height: 900px;
+            top:  -200px;
+            right: 0;   
+            
         }
     }
 
@@ -113,12 +185,18 @@
         display: flex;
         justify-content: center;
         align-items: center;
-        color: $white-text-color !important;
         position: relative;
+        margin-top: 20px;
+        overflow: hidden;
+        
+        @include tablet1024 {
+            margin-top: -100px;
+        } 
+
         
 
-        /* @include mobile {
-            display: none;
-        } */
+        @include mobile768 {
+            margin-top: 0px;
+        }
     }
 }

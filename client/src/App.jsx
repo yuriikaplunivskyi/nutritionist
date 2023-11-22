@@ -17,18 +17,17 @@ const App = () => {
       <Navbar/>
       <Hero/>
     </section> 
-    {/*<section>
+    <section>
       <Parallax type="reviews"/>
     </section>
-    */}
     <section id="about">
       <About/>
-    </section> 
+    </section>
     <Review/>
-    {/* <section id="about">
+    <section id="about">
       <Parallax type="services"/>
     </section>
-    <section id="services">
+    {/*<section id="services">
       <Services/>
     </section>
     <section id="contacts">

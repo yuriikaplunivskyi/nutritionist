@@ -8,31 +8,42 @@
 
     .progress {
         position: sticky;
-        top: 0;
+        top: 0px;
         left: 0;
-        padding-top: 50px;
         text-align: center;
+        display: flex;
+        flex-direction: column-reverse;
+        gap: 40px;
+
+        @include mobile576 {
+            padding: 0;
+        }
+
         & h6 {
             font-family: $font-lobster;
             font-size: 36px;
             color: $white-text-color;
+
+            @include mobile576 {
+                margin: -30px 40px 10px 90px; 
+                text-shadow: 4px 4px 10px #0e0e0e;
+            }
+
+            
         }
 
-        @include mobile768 {
-            padding-top: calc(100vh - 35px);
+        /* @include mobile375 {
+            padding-top: calc(100vh - 55px);
             font-size: 18px;
-        }
+        } */
+
 
         .progressBar {
             height: 10px;
             border-radius: 25px;
-            box-shadow: 0px 0px 23px 9px rgba(250,250,250,0.17);
+            box-shadow: -4px -4px -10px 10px rgba(6, 6, 6, 0.17);
             background-color: $bg-white-color;
         }
-    }
-
-    &:last-child .textContainer{
-        color: $white-text-color !important;
     }
 
     .container {
@@ -51,27 +62,45 @@
             align-items: center;
             justify-content: center;
             gap: 50px;
+            padding: 20px;
+            
+            @include tablet992 {
+                justify-content: flex-start;
+            }
 
             @include mobile768 {
                 flex-direction: column;
-                padding: 20px;
                 gap: 10px;
             }
+
+            @include mobile576 {
+                padding: 0 ;
+                width: 100%;
+            }
+
             .imageContainer {
-                flex: 10;
+                flex: 1;
+                display: flex;
+                align-items: center;
+                justify-content: flex-start;
                 height: 50%;
 
                 @include mobile768 {
                     width: 100%;
-                    max-width: 300px;
+                    max-width: 100%;
                     margin-top: 20px;
+                }
+
+                @include mobile576 {
+                    padding: 0 20px;
+                    max-width: 100%;
                 }
 
                 img {
                     width: 100%;
                     height: 100%;
                     object-fit: cover;
-                    border-radius: 25px;
+                    border-radius: 30px;
 
                     @include mobile768 {
                         object-fit: cover;
@@ -81,19 +110,32 @@
             }
 
             .textContainer {
-                flex: 9;
+                flex: 1;
                 display: flex;
                 flex-direction: column;
+                justify-content: space-between;
+                align-items: space-between;
                 gap: 30px;
-                padding: 0 20px;
+                margin: auto;
 
                 @include mobile768 {
                     transform: none !important;
                     align-items: center;
                     justify-content: flex-start;
+                    flex-direction: row;
                     text-align: left;
                     padding:  0 ;
-                    max-width: 300px;
+                }
+
+                @include mobile576 {
+                    gap: 10px;
+                    padding: 0 20px;
+                    max-width: 100%;
+                    flex-direction: column;
+                }
+
+                @include mobile320 {
+                    gap: 0;
                 }
 
                 & img {
@@ -106,9 +148,29 @@
                     border: 6px solid;
                     border-radius: 100px;
 
+                    @include tablet992 {
+                        height: 100px;
+                        width: 100px;
+                        border: 2px solid;
+                    }
+
                     @include mobile768 {
-                        height: 60px;
-                        width: 60px;
+                        height: 100px;
+                        width: 100px;
+                        border: none;
+                        padding: 0;
+                    }
+
+
+                    @include mobile576 {
+                        height: 80px;
+                        width: 80px;
+                        border: none;
+                    }
+
+                    @include mobile375 {
+                        height: 40px;
+                        width: 30px;
                     }
                 }
                 
@@ -118,7 +180,19 @@
                     font-size: 28px;
 
                     @include mobile768 {
-                        font-size: 16px;
+                        font-size: 26px;
+                    }
+
+                    @include mobile576 {
+                        font-size: 20px;
+                    }
+
+                    @include mobile375 {
+                        font-size: 18px;
+                    }
+
+                    @include mobile320 {
+                        font-size: 15px;
                     }
                 }
             }

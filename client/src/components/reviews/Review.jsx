@@ -1,4 +1,3 @@
-import React from "react";
 import { useRef } from "react";
 import "./review.scss";
 import { motion, useScroll, useSpring, useTransform } from "framer-motion";

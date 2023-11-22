@@ -50,7 +50,24 @@ section {
     }
   } */
 
-
+    /* 
+    @include desktop {
+    }
+    @include laptop1280 {
+    }
+    @include tablet1024 {
+    }
+    @include tablet992 {
+    }
+    @include mobile768 {
+    }
+    @include mobile576 {
+    }
+    @include mobile375 {
+    }
+    @include mobile320 {
+    }
+    */
 @mixin mobile320 {
     @media (max-width: 320px) {
         @content;
