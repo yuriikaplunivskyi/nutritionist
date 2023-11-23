@@ -30,9 +30,9 @@ const App = () => {
     <section id="services">
       <Services/>
     </section>
-    {/*<section id="contacts">
+    <section id="contacts">
       <Contact/>
-    </section> */}
+    </section>
   </div>
 };
 

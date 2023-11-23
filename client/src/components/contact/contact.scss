@@ -9,6 +9,10 @@
     align-items: center;
     gap: 50px;
 
+    @include laptop1280 {
+        padding: 20px 50px;
+    }
+
     @include mobile768 {
         width: 100%;
         padding: 10px;
@@ -26,7 +30,8 @@
         @include mobile768 {
             gap: 20px;
             text-align: left;
-            align-items: left;
+            justify-content: flex-start;
+            align-items:flex-start;
             margin-top: 70px;
         }
 
@@ -36,6 +41,16 @@
             font-family: $font-comfortaa;
             font-weight: 400;
 
+            @include laptop1280 {
+                font-size: 60px;
+                line-height: 75px;
+            }
+
+            @include tablet1024 {
+                font-size: 40px;
+                line-height: 55px;
+            }
+
             @include mobile768 {
                 font-size: 36px;
             }
@@ -44,7 +59,10 @@
             font-family: $font-comfortaa;
         }
 
-        span {
+        a {
+            cursor: pointer;
+            text-decoration: none;
+            
             font-weight: 300;
             font-family: $font-comfortaa;
         }
@@ -54,8 +72,13 @@
         position: relative;
 
         @include mobile768 {
+            flex: 3;
             width: 100%;
             padding: 50px;
+        }
+
+        @include mobile576 {
+            padding: 25px 0;
         }
 
         .phoneSvg {
@@ -64,10 +87,10 @@
             stroke: $white-color;
             z-index: -1;
             @include mobile768 {
-                left: 0;
-                right: 0;
-                top: 0;
-                transform: scale(0.5);
+                right: 50%;
+                transform: translateX(-50%);
+                transform: translateX(50%);
+                object-fit: contain;
                 
             }
         }
@@ -90,7 +113,7 @@
 
         .input-wrapper {
             position: relative;
-            padding-bottom: 20px;
+            padding-bottom: 25px;
         }
 
         .input.error {
@@ -106,9 +129,18 @@
             display: block;
             position: absolute;
             bottom: 0;
+            padding-bottom: 5px;
             color: rgb(255, 0, 0);
             left: 20px;
             font-family: $font-comfortaa;
+
+            @include tablet1024 {
+                font-size: 15px;
+            }
+
+            @include mobile768 {
+                font-size: 14px;
+            }
         }
         
         /* .input-group {

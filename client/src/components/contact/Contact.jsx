@@ -32,7 +32,7 @@ const schema = yup.object({
     email: yup
         .string()
         .required('Електронна пошта є обов\'язковим полем')
-        .email('Некоректний формат електронної пошти'),
+        .email('Некоректний формат @email'),
     message: yup
         .string()
         .required('Повідомлення є обов\'язковим полем')
@@ -79,19 +79,19 @@ const Contact = () => {
             initial="initial" 
             whileInView="animate">
             <motion.div className="textContainer" variants={variants}>
+
                 <motion.h2>Попрацюємо разом</motion.h2>
+
                 <motion.div className="item" variants={variants}>
                     <h3>E-mail</h3>
-                    <span>katerynakaplunivska@gmail.com</span>
+                    <span></span>
+                    <a href="mailto:katerynakaplunivska@gmail.com">katerynakaplunivska@gmail.com</a>
                 </motion.div>
                 <motion.div className="item" variants={variants}>
-                    <h3>telegram</h3>
-                    <span>@katerynakaplunivska</span>
+                    <h3>Telegram</h3>
+                    <a href="https://t.me/kateryna_kaplunivska">@kateryna_kaplunivska</a>
                 </motion.div>
-                <motion.div className="item" variants={variants}>
-                    <h3>2telegram</h3>
-                    <span>katerynakaplunivska@gmail.com</span>
-                </motion.div>
+
             </motion.div>
             <div className="formContainer">
                 <motion.div
