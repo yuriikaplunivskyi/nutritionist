@@ -3,10 +3,10 @@
   "homepage": "https://yuriikaplunivskyi.github.io/nutritionist/",
   "private": true,
   "version": "0.1.0",
-  "type": "module",
+  "type": "commonjs",
   "scripts": {
-    "dev": "vite","update-image-paths": "node updateImagePaths.js",
-    "build": "npm run update-image-paths && vite build",
+    "dev": "vite",
+    "build": "vite build && vite build --assetsDir=./",
     "lint": "eslint . --ext js,jsx --report-unused-disable-directives --max-warnings 0",
     "preview": "vite preview",
     "predeploy": "npm run build",
