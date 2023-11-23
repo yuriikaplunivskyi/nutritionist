@@ -4,49 +4,49 @@ import Slider from "../slider/Slider";
 const slides = [
     {
       id: 1, 
-      img: "%PUBLIC_URL%/certificates/nodiet.png",
+      img: "/certificates/nodiet.png",
       school: "Nodiet school",
       title: "Нутриціологія"
     },
     {
       id: 2, 
-      img: "%PUBLIC_URL%/certificates/iFit-group-fit.png",
+      img: "/certificates/iFit-group-fit.png",
       school: "iFIT",
       title: "Інструктор групових занять"
     },
     {
       id: 3, 
-      img: "%PUBLIC_URL%/certificates/fa-bodyMobility.png",
+      img: "/certificates/fa-bodyMobility.png",
       school: "Fitness academy",
       title: "Body Mobility"
     },
     {
       id: 4, 
-      img: "%PUBLIC_URL%/certificates/fa-dprpm.png",
+      img: "/certificates/fa-dprpm.png",
       school: "Fitness academy",
       title: "Діагностика, профілактика та вирішення проблеми м'язового дисбалансу"
     },
     {
       id: 5, 
-      img: "%PUBLIC_URL%/certificates/fa-func_training.png",
+      img: "/certificates/fa-func_training.png",
       school: "Fitness academy",
       title: "Функціональний тренінг/НІІТ"
     },
     {
       id: 6, 
-      img: "%PUBLIC_URL%/certificates/fa-pumpIt.png",
+      img: "/certificates/fa-pumpIt.png",
       school: "Fitness academy",
       title: "Силове тренування PUMP IT UP & TABS"
     },
     {
       id: 7, 
-      img: "%PUBLIC_URL%/certificates/fa-master-trainer_2l.png",
+      img: "/certificates/fa-master-trainer_2l.png",
       school: "Fitness academy",
       title: "Майстер тренер тренажерної зали (рівень ІІ)"
     },
     {
       id: 8, 
-      img: "%PUBLIC_URL%/certificates/fa-master-trainer_3l.png",
+      img: "/certificates/fa-master-trainer_3l.png",
       school: "Fitness academy",
       title: "Майстер тренер тренажерної зали (рівень ІІІ)"
     }
@@ -57,7 +57,7 @@ const About = () => {
         <div className="about">
             <div className="wrapper">
                 <div className="about-imgContainer">
-                    <img src="%PUBLIC_URL%/whoami.jpg" alt="eee" />
+                    <img src="/whoami.jpg" alt="eee" />
                 </div>
                 <Slider slides={slides}/>
                 <h3 className="about-title">Я сертифікований фітнес-тренер та нутриціолог</h3>

@@ -2,7 +2,7 @@
   "name": "nutritionist",
   "homepage": "https://yuriikaplunivskyi.github.io/nutritionist/",
   "private": true,
-  "version": "0.0.0",
+  "version": "0.1.0",
   "type": "module",
   "scripts": {
     "dev": "vite",
@@ -10,7 +10,7 @@
     "lint": "eslint . --ext js,jsx --report-unused-disable-directives --max-warnings 0",
     "preview": "vite preview",
     "predeploy": "npm run build",
-    "deploy": "gh-pages -d dist -b nutritionist"
+    "deploy": "gh-pages -d dist -b gh-pages"
   },
   "dependencies": {
     "@emailjs/browser": "^3.11.0",
@@ -31,6 +31,6 @@
     "eslint-plugin-react-hooks": "4.6.0",
     "eslint-plugin-react-refresh": "0.4.3",
     "gh-pages": "^6.1.0",
-    "vite": "^4.4.5"
+    "vite": "^4.5.0"
   }
 }
