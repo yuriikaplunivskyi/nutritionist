@@ -8,7 +8,7 @@
     background: linear-gradient(0deg, rgba(17,17,17,1) 0%, rgba(226,163,171,1) 100%, rgba(255,255,255,0.9401961468181023) 100%);
 
     @include mobile768 {
-        height: calc(100vh - 30px);
+        height: calc(100vh - 100px);
         background: linear-gradient(0deg, rgba(17,17,17,1) 0%, rgba(226,163,171,1) 100%, rgba(255,255,255,0.9401961468181023) 100%);
     }
 

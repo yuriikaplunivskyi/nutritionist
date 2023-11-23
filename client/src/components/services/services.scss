@@ -7,6 +7,11 @@
     flex-direction: column;
     justify-content: space-between;
 
+    @include mobile768 {
+        overflow-y: auto;
+        justify-content: flex-start;
+    }
+
     .textContainer {
         flex: 1;
         align-self: flex-end;
@@ -15,11 +20,9 @@
         gap: 20px;
 
         @include mobile768 {
-            align-items: center;
-            text-align: center;
-            flex-direction: column;
-            flex: 0.5;
+            flex: 0.3;
         }
+
 
         p {
             font-weight: 200;
@@ -28,14 +31,20 @@
             text-align: right;
             font-family: $font-comfortaa;
             font-weight: 500;
+
+            @include mobile768 {
+                font-size: 17px;
+            }
         }
         hr {
             width: 200px;
             border: none;
-            border-top: 0.5px solid $white-color;
+            margin-top: 10px;
+            border-top: 2px solid $white-color;
+
 
             @include mobile768 {
-                width: 300px;
+                width: 90px;
             }
         }
     }
@@ -44,6 +53,11 @@
         display: flex;
         flex-direction: column;
         align-items: center;
+
+        @include laptop1280 {
+            flex: 1;
+            padding: 20px;
+        }
 
         @include mobile768 {
             flex: 1;
@@ -55,6 +69,11 @@
             align-items: center;
             gap: 50px;
             font-family: $font-lobster;
+
+            @include laptop1280 {
+                gap: 20px;
+            }
+
 
             @include mobile768 {
                 text-align: center;
@@ -68,7 +87,7 @@
                 border-radius: 50px;
                 object-fit: cover;
 
-                @include mobile768 {
+                @include mobile576 {
                     width: 200px;
                     height: 50px;
                 }
@@ -76,20 +95,27 @@
 
             h2 {
                 font-size: 96px;
+                line-height: 120%;
                 font-family: $font-lobster;
                 color: $white-text-color;
+
+                @include laptop1280 {
+                    font-size: 75px;
+                }
 
                 @include mobile768 {
                     font-size: 36px;
                 }
 
                 b {
-
                     font-family: $font-lobster;
                 }
             }
 
             button {
+                display: flex;
+                justify-content: center;
+                align-items: center;
                 width: 300px;
                 height: 100px;
                 border-radius: 50px;
@@ -97,7 +123,18 @@
                 border: none;
                 font-size: 24px;
                 font-family: $font-comfortaa;
+                font-weight: 700;
                 cursor: pointer;
+
+                @include laptop1280 {
+                    width: 200px;
+                }
+
+                @include tablet992 {
+                    font-size: 20px;
+                    width: 160px;
+                    height: 80px;
+                }
 
                 @include mobile768 {
                     font-size: 16px;
@@ -115,16 +152,14 @@
         margin: auto;
         gap: 10px;
         padding: 10px;
-        overflow-y: auto;
 
-        @include mobile768 {
-            width: 100%;
-            flex-direction: column;
+        @include tablet992 {
+            flex-direction: row;
             flex-wrap: wrap;
         }
 
         .box {
-            flex: 1;
+            flex: 1 5 100px;
             padding: 25px;
             border: 0.5px solid $black-color;
             border-radius: 5px;
@@ -133,18 +168,21 @@
             justify-content: space-between;
             position: relative;
 
-            /* &:hover {
+            &:hover, :active {
+                transition: 0.5 ease-in-out;
                 background-color: white;
-                color: #e2a3ab;
-            } */
+            }
+            @include tablet992 {
+                height: 200px;
+            }
 
             @include mobile768 {
-                border: none;
-                padding: 10px;
+                height: 180px;
                 align-items: center;
                 gap: 20px;
-                height: 50px;
+                align-items: flex-start;
             }
+
             &-title {
                 color: $black-text-color;
                 font-family: $font-comfortaa;

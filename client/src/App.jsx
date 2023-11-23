@@ -27,10 +27,10 @@ const App = () => {
     <section id="about">
       <Parallax type="services"/>
     </section>
-    {/*<section id="services">
+    <section id="services">
       <Services/>
     </section>
-    <section id="contacts">
+    {/*<section id="contacts">
       <Contact/>
     </section> */}
   </div>

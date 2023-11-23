@@ -12,9 +12,9 @@
     @include mobile768 {
         padding: 25px 25px;
     }
-    @include mobile576 {
+    /* @include mobile576 {
         overflow-y: auto;
-    }
+    } */
     @include mobile375 {
         height: auto;
     }
@@ -41,7 +41,6 @@
 
         @include mobile768 {
             grid-gap: 10px;
-            margin-top: 0;
             grid-template-areas:
             " img img "
             " title  title "
@@ -123,13 +122,13 @@
         }
 
         @include tablet992 {
-            font-size: 50px;
-            line-height: 55px;
+            font-size: 55px;
+            line-height: 67px;
         }
 
         @include mobile768 {
-            font-size: 29px;
-            line-height: 38px;
+            font-size: 35px;
+            line-height: 50px;
             max-width: 100%;
             margin-bottom: 0;
             line-height: 40px;
@@ -187,7 +186,6 @@
         align-items: center;
         position: relative;
         margin-top: 20px;
-        overflow: hidden;
         
         @include tablet1024 {
             margin-top: -100px;

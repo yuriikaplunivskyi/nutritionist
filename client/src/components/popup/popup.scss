@@ -14,10 +14,12 @@
     max-width: 1200px;
     position: relative;
     box-sizing: border-box;
-    
-    @include mobile375 {
+    @include laptop1280 {
+        padding: 20px 20px;
+    }
+
+    @include mobile768 {
         padding: 10px 10px;
-        height: 600px;
     }
     
     &-container{
@@ -29,12 +31,17 @@
         background-color: rgba(0, 0, 0, 0.177);
         backdrop-filter: blur(5px);
         display: flex;
-        justify-content: center;
-        align-items: center;
+        justify-content: flex-start;
+        align-items: flex-start;
         z-index: 1000;
         padding: 50px 200px;
-        @include mobile375 {
-            padding: 20px 20px;
+
+        @include laptop1280 {
+            padding: 40px 40px;
+        }
+
+        @include mobile768 {
+            padding: 10px 15px;
         }
     }
     &-title {
@@ -59,6 +66,7 @@
         @include mobile375 {
             margin-left: 30px;
             margin-top: 15px;
+            font-size: 25px;
         }
         li {
             margin-top: 10px;
@@ -86,6 +94,9 @@
         font-weight: 300;
         font-size: 24px;
 
+        @include mobile375 {
+            font-size: 22px;
+        }
     }
     &-price {
         color: $black-text-color;
@@ -106,8 +117,8 @@
     }
     &-btn_close {
         position: fixed;
-        top: 100px;
-        right: 100px;
+        top: 10px;
+        right: 10px;
         border-radius: 5px;
         padding: 20px;
         font-size: 50px;
@@ -119,13 +130,29 @@
         background-color: transparent;
         color: $black-text-color;
 
-        @include mobile375 {
+        @include laptop1280 {
+            font-size: 38px;
+            top: 34px ;
+            right: 34px;
+        }
+
+        @include mobile768 {
+            font-size: 35px;
+            top: 5px ;
+            right: 10px;
+        }
+
+        @include mobile576 {
+    
+        }
+
+        /* @include mobile375 {
             top: 0px;
             right: 0px;
             font-size: 20px;
             border: none;
             background-color: transparent;
-        }
+        } */
     }
 }
 
@@ -147,6 +174,16 @@ body.popup-open {
     right: 50px;
     top: 50%;
     transform: translateY(-50%);
+
+    @include tablet992 {
+        font-size: 32px;
+    }
+
+    @include mobile768 {
+        font-size: 28px;
+        right: 20px;
+        
+    }
 
     @include mobile375 {
         right: 5%;
