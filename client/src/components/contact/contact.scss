@@ -94,6 +94,13 @@
                 object-fit: contain;
                 
             }
+
+            & svg {
+                @include mobile768 {
+                    width: 100%;
+                    
+                }
+            }
         }
 
         form {
