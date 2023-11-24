@@ -308,7 +308,7 @@ const Services = () => {
                 variants={variants}
                 >
                 <div className="title">        
-                    <img src="/banana.JPG" alt="people" />
+                    <img src="./banana.JPG" alt="people" />
                     <h2><motion.b whileHover={{color: "white"}}>Унікальні</motion.b> ідеї</h2>
                 </div>
                 <div className="title">
