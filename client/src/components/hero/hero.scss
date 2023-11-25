@@ -8,8 +8,11 @@
     background: linear-gradient(0deg, rgba(17,17,17,1) 0%, rgba(226,163,171,1) 100%, rgba(255,255,255,0.9401961468181023) 100%);
 
     @include mobile768 {
-        height: calc(100vh - 100px);
         background: linear-gradient(0deg, rgba(17,17,17,1) 0%, rgba(226,163,171,1) 100%, rgba(255,255,255,0.9401961468181023) 100%);
+    }
+
+    @include mobile576 {
+        height: calc(100vh - 30px);
     }
 
 
@@ -41,6 +44,12 @@
                 text-align: left;
                 padding-left: 20px;
             }
+
+            @include mobile576 {
+                gap: 10px;
+                margin-top: 50px;
+            }
+
 
             @include mobile375 {
                 gap: 10px;
@@ -175,7 +184,7 @@
         }
 
         @include mobile576 {
-            height: 70%;
+            height: 68%;
             width: 100%;
             left: 0;
             bottom: 0;

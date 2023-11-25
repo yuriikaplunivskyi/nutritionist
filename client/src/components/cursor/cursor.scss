@@ -12,4 +12,7 @@
     @include mobile768{
         display: none;;
     }
+
+        @include mobile576 {
+    }
 }

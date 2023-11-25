@@ -3,6 +3,10 @@
 
 .navbar {
     height: 100px;
+
+    @include mobile576 {
+        height: 30px;
+    }
     .wrapper {
         max-width: 1366px;
         margin: auto;

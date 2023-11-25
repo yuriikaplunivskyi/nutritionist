@@ -2,7 +2,7 @@ import "./navbar.scss";
 import Sidebar from "../sidebar/Sidebar";
 const Navbar = () => {
     return (
-        <div className="navbar">
+        <header className="navbar">
         <Sidebar/>
             <div className="wrapper">
                 <div className="social">
@@ -12,7 +12,7 @@ const Navbar = () => {
                     <a href="#"><img src="./telegram.svg" alt="telegram" /></a>
                 </div>
             </div>
-        </div>
+        </header>
     )
 }
 
