@@ -30,6 +30,7 @@ section {
     height: 100vh;
     width: 100vw;
     scroll-snap-align: center;
+
 }
 
 /* .container {
@@ -118,6 +119,8 @@ section {
 
 section {
     @include mobile576 {
-        overflow: scroll;
+        @include mobile768 {
+            height: 100dvh;
+        }
     }
 }
