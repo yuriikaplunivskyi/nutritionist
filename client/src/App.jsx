@@ -1,39 +1,34 @@
+import React, { Suspense } from "react";
 import "./app.scss";
-import About from "./components/about/About";
-import Contact from "./components/contact/Contact";
-import Cursor from "./components/cursor/Cursor";
-import Hero from "./components/hero/Hero";
-import Navbar from "./components/navbar/Navbar";
-import Parallax from "./components/parallax/Parallax";
-import Review from "./components/reviews/Review";
-import Services from "./components/services/Services";
+import { LazyHero, LazyNavbar, LazyCursor, LazyAbout, LazyReview, LazyServices, LazyContact } from "./LazyComponents";
 
+import Loader from "./components/loader/Loader";
 
 
 const App = () => {
-  return <div>
-    <Cursor/>
-    <section id="homepage">
-      <Navbar/>
-      <Hero/>
-    </section> 
-    <section>
-      <Parallax type="reviews"/>
-    </section>
-    <section id="about">
-      <About/>
-    </section>
-    <Review/>
-    <section id="about">
-      <Parallax type="services"/>
-    </section>
-    <section id="services">
-      <Services/>
-    </section>
-    <section id="contacts">
-      <Contact/>
-    </section>
-  </div>
+  return (
+    <div>
+      <Suspense fallback={<div className="loader-container"><Loader/></div>}>
+        <LazyCursor />
+        <section id="homepage">
+          <LazyNavbar />
+          <LazyHero />
+        </section>
+        <section>
+          <LazyReview />
+        </section>
+        <section id="about">
+          <LazyAbout />
+        </section>
+        <section>
+          <LazyServices />
+        </section>
+        <section id="services">
+          <LazyContact />
+        </section>
+      </Suspense>
+    </div>
+  );
 };
 
 export default App;
