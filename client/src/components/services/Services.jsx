@@ -245,7 +245,7 @@ const serviceData = [
         ],
         prices: [
             {
-                price: '500 грн/1 тренування',
+                price: '400 грн/1 тренування',
                 id: 1,
             }
         ],
