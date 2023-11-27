@@ -1,0 +1,1 @@
+import{r as t,j as n,m as i}from"./index-f7f5093e.js";const a=()=>{const[e,r]=t.useState({x:0,y:0});return t.useEffect(()=>{const o=s=>{r({x:s.clientX,y:s.clientY})};return window.addEventListener("mousemove",o),()=>{window.removeEventListener("mousemove",o)}},[]),n.jsx(i.div,{className:"cursor",animate:{x:e.x+10,y:e.y+10}})};export{a as default};
