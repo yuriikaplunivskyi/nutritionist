@@ -61,7 +61,7 @@ const Single = ({item}) => {
     const y = useTransform(scrollYProgress, [0,1 ], [-300, 300]) 
 
     return (
-        <section >
+        <section id="reviews">
             <div className="container">
                 <div className="wrapper">
                     <div className="imageContainer" ref={ref}>
@@ -69,8 +69,7 @@ const Single = ({item}) => {
                     </div>
                     <motion.div className="textContainer" style={{ y}}>
                         <motion.img src={item.icon} alt={item.id}/>
-                        <p>{item.desc}</p>{/* 
-                        <button>Глянути</button> */}
+                        <p>{item.desc}</p>
                     </motion.div>  
                 </div>
             </div>

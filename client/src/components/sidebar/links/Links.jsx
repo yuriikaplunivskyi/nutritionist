@@ -28,8 +28,8 @@ const Links = () => {
     const items = [
         { english: "homepage", ukrainian: "Головна" },
         { english: "about", ukrainian: "Про мене" },
+        { english: "reviews", ukrainian: "Як я працюю" },
         { english: "services", ukrainian: "Послуги" },
-        { english: "reviews", ukrainian: "Відгуки" },
         { english: "contacts", ukrainian: "Контакти" }
     ];
 

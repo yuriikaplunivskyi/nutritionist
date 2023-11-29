@@ -1,6 +1,7 @@
-import { useRef, useState } from "react";
 import "./services.scss";
+import { useRef, useState } from "react";
 import { motion, useInView } from "framer-motion";
+import { Link } from "react-router-dom";
 import Popup from "../popup/Popup";
 
 const variants = {
@@ -54,7 +55,8 @@ const serviceData = [
                 Ви мало що знаєте з харчування та хочете дізнатися основи того, як складати свій раціон грамотно. У вас немає жодних скарг на своє здоров’я, емоційних переїдань, труднощів з дотриманням збалансованого харчування. Ви відчуваєте себе сильними та впевненими в тому, що зможете втілити всі зміни самостійно.
                 `
             }
-        ]
+        ],
+        path: "/service_consultation"
     },
     {
         title: 'Місячний супровід з харчування',
@@ -108,7 +110,8 @@ const serviceData = [
                 id: 2,
                 content: `Ви маєте бажання поліпшити свій раціон, проте відчуваєте, що це може бути викликом для вас. Готові до змін, але одночасно хвилюєтеся, що не впораєтеся, або що це буде вимагати багато часу на готування та призведе до обмеженого харчування без різноманіття. Вам важливо досягти результатів, і ви шукаєте постійну підтримку та щоденний зворотний зв'язок від спеціаліста.`
             }
-        ]
+        ],
+        path: "service_monthly_nutrition_support "
     },
     {
         title: 'Супровід з тренувань',
@@ -157,7 +160,8 @@ const serviceData = [
                 content: `Ви шукаєте альтернативу фітнес-залу, онлайн-супровід дає можливість виконувати вправи у комфортному середовищі свого дому або в іншому місці, що підходить саме вам
                 `
             }
-        ]
+        ],
+        path: "service_training_support"
     },
     {
         title: 'КОУЧИНГ',
@@ -211,6 +215,7 @@ const serviceData = [
                 content: `Ви не маєте фіксованого часу для занять з тренером, коучинг дає гнучкість у виборі часу для фізичної активності, що особливо корисно для тих, хто має зайнятий графіку, на  коучингу  створюється індивідуальна програма, яка повністю враховує ваші цілі та потреби і змінюється щотижнево, що в результаті швидше приведе вас до бажаного результату`
             }
         ],
+        path: "service_coaching"
         
     },
     {
@@ -268,14 +273,15 @@ const serviceData = [
                 content: `Ви готові займатися вдома але не знаєте, що робити та як себе мотивувати на це, онлайн-тренування за присутності тренера - це про індивідуальний підхід, мотивацію та вправи, які підходять саме вам.
                 `
             }
-        ]
+        ],
+        path: "service_online_training"
     },
 ];
 
 const Services = () => {
     const ref = useRef();
     const isInView = useInView(ref, {margin: "-50px"})
-    const [selectedService, setSelectedService] = useState(null);
+/*    const [selectedService, setSelectedService] = useState(null);
 
     const openPopup = (item) => {
         setSelectedService(item);
@@ -285,17 +291,17 @@ const Services = () => {
     const closePopup = () => {
         setSelectedService(null);
         document.body.classList.remove("popup-open");
-    };
+    }; */
 
     return (
         <motion.div 
             className="services" 
             variants={variants} 
-            animate={ /* isInView && */ "animate"} 
+            animate={ /* isInView &&   */"animate"} 
             initial="initial" 
             ref={ref} 
-            /*whileInView="animate" 
-            animate="animate" */
+            /* whileInView="animate"  */
+            /* animate="animate" */
             >
             <motion.div 
                 className="textContainer" 
@@ -322,19 +328,12 @@ const Services = () => {
                         className="box"
                         key={item.id}
                         >
-                        <h2 className="box-title">{item.title}</h2>{/* 
-                        <p className="box-text">{item.content}</p> */}
-                        <button className="learn-more" onClick={() => openPopup(item)}>
-                            <span className="circle" aria-hidden="true">
-                                <span className="icon arrow"></span>
-                            </span>
-                            <span className="button-text">Переглянути</span>
-                        </button>
-                        {selectedService && 
-                            <Popup 
-                            item={selectedService} 
-                            onClose={closePopup} 
-                            />}
+                        <h2 className="box-title">{item.title}</h2>
+                        
+                        <Link to={`/service/${item.path}`} state={{ selectedService: item }}>
+                            <button>Переглянути</button>
+                            </Link>
+                        
                     </motion.div>)
                 )}
             </motion.div>

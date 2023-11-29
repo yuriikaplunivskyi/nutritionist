@@ -4,6 +4,8 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    position: relative;
+    z-index: 1000;
 }
 
 .wheel-and-hamster {

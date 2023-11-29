@@ -1,34 +1,21 @@
-import React, { Suspense } from "react";
+import { Route, Routes } from "react-router-dom";
+
 import "./app.scss";
-import { LazyHero, LazyNavbar, LazyCursor, LazyAbout, LazyReview, LazyServices, LazyContact } from "./LazyComponents";
 
-import Loader from "./components/loader/Loader";
-
+import Home from "./pages/Home";
+import ServicePage from "./pages/ServicePage";
+import NotFound from "./pages/NotFound";
 
 const App = () => {
   return (
-    <div>
-      <Suspense fallback={<div className="loader-container"><Loader/></div>}>
-        <LazyCursor />
-        <section id="homepage">
-          <LazyNavbar />
-          <LazyHero />
-        </section>
-        <section>
-          <LazyReview />
-        </section>
-        <section id="about">
-          <LazyAbout />
-        </section>
-        <section>
-          <LazyServices />
-        </section>
-        <section id="services">
-          <LazyContact />
-        </section>
-      </Suspense>
-    </div>
+    <Routes>
+      <Route path="/" element={<Home />} />
+      <Route path="/service/:serviceId" element={<ServicePage />} />
+      <Route path="/404" element={<NotFound />} />
+    </Routes>
   );
 };
+
+
 
 export default App;

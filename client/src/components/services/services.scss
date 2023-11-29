@@ -5,7 +5,7 @@
     height: 100%;
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
+    justify-content: flex-start;
 
     @include mobile768 {
         overflow-y: auto;
@@ -13,14 +13,14 @@
     }
 
     .textContainer {
-        flex: 1;
+        flex: .1;
         align-self: flex-end;
         display: flex;
         align-items: center;
         gap: 20px;
 
         @include mobile768 {
-            flex: 0.3;
+            flex: 0.1;
         }
 
 
@@ -34,6 +34,10 @@
 
             @include mobile768 {
                 font-size: 17px;
+            }
+
+            @include mobile320 {
+                font-size: 16px;
             }
         }
         hr {
@@ -55,6 +59,7 @@
         align-items: center;
 
         @include laptop1280 {
+            justify-content: center;
             flex: 1;
             padding: 20px;
         }
@@ -159,19 +164,21 @@
         }
 
         .box {
-            flex: 1 5 100px;
+            flex: 1 1 50px;
             padding: 25px;
-            border: 0.5px solid $black-color;
-            border-radius: 5px;
+            border: none;
             display: flex;
             flex-direction: column;
             justify-content: space-between;
             position: relative;
+            border-radius: 25px;
+            box-shadow: 10px 10px 20px #a76f76,
+                        -10px -10px 20px #d29199;
 
-            &:hover, :active {
+            /* &:hover, :active {
                 transition: 0.5 ease-in-out;
                 background-color: white;
-            }
+            } */
             @include tablet992 {
                 height: 200px;
             }
@@ -196,9 +203,27 @@
                 }
             }
 
-        
+            button {
+                border: none;
+                outline: none;
+                background-color: $pink-main-text-color;
+                padding: 10px 20px;
+                font-size: 20px;
+                font-weight: 700;
+                width: 100%;
+                color: #fff;
+                border: 1px solid white;
+                border-radius: 5px;
+                transition: all ease 0.1s;
+                box-shadow: 0px 5px 0px 0px #f4f4f4;
+                }
+                
+                button:active {
+                    transform: translateY(5px);
+                    box-shadow: 0px 0px 0px 0px #fafafa, (98%, 80%);
+                }
 
-        button.learn-more {
+/*         button.learn-more {
                 position: relative;
                 display: inline-block;
                 cursor: pointer;
@@ -282,7 +307,7 @@
             
             button:hover .button-text {
                 color: #fff;
-            }
+            } */
 
             /* button {
                 padding: 10px;
