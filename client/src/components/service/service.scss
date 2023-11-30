@@ -45,18 +45,21 @@
         font-weight: 700;
 
         @include mobile768 {
-            margin-left: 50%;
+            text-align: center;
         }
     }
     ul, ol {
         margin-top: 10px;
     }
     ol {
-        margin-left: 50px;
         margin-top: 20px;
         font-family: $font-comfortaa;
         font-weight: 300;
         font-size: 28px;
+        margin-top: 20px;
+        background: white;
+        border-radius: 25px;
+        padding: 50px;
 
         @include mobile375 {
             margin-left: 30px;
