@@ -54,7 +54,7 @@ const Slider = (props) => {
                             x: index === i ? 0 : (i > index ? 300 : -300)
                         }}
                         exit={{ opacity: 0, x: i > index ? 300 : -300 }}
-                        transition={{ duration: 0.05 }}
+                        transition={{ duration: 0.5 }}
                     >
                         <div className="slide-imgContainer">
                             <img src={item.img} alt={`Slide ${i}`} />
