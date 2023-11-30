@@ -1,12 +1,12 @@
 import "./services.scss";
-import { useRef, useState } from "react";
+import { useRef} from "react";
 import { motion, useInView } from "framer-motion";
 import { Link } from "react-router-dom";
-import Popup from "../popup/Popup";
+/* import Popup from "../popup/Popup"; */
 
 const variants = {
     initial: {
-        x: -500,
+        x: 0,
         y: 100,
         opacity:0
     },
@@ -25,7 +25,7 @@ const serviceData = [
     {
         title: 'Разова консультація',
         id: 1,
-        content: 'Якщо ви шукаєте кваліфікованого спеціаліста з харчування,, який допоможе вам покращити своє харчування та здоров’я, то ви звернулися за адресою. Консультація зі мною - це не про надання плану харчування, а розробка персональних рекомендацій, плану дій, щодо зміни харчових звичок та їх втілення в ваше життя зручним способом та  навчання вас, як робити правильні вибори, як подолати перешкоди та як насолоджуватися їжею без відчуття провини. Я маю багато досвіду роботи з різними клієнтами та знаю, як адаптувати свої поради до ваших потреб, уподобань та очікувань. Консультація зі мною - це ваша інвестиція в своє майбутнє здоров’я, самопочуття та якість життя',
+        content: ' Консультація зі мною - це не про надання плану харчування, а розробка персональних рекомендацій, плану дій, щодо зміни харчових звичок та їх втілення в ваше життя зручним способом та  навчання вас, як робити правильні вибори, як подолати перешкоди та як насолоджуватися їжею без відчуття провини. Я маю багато досвіду роботи з різними клієнтами та знаю, як адаптувати свої поради до ваших потреб, уподобань та очікувань. ',
         passing: [
             {
                 option: `аналіз вашої анкети та щоденнику харчування (заповненого протягом 5 днів)
@@ -56,7 +56,8 @@ const serviceData = [
                 `
             }
         ],
-        path: "/service_consultation"
+        path: "service_consultation",
+        icon: "../services/consultation.svg"
     },
     {
         title: 'Місячний супровід з харчування',
@@ -111,7 +112,8 @@ const serviceData = [
                 content: `Ви маєте бажання поліпшити свій раціон, проте відчуваєте, що це може бути викликом для вас. Готові до змін, але одночасно хвилюєтеся, що не впораєтеся, або що це буде вимагати багато часу на готування та призведе до обмеженого харчування без різноманіття. Вам важливо досягти результатів, і ви шукаєте постійну підтримку та щоденний зворотний зв'язок від спеціаліста.`
             }
         ],
-        path: "service_monthly_nutrition_support "
+        path: "service_monthly_nutrition_support ",
+        icon: "../services/nutrition-support.svg"
     },
     {
         title: 'Супровід з тренувань',
@@ -161,7 +163,8 @@ const serviceData = [
                 `
             }
         ],
-        path: "service_training_support"
+        path: "service_training_support",
+        icon: "../services/training.svg"
     },
     {
         title: 'КОУЧИНГ',
@@ -215,7 +218,8 @@ const serviceData = [
                 content: `Ви не маєте фіксованого часу для занять з тренером, коучинг дає гнучкість у виборі часу для фізичної активності, що особливо корисно для тих, хто має зайнятий графіку, на  коучингу  створюється індивідуальна програма, яка повністю враховує ваші цілі та потреби і змінюється щотижнево, що в результаті швидше приведе вас до бажаного результату`
             }
         ],
-        path: "service_coaching"
+        path: "service_coaching",
+        icon: "../services/coaching.svg"
         
     },
     {
@@ -274,7 +278,8 @@ const serviceData = [
                 `
             }
         ],
-        path: "service_online_training"
+        path: "service_online_training",
+        icon: "../services/online_training.svg"
     },
 ];
 
@@ -294,13 +299,14 @@ const Services = () => {
     }; */
 
     return (
+        <div className="services-container">
         <motion.div 
             className="services" 
             variants={variants} 
-            animate={ /* isInView &&   */"animate"} 
+            animate={ isInView && "animate"} 
             initial="initial" 
             ref={ref} 
-            /* whileInView="animate"  */
+            whileInView="animate"  
             /* animate="animate" */
             >
             <motion.div 
@@ -331,6 +337,7 @@ const Services = () => {
                         <h2 className="box-title">{item.title}</h2>
                         
                         <Link to={`/service/${item.path}`} state={{ selectedService: item }}>
+                            <img className="box-icon" src={item.icon} alt={`"icon" ${item.title}`} />
                             <button>Переглянути</button>
                             </Link>
                         
@@ -338,6 +345,7 @@ const Services = () => {
                 )}
             </motion.div>
         </motion.div>
+        </div>
     )
 }
 

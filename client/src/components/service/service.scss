@@ -43,16 +43,27 @@
         align-items: center;
         font-family: $font-comfortaa;
         font-weight: 700;
+        color: $white-text-color;
 
         @include mobile768 {
             text-align: center;
         }
     }
-    ul, ol {
+
+    &-icon {
+        margin: auto;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        max-width: 150px;
+        max-height: 150px;
+        padding: 10px;
+        filter: invert(100%);
+    }
+    ul {
         margin-top: 10px;
     }
     ol {
-        margin-top: 20px;
         font-family: $font-comfortaa;
         font-weight: 300;
         font-size: 28px;
@@ -66,13 +77,13 @@
             margin-top: 15px;
             font-size: 25px;
         }
-        li {
+        ol, li {
             margin-top: 10px;
             border-radius: 10px;
             text-decoration:none;
             font-size: 22px;
             font-weight: 300;
-            font-family: $font-Alumni;
+            font-family: $font-comfortaa;
             /* &:not(:last-child){
                 border-bottom: none;
             } */
@@ -80,7 +91,7 @@
         span {
             font-size: 30px;
             font-weight: 500;
-            font-family: $font-Alumni;
+            font-family: $font-comfortaa;
         }
     }
     &-text {
@@ -88,9 +99,10 @@
         display: flex;
         align-items:center;
         justify-content: center;
-        font-family: $font-Alumni;
-        font-weight: 300;
-        font-size: 24px;
+        font-family: $font-comfortaa;
+        font-weight: 100;
+        color: $bg-white-color;
+        font-size: 22px;
 
         @include mobile375 {
             font-size: 22px;

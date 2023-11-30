@@ -5,6 +5,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
+    height: 100%;
     
     /* @include mobile576 {
         overflow-y: auto;
@@ -18,15 +19,13 @@
         margin: auto;
         display: grid;
         place-items: center;
-        grid-gap: 50px 20px;
-        padding: 20px 0;
+        padding: 20px;
         grid-template-areas:
             " title title img img img img"
             " slider slider text text text text"
             " slider slider text text text text";
 
         @include laptop1280 {
-            grid-gap: 40px 20px;
             grid-template-areas:
             " title    img img"
             " slider    text text"
@@ -35,9 +34,7 @@
         }
 
         @include mobile768 {
-            
             padding: 25px 25px;
-            grid-gap: 10px;
             grid-template-areas:
             " img img "
             " title  title "
@@ -45,6 +42,7 @@
         }
         
         @include mobile576 {
+            grid-gap: none;
             grid-template-areas:
             " img  img"
             " title title "
@@ -54,7 +52,7 @@
 
         @include mobile375 {
             margin: 0;
-            padding: 0;
+            padding: 10px 5px ;
         }
     }
     &-imgContainer {
@@ -105,6 +103,7 @@
 
     &-title {
         display: flex;
+        height: 100%;
         justify-content: flex-start;
         align-items: flex-end;
         grid-area: title;
@@ -112,8 +111,8 @@
         position: relative;
         font-family: $font-lobster;
         font-weight: 400;
-        font-size: 75px;
-        line-height: 68px;
+        font-size: 65px;
+        line-height: 58px;
 
         @include laptop1280 {
             font-size: 60px;
@@ -121,7 +120,7 @@
 
         @include tablet992 {
             font-size: 55px;
-            line-height: 67px;
+            line-height: 57px;
         }
 
         @include mobile768 {
@@ -184,7 +183,7 @@
         align-items: center;
         position: relative;
         
-        @include tablet1024 {
+        /* @include tablet1024 {
             margin-top: -100px;
         } 
 
@@ -192,6 +191,6 @@
 
         @include mobile768 {
             margin-top: 0px;
-        }
+        } */
     }
 }

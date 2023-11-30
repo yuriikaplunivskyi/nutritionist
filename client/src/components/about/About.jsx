@@ -1,4 +1,6 @@
 import "./about.scss";
+import { useRef} from "react";
+import { motion, useInView } from "framer-motion";
 import Slider from "../slider/Slider";
 
 const slides = [
@@ -52,17 +54,43 @@ const slides = [
     }
     ];
 
+const variants = {
+    initial: {
+        x: 0,
+        y: 100,
+        opacity:0
+    },
+    animate: {
+        x: 0,
+        opacity: 1,
+        y: 0,
+        transition: {
+            duration: 1,
+            staggerChildren: 0.5
+        }
+    }
+}
+
 const About = () => {
+  const ref = useRef();
+  const isInView = useInView(ref, {margin: "-50px"})
+
     return (
         <div className="about">
-            <div className="wrapper">
-                <div className="about-imgContainer">
-                    <img src="./whoami.jpg" alt="eee" />
-                </div>
+            <motion.div 
+              className="wrapper"
+              variants={variants} 
+              animate={ isInView && "animate"} 
+              initial="initial" 
+              ref={ref} 
+              whileInView="animate" >
+                <motion.div className="about-imgContainer">
+                    <motion.img src="./whoami.jpg" alt="eee" />
+                </motion.div>
                 <Slider slides={slides}/>
-                <h3 className="about-title">Я сертифікований фітнес-тренер та нутриціолог</h3>
-                <p className="about-text">Вже більше 2-х років я прививаю любов до спорту та збалансованого харчуванню своїм клієнтам. допомагаю людям робити здоровий вибір у харчуванні та житті, набувати фігури мрії, повертати енергію та значно покращувати здоров&apos;я. Я можу вам показати великі можливості збалансованого харчування, а не обмеження, привити любов до фізичної активності без болей і втоми</p>
-            </div>
+                <motion.h3 className="about-title">Я сертифікований фітнес-тренер та нутриціолог</motion.h3>
+                <motion.p className="about-text">Вже більше 2-х років я прививаю любов до спорту та збалансованого харчуванню своїм клієнтам. допомагаю людям робити здоровий вибір у харчуванні та житті, набувати фігури мрії, повертати енергію та значно покращувати здоров&apos;я. Я можу вам показати великі можливості збалансованого харчування, а не обмеження, привити любов до фізичної активності без болей і втоми</motion.p>
+            </motion.div>
         </div>
     )
 }

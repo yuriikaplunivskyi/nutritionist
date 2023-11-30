@@ -7,16 +7,16 @@ const Navbar = () => {
             <div className="wrapper">
                 <ul className="social">
                     <li>
-                        <a href="#"><img src="./facebook.svg" alt="facebook" /></a>
+                        <a href="#"><img src="../public/facebook.svg" alt="facebook" /></a>
                         </li>
                     <li>
-                        <a href="#"><img src="./instagram.svg" alt="instagram" /></a>
+                        <a href="#"><img src="../public/instagram.svg" alt="instagram" /></a>
                         </li>
                     <li>
-                        <a href="#"><img src="./tiktok.svg" alt="tiktok" /></a>
+                        <a href="#"><img  src="../public/tiktok.svg" alt="tiktok" /></a>
                         </li>
                     <li>
-                        <a href="#"><img src="./telegram.svg" alt="telegram" /></a>
+                        <a href="#"><img src="../public/telegram.svg" alt="telegram" /></a>
                         </li>
                 </ul>
             </div>

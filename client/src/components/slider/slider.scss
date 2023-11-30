@@ -16,9 +16,14 @@
     position: relative;
     width: 100%;
     min-height: 400px;
+    z-index: 9;
 
     @include mobile768 {
         min-height: 350px;
+    }
+
+    @include mobile576 {
+        min-height: 250px;
     }
 
     .slide {

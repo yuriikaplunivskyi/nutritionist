@@ -16,6 +16,7 @@ const Service = () => {
         <div className="service-container">
             <div className="service-textContainer">
             <h2 className="service-title">{selectedService.title}</h2>
+            <img className="service-icon" src={selectedService.icon} alt={`"icon" ${selectedService.title}`} />
             <p className="service-text">{selectedService.content}</p>
             <ol>
                 <span>Як проходить</span>

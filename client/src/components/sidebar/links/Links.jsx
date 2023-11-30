@@ -39,15 +39,15 @@ const Links = () => {
             variants={variants}
             >
             {items.map((item, index) => (
-                <motion.a  
-                    href={`#${item.english}`} 
-                    key={index}
-                    variants={itemVariants}
-                    whileHover={{ scale: 1.1 }}
-                    whileTap={{scale: 0.9}}
-                    >
-                    {item.ukrainian}
-                </motion.a>
+                <a href={`/#${item.english}`}  key={index} >
+                    <motion.span
+                        variants={itemVariants}
+                        whileHover={{ scale: 1.1 }}
+                        whileTap={{scale: 0.9}}
+                        >
+                        {item.ukrainian}
+                    </motion.span>
+                </a>
             ))}
         </motion.div>
     );

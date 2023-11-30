@@ -5,11 +5,15 @@
     height: 100%;
     display: flex;
     flex-direction: column;
-    justify-content: flex-start;
+    justify-content: space-around;
 
     @include mobile768 {
-        overflow-y: auto;
         justify-content: flex-start;
+    }
+
+    &-container {
+        width: 100%;
+        height: 100%;
     }
 
     .textContainer {
@@ -65,7 +69,7 @@
         }
 
         @include mobile768 {
-            flex: 1;
+            flex: 0.2;
             width: 100%;
         }
 
@@ -84,6 +88,10 @@
                 text-align: center;
                 flex-direction: column;
                 gap: 20px;
+            }
+
+            @include mobile375 {
+                gap: 5px;
             }
 
             img {
@@ -130,6 +138,8 @@
                 font-family: $font-comfortaa;
                 font-weight: 700;
                 cursor: pointer;
+                color: $black-text-color;
+                text-shadow: -1px 1px 3px $black-text-color;
 
                 @include laptop1280 {
                     width: 200px;
@@ -151,7 +161,7 @@
 
     }
     .listContainer {
-        flex: 1;
+        flex: .4;
         display: flex;
         max-width: 1366px;
         margin: auto;
@@ -163,13 +173,18 @@
             flex-wrap: wrap;
         }
 
+        @include tablet992 {
+            flex: 1;
+        }
+
         .box {
-            flex: 1 1 50px;
+            flex: 1;
             padding: 25px;
             border: none;
             display: flex;
             flex-direction: column;
             justify-content: space-between;
+            gap: 10px;
             position: relative;
             border-radius: 25px;
             box-shadow: 10px 10px 20px #a76f76,
@@ -184,22 +199,62 @@
             }
 
             @include mobile768 {
-                height: 180px;
-                align-items: center;
+                height: auto;
                 gap: 20px;
                 align-items: flex-start;
             }
 
+            @include mobile576 {
+                flex-direction: row;
+                justify-content: center;
+                align-items: center;
+            }
+
+            @include mobile375 {
+                padding: 5px;
+                border-radius: 5px;
+            }
+
             &-title {
-                color: $black-text-color;
+                color: $white-text-color;
                 font-family: $font-comfortaa;
                 font-weight: 400;
+                font-size: 30px;
+                text-shadow: -1px 1px 3px $black-text-color;
+                @include mobile576 {
+                    flex: 1;
+                    font-size: 22px;
+                }
+                @include mobile576 {
+                    font-size: 18px;
+                }
+            }
+
+            &-icon {
+                max-width: 50px;
+                max-width: 50px;
+                filter: invert(100%);
+
+                @include mobile375 {
+                    max-height: 40px;
+                }
             }
 
             &-text {
                 color: $black-text-color;
                 @include mobile768 {
                     display: none;
+                }
+            }
+
+            & a {
+                flex: 1;
+                display: flex;
+                justify-content: space-between;
+                align-items:center;
+                flex-direction: row;
+                width: 100%;
+                @include mobile576 {
                 }
             }
 
@@ -210,12 +265,20 @@
                 padding: 10px 20px;
                 font-size: 20px;
                 font-weight: 700;
-                width: 100%;
-                color: #fff;
+                color: #ffffff;
                 border: 1px solid white;
                 border-radius: 5px;
                 transition: all ease 0.1s;
                 box-shadow: 0px 5px 0px 0px #f4f4f4;
+
+                @include mobile576 {
+                    width: 135px;
+                }
+                @include mobile375 {
+                    width: 100px;
+                    padding: 10px;
+                    font-size: 16px;
+                }
                 }
                 
                 button:active {
