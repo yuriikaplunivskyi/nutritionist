@@ -1,0 +1,31 @@
+@import "../variables.scss";
+@import "../app.scss";
+
+.notfound {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    
+    height: calc(100vh - 100px);
+    @include laptop1280 {
+        padding: 20px 20px;
+    }
+
+    @include mobile576 {
+        padding: 10px 10px;
+        height: calc(100vh - 30px);
+    }
+
+    h2 {
+        font-size: 35px;
+        font-family: $font-tektur;
+    }
+
+    &-btn {
+        border: 1px solid $bg-white-color;
+        margin-top: 50px;
+        padding: 10px 20px;
+        border-radius: 5px;
+    }
+}
