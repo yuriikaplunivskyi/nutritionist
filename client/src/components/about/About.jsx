@@ -56,8 +56,8 @@ const slides = [
 
 const variants = {
     initial: {
-        x: 0,
-        y: 100,
+        x: -200,
+        y: 10,
         opacity:0
     },
     animate: {

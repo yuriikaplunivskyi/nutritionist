@@ -19,6 +19,7 @@
         margin: auto;
         display: grid;
         place-items: center;
+        grid-template-rows: auto;
         padding: 20px;
         grid-template-areas:
             " title title img img img img"
@@ -42,7 +43,7 @@
         }
         
         @include mobile576 {
-            grid-gap: none;
+            grid-template-rows: auto auto auto auto;
             grid-template-areas:
             " img  img"
             " title title "

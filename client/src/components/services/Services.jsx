@@ -6,8 +6,8 @@ import { Link } from "react-router-dom";
 
 const variants = {
     initial: {
-        x: 0,
-        y: 100,
+        x: -200,
+        y: 10,
         opacity:0
     },
     animate: {
@@ -16,7 +16,7 @@ const variants = {
         y: 0,
         transition: {
             duration: 1,
-            staggerChildren: 0.1
+            staggerChildren: 0.5
         }
     }
 }
@@ -57,7 +57,7 @@ const serviceData = [
             }
         ],
         path: "service_consultation",
-        icon: "../services/consultation.svg"
+        icon: "/services/consultation.svg"
     },
     {
         title: 'Місячний супровід з харчування',
@@ -113,7 +113,7 @@ const serviceData = [
             }
         ],
         path: "service_monthly_nutrition_support ",
-        icon: "../services/nutrition-support.svg"
+        icon: "/services/nutrition-support.svg"
     },
     {
         title: 'Супровід з тренувань',
@@ -164,7 +164,7 @@ const serviceData = [
             }
         ],
         path: "service_training_support",
-        icon: "../services/training.svg"
+        icon: "/services/training.svg"
     },
     {
         title: 'КОУЧИНГ',
@@ -219,7 +219,7 @@ const serviceData = [
             }
         ],
         path: "service_coaching",
-        icon: "../services/coaching.svg"
+        icon: "/services/coaching.svg"
         
     },
     {
@@ -279,7 +279,7 @@ const serviceData = [
             }
         ],
         path: "service_online_training",
-        icon: "../services/online_training.svg"
+        icon: "/services/online_training.svg"
     },
 ];
 
@@ -328,7 +328,13 @@ const Services = () => {
                     <button>Що робимо?</button>
                 </div>
             </motion.div>
-            <motion.div className="listContainer" variants={variants}>
+            <motion.div className="listContainer" 
+                variants={variants} 
+                animate={ isInView && "animate"} 
+                initial="initial" 
+                ref={ref} 
+                whileInView="animate" 
+            >
                 {serviceData.map((item) => 
                         (<motion.div 
                         className="box"

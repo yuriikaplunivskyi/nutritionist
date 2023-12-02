@@ -177,16 +177,21 @@
             flex: 1;
         }
 
+        @include mobile375 {
+            padding: 5px;
+        }
+
         .box {
             flex: 1;
-            padding: 25px;
+            padding: 15px;
             border: none;
             display: flex;
             flex-direction: column;
             justify-content: space-between;
+            align-items: center;
             gap: 10px;
             position: relative;
-            border-radius: 25px;
+            border-radius: 15px;
             box-shadow: 10px 10px 20px #a76f76,
                         -10px -10px 20px #d29199;
 
@@ -204,16 +209,18 @@
                 align-items: flex-start;
             }
 
+            @include mobile375 {
+                padding: 5px;
+            }
+
             @include mobile576 {
                 flex-direction: row;
                 justify-content: center;
                 align-items: center;
+                padding: auto;
+                border-radius:15px;
             }
 
-            @include mobile375 {
-                padding: 5px;
-                border-radius: 5px;
-            }
 
             &-title {
                 color: $white-text-color;
@@ -248,13 +255,15 @@
             }
 
             & a {
-                flex: 1;
                 display: flex;
                 justify-content: space-between;
                 align-items:center;
                 flex-direction: row;
                 width: 100%;
                 @include mobile576 {
+                    gap: 10px;
+                    justify-content: flex-end;
+                    align-items:flex-end;
                 }
             }
 
@@ -272,7 +281,7 @@
                 box-shadow: 0px 5px 0px 0px #f4f4f4;
 
                 @include mobile576 {
-                    width: 135px;
+                    width: 125px;
                 }
                 @include mobile375 {
                     width: 100px;

@@ -1,8 +1,9 @@
 import Loader from "../components/loader/Loader";
+import Cursor from "../components/cursor/Cursor";
 import  {lazy, Suspense } from "react";
 export const LazyHero = lazy(() => import("../components/hero/Hero"));
 export const LazyNavbar = lazy(() => import("../components/navbar/Navbar"));
-export const LazyCursor = lazy(() => import("../components/cursor/Cursor"));
+/* export const LazyCursor = lazy(() => import("../components/cursor/Cursor")); */
 
 export const LazyAbout = lazy(() => import("../components/about/About"));
 export const LazyReview = lazy(() => import("../components/reviews/Review"));
@@ -12,8 +13,9 @@ export const LazyParallax = lazy(() => import("../components/parallax/Parallax")
 function Home() {
     return (
         <main>
+        <Cursor/>
         <Suspense fallback={<div className="loader-container"><Loader/></div>}>
-        <LazyCursor/>
+
         <section id="homepage">
             <LazyNavbar/>
             <LazyHero/>
