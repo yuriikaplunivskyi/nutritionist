@@ -57,7 +57,7 @@ const serviceData = [
             }
         ],
         path: "service_consultation",
-        icon: "/img/services/consultation.svg"
+        icon: "./img/services/consultation.svg"
     },
     {
         title: 'Місячний супровід з харчування',
@@ -113,7 +113,7 @@ const serviceData = [
             }
         ],
         path: "service_monthly_nutrition_support ",
-        icon: "/img/services/nutrition-support.svg"
+        icon: "./img/services/nutrition-support.svg"
     },
     {
         title: 'Супровід з тренувань',
@@ -164,7 +164,7 @@ const serviceData = [
             }
         ],
         path: "service_training_support",
-        icon: "/img/services/training.svg"
+        icon: "./img/services/training.svg"
     },
     {
         title: 'КОУЧИНГ',
@@ -219,7 +219,7 @@ const serviceData = [
             }
         ],
         path: "service_coaching",
-        icon: "/img/services/coaching.svg"
+        icon: "./img/services/coaching.svg"
         
     },
     {
@@ -279,7 +279,7 @@ const serviceData = [
             }
         ],
         path: "service_online_training",
-        icon: "/img/services/online_training.svg"
+        icon: "./img/services/online_training.svg"
     },
 ];
 

@@ -1,4 +1,5 @@
 import { motion } from "framer-motion";
+import { Link } from "react-router-dom";
 
 const variants = {
     open: {
@@ -39,7 +40,7 @@ const Links = () => {
             variants={variants}
             >
             {items.map((item, index) => (
-                <a href={`/#${item.english}`}  key={index} >
+                <Link href={`#${item.english}`}  key={index} >
                     <motion.span
                         variants={itemVariants}
                         whileHover={{ scale: 1.1 }}
@@ -47,7 +48,7 @@ const Links = () => {
                         >
                         {item.ukrainian}
                     </motion.span>
-                </a>
+                </Link>
             ))}
         </motion.div>
     );
