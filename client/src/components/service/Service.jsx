@@ -8,7 +8,7 @@ const Service = () => {
     const selectedService = state.selectedService;
     
     if (!selectedService || !selectedService.passing) {
-    return  <Navigate to="/404" />;
+    return  <Navigate to="*" />;
     }
 
     return (
@@ -32,7 +32,6 @@ const Service = () => {
                 ))}
             </ul>
             </div>
-            {/* Assuming Accordions component receives data correctly */}
             <Accordions data={selectedService.warnings} />
         </div>
     </div>

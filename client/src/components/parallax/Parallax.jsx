@@ -33,8 +33,8 @@ const Parallax = ({type}) => {
                     rotate: yRotate,
                     backgroundImage:
                     `url(${type==="services"
-                        ? "./planets.png"
-                        : "./sun.png"})`}}
+                        ? "./img/planets.png"
+                        : "./img/sun.png"})`}}
             ></motion.div>
             <motion.div className="stars" style={{x: yBg}}></motion.div>
         </div>
