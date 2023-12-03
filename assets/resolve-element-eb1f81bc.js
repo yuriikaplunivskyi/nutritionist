@@ -1,1 +1,0 @@
-import{o as a}from"./index-f8c6617d.js";function v(r,i,o){var f;if(typeof r=="string"){let u=document;i&&(a(!!i.current),u=i.current),o?((f=o[r])!==null&&f!==void 0||(o[r]=u.querySelectorAll(r)),r=o[r]):r=u.querySelectorAll(r)}else r instanceof Element&&(r=[r]);return Array.from(r||[])}export{v as r};
