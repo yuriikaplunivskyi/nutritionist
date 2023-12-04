@@ -48,13 +48,14 @@ const Slider = (props) => {
                     <motion.div
                         key={item.id}
                         className={`slide ${index === i ? "active" : ""}`}
-                        initial={{ opacity: 0, x: 300 }}
+                        initial={{ opacity: 0, x: 300}}
                         animate={{
                             opacity: index === i ? 1 : 0,
-                            x: index === i ? 0 : (i > index ? 300 : -300)
+                            x: index === i ? 0 : (i > index ? 300 : -300),
+                            y: index === i ? 0 : (i > index ? 50 : 50)
                         }}
                         exit={{ opacity: 0, x: i > index ? 300 : -300 }}
-                        transition={{ duration: 0.5 }}
+                        transition={{ duration: .5 }}
                     >
                         <div className="slide-imgContainer">
                             <img src={item.img} alt={`Slide ${i}`} />

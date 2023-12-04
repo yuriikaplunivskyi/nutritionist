@@ -27,11 +27,11 @@ const itemVariants = {
 
 const Links = () => {
     const items = [
-        { english: "homepage", ukrainian: "Головна" },
-        { english: "about", ukrainian: "Про мене" },
-        { english: "reviews", ukrainian: "Як я працюю" },
-        { english: "services", ukrainian: "Послуги" },
-        { english: "contacts", ukrainian: "Контакти" }
+        { path: "homepage", title: "Головна" },
+        { path: "about", title: "Про мене" },
+        { path: "reviews", title: "Як я працюю" },
+        { path: "services", title: "Послуги" },
+        { path: "contacts", title: "Контакти" }
     ];
 
     return (
@@ -40,13 +40,13 @@ const Links = () => {
             variants={variants}
             >
             {items.map((item, index) => (
-                <Link href={`#${item.english}`}  key={index} >
+                <Link to={`#${item.path}`}  key={index} >
                     <motion.span
                         variants={itemVariants}
                         whileHover={{ scale: 1.1 }}
                         whileTap={{scale: 0.9}}
                         >
-                        {item.ukrainian}
+                        {item.title}
                     </motion.span>
                 </Link>
             ))}

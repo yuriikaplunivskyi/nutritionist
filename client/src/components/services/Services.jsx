@@ -57,7 +57,7 @@ const serviceData = [
             }
         ],
         path: "service_consultation",
-        icon: "./img/services/consultation.svg"
+        icon: "../../public/img/services/consultation.svg"
     },
     {
         title: 'Місячний супровід з харчування',
@@ -113,7 +113,7 @@ const serviceData = [
             }
         ],
         path: "service_monthly_nutrition_support ",
-        icon: "./img/services/nutrition-support.svg"
+        icon: "../../public/img/services/nutrition-support.svg"
     },
     {
         title: 'Супровід з тренувань',
@@ -164,7 +164,7 @@ const serviceData = [
             }
         ],
         path: "service_training_support",
-        icon: "./img/services/training.svg"
+        icon: "../../public/img/services/training.svg"
     },
     {
         title: 'КОУЧИНГ',
@@ -219,7 +219,7 @@ const serviceData = [
             }
         ],
         path: "service_coaching",
-        icon: "./img/services/coaching.svg"
+        icon: "../../public/img/services/coaching.svg"
         
     },
     {
@@ -279,7 +279,7 @@ const serviceData = [
             }
         ],
         path: "service_online_training",
-        icon: "./img/services/online_training.svg"
+        icon: "../../public/img/services/online_training.svg"
     },
 ];
 
@@ -342,7 +342,7 @@ const Services = () => {
                         >
                         <h2 className="box-title">{item.title}</h2>
                         
-                        <Link to={`/service/${item.path}`} state={{ selectedService: item }}>
+                        <Link to={`/service/${item.path}`} state={{ selectedService: item }} className="box-btn-container">
                             <img className="box-icon" src={item.icon} alt={`"icon" ${item.title}`} />
                             <button>Переглянути</button>
                             </Link>

@@ -13,30 +13,30 @@ export const LazyParallax = lazy(() => import("../components/parallax/Parallax")
 function Home() {
     return (
         <main>
-        <Cursor/>
-        <Suspense fallback={<div className="loader-container"><Loader/></div>}>
+            <Cursor/>
+            <Suspense fallback={<div className="loader-container"><Loader/></div>}>
 
-        <section id="homepage">
-            <LazyNavbar/>
-            <LazyHero/>
-        </section> 
-        <section id="about">
-            <LazyParallax type="reviews"/>
-        </section>
-        <section >
-            <LazyAbout/>
-        </section>
-        <LazyReview />
-        <section >
-            <LazyParallax type="services"/>
-        </section>
-        <section id="services">
-            <LazyServices/>
-        </section>
-        <section id="contacts">
-            <LazyContact/>
-        </section>
-        </Suspense>
+            <section id="homepage">
+                <LazyNavbar/>
+                <LazyHero/>
+            </section> 
+            <section id="about">
+                <LazyParallax type="reviews"/>
+            </section>
+            <section >
+                <LazyAbout/>
+            </section>
+            <LazyReview />
+            <section >
+                <LazyParallax type="services"/>
+            </section>
+            <section id="services">
+                <LazyServices/>
+            </section>
+            <section id="contacts">
+                <LazyContact/>
+            </section>
+            </Suspense>
         </main>
     )
 }
