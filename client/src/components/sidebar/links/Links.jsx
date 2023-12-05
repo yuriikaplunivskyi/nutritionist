@@ -40,7 +40,7 @@ const Links = () => {
             variants={variants}
             >
             {items.map((item, index) => (
-                <Link to={`#${item.path}`}  key={index} >
+                <Link to={`${location.pathname}#${item.path}`}  key={index} >
                     <motion.span
                         variants={itemVariants}
                         whileHover={{ scale: 1.1 }}

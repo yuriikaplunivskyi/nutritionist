@@ -1,4 +1,3 @@
-
 import Loader from "../components/loader/Loader";
 
 import Cursor from "../components/cursor/Cursor";

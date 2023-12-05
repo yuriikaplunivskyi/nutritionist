@@ -57,12 +57,12 @@ const serviceData = [
             }
         ],
         path: "service_consultation",
-        icon: "../../public/img/services/consultation.svg"
+        icon: "./img/services/consultation.svg"
     },
     {
         title: 'Місячний супровід з харчування',
         id: 2,
-        content: `Якщо ви мрієте про здорове та гармонійне харчування, то мій супровід - це те, що вам потрібно. Супровід - це не просто місяць нашого спілкування, а й ваша нагода отримати від мене все необхідне для досягнення вашої мети. Супровід - це ваша візитівка до нового рівня життя, де ви будете їсти не тільки для того, щоб жити, а й для того, щоб насолоджуватися. <b>Супровід</b> - це ваш шанс стати тим, ким ви хочете бути.`,
+        content: `Якщо ви мрієте про здорове та гармонійне харчування, то мій супровід - це те, що вам потрібно. Супровід - це не просто місяць нашого спілкування, а й ваша нагода отримати від мене все необхідне для досягнення вашої мети. Супровід - це ваша візитівка до нового рівня життя, де ви будете їсти не тільки для того, щоб жити, а й для того, щоб насолоджуватися. Супровід - це ваш шанс стати тим, ким ви хочете бути.`,
         passing: [
             {
                 option: `Aналіз вашої анкети та щоденнику харчування (заповненого протягом 3-5 днів)`,
@@ -113,7 +113,7 @@ const serviceData = [
             }
         ],
         path: "service_monthly_nutrition_support ",
-        icon: "../../public/img/services/nutrition-support.svg"
+        icon: "./img/services/nutrition-support.svg"
     },
     {
         title: 'Супровід з тренувань',
@@ -164,7 +164,7 @@ const serviceData = [
             }
         ],
         path: "service_training_support",
-        icon: "../../public/img/services/training.svg"
+        icon: "./img/services/training.svg"
     },
     {
         title: 'КОУЧИНГ',
@@ -219,7 +219,7 @@ const serviceData = [
             }
         ],
         path: "service_coaching",
-        icon: "../../public/img/services/coaching.svg"
+        icon: "./img/services/coaching.svg"
         
     },
     {
@@ -279,7 +279,7 @@ const serviceData = [
             }
         ],
         path: "service_online_training",
-        icon: "../../public/img/services/online_training.svg"
+        icon: "./img/services/online_training.svg"
     },
 ];
 
