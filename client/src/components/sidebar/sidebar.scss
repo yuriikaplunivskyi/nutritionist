@@ -31,18 +31,24 @@
 			align-items: center;
 			justify-content: center;
 			gap: 20px;
-		}
 
-    a {
-		font-size: $font-Alumni;
-		font-weight: 400;
-		font-size: 40px;
+			ul, li {
+				list-style-type:none;
+			}
+			
+			a {
+				font-size: $font-Alumni;
+				font-weight: 400;
+				font-size: 40px;
+				cursor: pointer;
+				
+				@include mobile768{
+					font-size: 35px;
+				}
 		
-		@include mobile768{
-			font-size: 35px;
+			}
 		}
 
-    }
 }
 	button {
 		width: 20px;

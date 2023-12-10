@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 const variants = {
     open: {
@@ -26,6 +26,8 @@ const itemVariants = {
 }
 
 const Links = () => {
+    
+    const navigate = useNavigate();
     const items = [
         { path: "homepage", title: "Головна" },
         { path: "about", title: "Про мене" },
@@ -35,22 +37,31 @@ const Links = () => {
     ];
 
     return (
-        <motion.div 
+        <motion.ul 
             className="links" 
             variants={variants}
             >
             {items.map((item, index) => (
-                <Link to={`${location.pathname}#${item.path}`}  key={index} >
-                    <motion.span
+                <li key={index} >
+                    <motion.a
                         variants={itemVariants}
                         whileHover={{ scale: 1.1 }}
                         whileTap={{scale: 0.9}}
+                        onClick={() => {
+                        if (item.path === "homepage") {
+                            navigate("/");
+                        } else {
+                            navigate(
+                            `/#${item.path}`,
+                            );
+                        }
+                        }}
                         >
                         {item.title}
-                    </motion.span>
-                </Link>
+                    </motion.a>
+                </li>
             ))}
-        </motion.div>
+        </motion.ul>
     );
 };
 

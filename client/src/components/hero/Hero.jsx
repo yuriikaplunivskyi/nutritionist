@@ -53,7 +53,7 @@ const Hero = () => {
                         <motion.button variants={textVariants}>Про мене</motion.button>
                         <motion.button variants={textVariants}>Зв&#39;язатися зі мною</motion.button>
                     </motion.div>
-                    <motion.img    
+                    <motion.img 
                         variants={textVariants}
                         animate="scrollButton"
                         src="./img/scroll.png" 
@@ -71,7 +71,7 @@ const Hero = () => {
                 NUTRITIONIST PERSONAL COACH HEALTH COACH  ---------------------------------------------            </motion.div>
             
             <div className="imageContainer">
-                <img src="./img/hero.png" alt="hero img" />
+                <img  src="./img/hero.png" alt="hero img" />
             </div>
         </div>
     )

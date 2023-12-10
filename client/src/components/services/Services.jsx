@@ -2,7 +2,6 @@ import "./services.scss";
 import { useRef} from "react";
 import { motion, useInView } from "framer-motion";
 import { Link } from "react-router-dom";
-/* import Popup from "../popup/Popup"; */
 
 const variants = {
     initial: {
@@ -285,19 +284,11 @@ const serviceData = [
 
 const Services = () => {
     const ref = useRef();
-    const isInView = useInView(ref, {margin: "-50px"})
-/*    const [selectedService, setSelectedService] = useState(null);
+    const isInView = useInView(ref, {margin: "-50px"});
 
-    const openPopup = (item) => {
-        setSelectedService(item);
-        document.body.classList.add("popup-open");
+    const handleServiceClick = (selectedService) => {
+        localStorage.setItem('selectedService', JSON.stringify(selectedService));
     };
-
-    const closePopup = () => {
-        setSelectedService(null);
-        document.body.classList.remove("popup-open");
-    }; */
-
     return (
         <div className="services-container">
         <motion.div 
@@ -321,10 +312,10 @@ const Services = () => {
                 >
                 <div className="title">        
                     <img src="./img/banana.JPG" alt="people" />
-                    <h2><motion.b whileHover={{color: "white"}}>Унікальні</motion.b> ідеї</h2>
+                    <h2><motion.b whileHover={{color: "#0f0a0a"}}>Унікальні</motion.b> ідеї</h2>
                 </div>
                 <div className="title">
-                    <h2><motion.b whileHover={{color: "white"}}>для вашого</motion.b> здоров&apos;я</h2>
+                    <h2><motion.b whileHover={{color: "#0f0a0a"}}>для вашого</motion.b> здоров&apos;я</h2>
                     <button>Що робимо?</button>
                 </div>
             </motion.div>
@@ -336,16 +327,21 @@ const Services = () => {
                 whileInView="animate" 
             >
                 {serviceData.map((item) => 
-                        (<motion.div 
-                        className="box"
-                        key={item.id}
+                        (
+                        <motion.div 
+                            className="box"
+                            key={item.id}
                         >
                         <h2 className="box-title">{item.title}</h2>
                         
-                        <Link to={`/service/${item.path}`} state={{ selectedService: item }} className="box-btn-container">
+                        <Link 
+                            className="box-btn-container" 
+                            to={{ pathname: `/service/${item.path}`}}
+                            onClick={() => handleServiceClick(item)}
+                            >
                             <img className="box-icon" src={item.icon} alt={`"icon" ${item.title}`} />
                             <button>Переглянути</button>
-                            </Link>
+                        </Link>
                         
                     </motion.div>)
                 )}

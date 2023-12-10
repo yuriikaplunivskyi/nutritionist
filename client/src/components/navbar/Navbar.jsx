@@ -9,7 +9,7 @@ import tiktokIcon from "/img/tiktok.svg";
 const Navbar = () => {
     return (
         <header className="navbar">
-        <Sidebar/>
+        <Sidebar />
             <div className="wrapper">
                 <ul className="social">
                     <li>

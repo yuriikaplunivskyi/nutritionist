@@ -4,15 +4,18 @@ import Cursor from "../components/cursor/Cursor";
 import  {lazy, Suspense } from "react";
 export const LazyService = lazy(() => import("../components/service/Service"));
 export const LazyNavbar = lazy(() => import("../components/navbar/Navbar"));
-/* export const LazyCursor = lazy(() => import("../components/cursor/Cursor")); */
+export const LazyContact = lazy(() => import("../components/contact/Contact"));
 const ServicePage = () => {
+
+
     return (
         <div>
             <>
             <Cursor/>
             <Suspense fallback={<div className="loader-container"><Loader/></div>}>
-                <LazyNavbar/>
-                <LazyService/>
+                <LazyNavbar />
+                <LazyService />
+                <LazyContact/>
             </Suspense>
             </>
         </div>
