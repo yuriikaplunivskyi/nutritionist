@@ -1,30 +1,22 @@
 import { useParams } from "react-router-dom";
 import Accordions from "../accordion/Accordions";
 import "./service.scss";
-import { useEffect, useState } from "react";
+import dotsLoading from "/icon/dots-loading.gif";
+import useServiceData from '../../hooks/useServiceData';
 
-const Service = ({ serviceData }) => {
+
+const Service = () => {
+    const { serviceData } = useServiceData();
     const { serviceId } = useParams();
-    const [selectedService, setSelectedService] = useState(null);
 
-    useEffect(() => {
-        const storedService = localStorage.getItem('selectedService');
-        if (storedService) {
-            setSelectedService(JSON.parse(storedService));
-        } else {
-            const serviceFromData = serviceData.find((service) => service.path === serviceId);
-            if (serviceFromData) {
-                setSelectedService(serviceFromData);
-            } else {
-                console.error(`Service with path ${serviceId} not found in serviceData`);
-            }
-        }
-    }, [serviceId, serviceData]);
+    const selectedService = serviceData.find((service) => service.path === serviceId);
 
     if (!selectedService) {
-        return <div>Loading...</div>;
+        return <div>
+                    <span>Loading</span>
+                    <img src={dotsLoading} alt='loading'/>
+                </div>;
     }
-
 
     return (
     <div className="service">
