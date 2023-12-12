@@ -76,6 +76,7 @@
             @include mobile576 {
                 padding: 0 ;
                 width: 100%;
+                justify-content: center;
             }
 
             .imageContainer {
@@ -83,6 +84,10 @@
                 display: flex;
                 align-items: center;
                 justify-content: center;
+
+                @include laptop1280 {
+                    flex: .5;
+                }
 
                 @include mobile768 {
                     width: 100%;
@@ -94,6 +99,8 @@
                     max-height: 35%;
                     padding: 0 20px;
                     max-width: 100%;
+                    margin: 0;
+                    margin-top: 60px;
                 }
 
                 img {
