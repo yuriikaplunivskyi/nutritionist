@@ -41,8 +41,8 @@
                 font-size: 17px;
             }
 
-            @include mobile320 {
-                font-size: 16px;
+            @include mobile430 {
+                font-size: 14px;
             }
         }
         hr {
@@ -74,6 +74,10 @@
             width: 100%;
         }
 
+        @include mobile430 {
+            padding: 10px;
+        }
+
         .title {
             display: flex;
             align-items: center;
@@ -91,8 +95,9 @@
                 gap: 20px;
             }
 
-            @include mobile375 {
+            @include mobile430 {
                 gap: 5px;
+                flex-direction: column-reverse;
             }
 
             img {
@@ -119,6 +124,10 @@
 
                 @include mobile768 {
                     font-size: 36px;
+                }
+
+                @include mobile430 {
+                    font-size: 30px;
                 }
 
                 b {
@@ -156,6 +165,10 @@
                     font-size: 16px;
                     width: 150px;
                     height: 50px;
+                }
+
+                @include mobile430 {
+                    display: none;
                 }
             }
         }
@@ -294,7 +307,7 @@
                 @include mobile375 {
                     width: 100px;
                     padding: 10px;
-                    font-size: 16px;
+                    font-size: 12px;
                 }
                 }
                 
