@@ -2,13 +2,12 @@
 @import "../../variables.scss";
 
 .contact {
-    min-height: 200%;
+    height: 100%;
     max-width: 1366px;
     margin: auto;
     display: flex;
     align-items: center;
     gap: 50px;
-    
 
     @include laptop1280 {
         padding: 20px 50px;
