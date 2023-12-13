@@ -47,6 +47,10 @@
         @include mobile768 {
             text-align: center;
         }
+
+        @include mobile430 {
+            padding: 35px;
+        }
     }
 
     &-icon {

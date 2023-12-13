@@ -44,6 +44,10 @@
 				
 				@include mobile768{
 					font-size: 35px;
+					text-align: center;
+				}
+				@include mobile430{
+					font-size: 30px;
 				}
 		
 			}

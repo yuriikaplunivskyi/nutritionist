@@ -64,11 +64,14 @@
 
             @include mobile576 {
                 text-align: center;
-                margin-left: 20px;
+                margin-left: 30px;
+                line-height: 35px;
             }
 
-            @include mobile375 {
-                font-size: 32px;
+            @include mobile430 {
+                font-size: 30px;
+                line-height: 30px;
+                margin-left: 100px;
             }
         }
         h3 {
@@ -95,6 +98,10 @@
 
         @include mobile576 {
             padding: 25px 0;
+        }
+
+        @include mobile430 {
+            padding: 10px 0;
         }
 
         .phoneSvg {
@@ -132,7 +139,7 @@
             border-radius: 5px;
             resize: none;
             font-family: $font-tektur;
-            font-size: 20px;
+            font-size: 18px;
             @include mobile375 {
                 padding: 15px;
                 
