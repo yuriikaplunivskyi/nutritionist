@@ -5,8 +5,9 @@ import  {lazy, Suspense } from "react";
 export const LazyService = lazy(() => import("../components/service/Service"));
 export const LazyNavbar = lazy(() => import("../components/navbar/Navbar"));
 export const LazyContact = lazy(() => import("../components/contact/Contact"));
-const ServicePage = () => {
 
+
+const ServicePage = () => {
 
     return (
         <div>
@@ -15,7 +16,9 @@ const ServicePage = () => {
             <Suspense fallback={<div className="loader-container"><Loader/></div>}>
                 <LazyNavbar />
                 <LazyService />
-                <LazyContact/>
+                {/* <section>
+                    <LazyContact/>
+                </section> */}
             </Suspense>
             </>
         </div>

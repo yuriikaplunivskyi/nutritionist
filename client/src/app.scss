@@ -114,13 +114,16 @@ article {
     scroll-snap-align: center;
 }
 section {
-    height: 100vh;
     height: 100dvh;
     scroll-snap-align: center;
     overflow: hidden;
 
     @include mobile768 {
         height: 100dvh;
+    }
+
+    @include mobile576 {
+        margin-bottom: 50px;
     }
 }
 

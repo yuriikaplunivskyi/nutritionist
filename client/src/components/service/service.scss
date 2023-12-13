@@ -8,14 +8,15 @@
     padding: 40px 80px;
     max-width: 1366px;
     box-sizing: border-box;
-    height: calc(100vh - 80px);
+    margin-top: 0;/* 
+    height: calc(100vh - 80px); */
     @include laptop1280 {
         padding: 20px 20px;
     }
 
     @include mobile576 {
-        padding: 10px 10px;
-        height: calc(100vh - 30px);
+        padding: 10px 10px;/* 
+        height: calc(100vh - 30px); */
     }
     
     &-container{
@@ -24,15 +25,14 @@
         flex-direction: column;
         justify-content: center;
         align-items: center;
-        padding: 50px 200px;
 
-        @include laptop1280 {
+        /* @include laptop1280 {
             padding: 40px 40px;
         }
 
         @include mobile768 {
             padding: 10px 15px;
-        }
+        } */
     }
     &-title {
         font-size: 30px;
@@ -65,14 +65,15 @@
     ol {
         font-family: $font-comfortaa;
         font-weight: 300;
-        font-size: 28px;
         margin-top: 20px;
         background: white;
         border-radius: 25px;
         padding: 50px;
+        @include mobile576 {
+            padding: 10px 5px 10px 25px;
+        }
 
         @include mobile375 {
-            margin-left: 30px;
             margin-top: 15px;
             font-size: 25px;
         }
@@ -91,6 +92,10 @@
             font-size: 30px;
             font-weight: 500;
             font-family: $font-comfortaa;
+
+            @include mobile576 {
+                font-size: 28px;
+            }
         }
     }
     &-text {
