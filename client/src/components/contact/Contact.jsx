@@ -1,10 +1,8 @@
 import "./contact.scss";
-import { useRef, useState } from "react";
+import { useRef} from "react";
 import { motion, useInView } from "framer-motion";
 import { useForm } from "react-hook-form";
-import { yupResolver } from "@hookform/resolvers/yup";
-import * as yup from "yup";
-import emailjs from "@emailjs/browser";
+import useContactForm from "../../hooks/useContactForm";
 
 const variants = {
     initial: {
@@ -22,54 +20,17 @@ const variants = {
     }
 }
 
-const schema = yup.object({
-    name: yup
-        .string()
-        .required('Ім\'я є обов\'язковим полем')
-        .min(2, 'Мінімум 2 символів')
-        .max(140, 'Максимум 140 символів')
-        .matches(/^[A-Za-zА-Яа-яҐґЄєІіЇї]+$/, 'Ім\'я повинно містити літери'),
-    email: yup
-        .string()
-        .required('Електронна пошта є обов\'язковим полем')
-        .email('Некоректний формат @email'),
-    message: yup
-        .string()
-        .required('Повідомлення є обов\'язковим полем')
-        .min(10, 'Мінімум 10 символів')
-        .max(240, 'Максимум 240 символів')
-        .matches(/^[A-Za-z0-9А-Яа-яҐґЄєІіЇї]+$/, 'Допустимі латинські та кириличні літери, та цифри'),
-    });
 
 const Contact = () => {
     const ref = useRef();
-    const formRef = useRef();
-    const [error, setError] = useState(null);
-    const [success, setSuccess] = useState(false);
+    const { formRef, error, success, handleSubmit, validationSchema } = useContactForm();
     
-    const {
-        register,
-        handleSubmit,
-        formState: { errors },
-        } = useForm({
-            resolver: yupResolver(schema),
-        })
+    const { register, handleSubmit: hookFormHandleSubmit, formState: { errors } } = useForm({
+        resolver: validationSchema,
+    });
 
     const isInView = useInView(ref, { margin:"-100px" });
 
-    const sendEmail = (data) => {
-
-        emailjs.sendForm('service_jg9jdpa', 'template_fm6flo8', formRef.current, '-6q0vNkbrH6QslrGg')
-            .then((result) => {
-                setSuccess(true);
-                formRef.current.reset({ name: '', email: '', message: '' });
-                setTimeout(() => {
-                    setSuccess(false);
-                }, 3000);
-            }, (error) => {
-                setError(true);
-            })
-    }
 
     return (
         <motion.div 
@@ -83,12 +44,11 @@ const Contact = () => {
                 <motion.h2>Попрацюємо разом</motion.h2>
 
                 <motion.div className="item" variants={variants}>
-                    <h3>E-mail</h3>
-                    <span></span>
+                    <h3>E-mail:</h3>
                     <a href="mailto:katerynakaplunivska@gmail.com">katerynakaplunivska@gmail.com</a>
                 </motion.div>
                 <motion.div className="item" variants={variants}>
-                    <h3>Telegram</h3>
+                    <h3>Telegram:</h3>
                     <a href="https://t.me/kateryna_kaplunivska">@kateryna_kaplunivska</a>
                 </motion.div>
 
@@ -125,9 +85,8 @@ const Contact = () => {
                 </motion.div>
 
                 <motion.form 
-                    onSubmit={handleSubmit(sendEmail)}
+                    onSubmit={hookFormHandleSubmit((data) => handleSubmit(data))} ref={formRef}
                     action=""
-                    ref={formRef}
                     initial={{ opacity: 0 }}
                     whileInView={{ opacity: 1 }}
                     transition={{ delay: 2.5, duration: 1 }}
