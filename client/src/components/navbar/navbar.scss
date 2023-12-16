@@ -3,7 +3,6 @@
 
 .navbar {
     height: 100px;
-    z-index: -1;
 
     @include mobile576 {
         height: 30px;
