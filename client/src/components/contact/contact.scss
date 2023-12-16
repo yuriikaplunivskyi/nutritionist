@@ -38,7 +38,8 @@
             gap: 10px;
             margin-top: 20px;
         }
-        @include mobile375 {
+        @include mobile430 {
+            flex: .7;
             margin-top: 0;
         }
 
@@ -84,6 +85,19 @@
             
             font-weight: 300;
             font-family: $font-comfortaa;
+        }
+
+        .item {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: flex-start;
+
+            @include mobile430 {
+                flex-direction: row;
+                align-items: space-between;
+                gap: 5px;
+            }
         }
     }
     .formContainer {
