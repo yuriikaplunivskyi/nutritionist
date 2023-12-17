@@ -5,16 +5,17 @@ import { useForm } from 'react-hook-form';
 
 const variants = {
     initial: {
-        x: -500,
+        x: 500,
+        y: 50,
         opacity: 0,
         
     },
     animate: {
         x: 0,
+        y: 0,
         opacity: 1,
         transition: {
-            duration: 0.5,
-            staggerChildren: 0.1
+            duration: 0.5
         }
     }
 }
@@ -26,8 +27,11 @@ const FormService = () => {
     });
 
     return (
-        <motion.form 
-                    onSubmit={hookFormHandleSubmit((data) => handleSubmit(data))} ref={formRef}
+        <div className='form-container'>
+            <h5 className='form-title'>Важлива частина, це звязатися зі мною. </h5>
+            <motion.form 
+                    onSubmit={hookFormHandleSubmit((data) => handleSubmit(data))} 
+                    ref={formRef}
                     action=""
                     className="form" 
                     variants={variants} 
@@ -64,7 +68,7 @@ const FormService = () => {
                             name="message" 
                             id="message" 
                             rows={8} 
-                            placeholder="Повідомлення"
+                            placeholder="Повідомлення(Додаткова інформація, контакти: telegram, viber ...)"
                             className={`input ${errors && errors.message ? 'error' : ''}`}
                             {...register('message')}
                             
@@ -76,9 +80,8 @@ const FormService = () => {
                     <button type="submit" disabled={success || error}>
                         {success ? 'Успішно відправлено' : error ? 'Помилка при відправці' : 'Відправити'}
                     </button>
-                    {/* {success && <p className="success-message">Успішно відправлено</p>} 
-                    {error && <p className="error-message">Помилка при відправці</p>}  */}
-                </motion.form>
+        </motion.form>
+        </div>
     )
 }
 
