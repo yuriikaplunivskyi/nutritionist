@@ -66,7 +66,7 @@
         justify-content: center;
         align-items: center;
 
-        @include mobile320 {
+        @include mobile375 {
             display: none;
         }
 
