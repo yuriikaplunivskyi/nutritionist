@@ -10,7 +10,7 @@ import useServiceData from '../../hooks/useServiceData';
 
 const variants = {
     initial: {
-        /* y: 500, */
+        y: 500,
         x: -250,
         opacity: 0,
         
