@@ -26,7 +26,7 @@ function Home() {
             <section >
                 <LazyAbout/>
             </section>
-            <LazyReview />
+            <LazyReview id="reviews" />
             <section >
                 <LazyParallax type="services"/>
             </section>

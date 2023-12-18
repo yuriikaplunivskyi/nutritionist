@@ -1,4 +1,4 @@
-import { useRef, useState } from "react";
+import { useRef, useState, useCallback  } from "react";
 import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";
 import emailjs from "@emailjs/browser";
@@ -27,7 +27,7 @@ const useContactForm = () => {
     const [error, setError] = useState(null);
     const [success, setSuccess] = useState(false);
 
-    const sendEmail = (data) => {
+    const sendEmail = useCallback((data) => {
         emailjs
         .sendForm(
         'service_jg9jdpa',
@@ -47,7 +47,7 @@ const useContactForm = () => {
             setError(true);
             }
         );
-    };
+    }, []);
 
     return {
         formRef,

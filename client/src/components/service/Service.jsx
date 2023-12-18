@@ -10,13 +10,11 @@ import useServiceData from '../../hooks/useServiceData';
 
 const variants = {
     initial: {
-        y: 500,
         x: -250,
         opacity: 0,
         
     },
     animate: {
-        y: 0,
         x: 0,
         opacity: 1,
         transition: {

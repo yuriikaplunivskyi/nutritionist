@@ -27,13 +27,13 @@ const FormService = () => {
     });
 
     return (
-        <div className='form-container'>
-            <h5 className='form-title'>Важлива частина, це звязатися зі мною. </h5>
+        <div className='formService-container'>
+            <h5 className='formService-title'>Важлива частина, це звязатися зі мною. </h5>
             <motion.form 
                     onSubmit={hookFormHandleSubmit((data) => handleSubmit(data))} 
                     ref={formRef}
                     action=""
-                    className="form" 
+                    className="formService" 
                     variants={variants} 
                     initial="initial" 
                     whileInView="animate"
