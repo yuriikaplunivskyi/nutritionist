@@ -15,8 +15,8 @@ const ServicePage = () => {
             <Cursor/>
             <Suspense fallback={<div className="loader-container"><Loader/></div>}>
                 <LazyNavbar />
-                <LazyService />{/* 
-                <LazyFormService/> */}
+                <LazyService />
+                <LazyFormService/>
             </Suspense>
             </>
         </div>
