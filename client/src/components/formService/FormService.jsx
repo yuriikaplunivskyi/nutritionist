@@ -5,12 +5,12 @@ import { useForm } from 'react-hook-form';
 
 const variants = {
     initial: {
-        x: 500,
+        y: 150,
         opacity: 0,
         
     },
     animate: {
-        x: 0,
+        y: 0,
         opacity: 1,
         transition: {
             duration: 0.5
@@ -26,7 +26,10 @@ const FormService = () => {
 
     return (
         <div className='formService-container'>
-            <h5 className='formService-title'>Важлива частина, це звязатися зі мною. </h5>
+            <motion.h5 variants={variants} 
+                    initial="initial" 
+                    whileInView="animate"
+                    className='formService-title'>Важлива частина, це звязатися зі мною. </motion.h5>
             <motion.form 
                     onSubmit={hookFormHandleSubmit((data) => handleSubmit(data))} 
                     ref={formRef}

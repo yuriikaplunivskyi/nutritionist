@@ -6,7 +6,6 @@
     flex-direction: column; 
     margin: auto;
     padding: 50px 0;
-    overflow: hidden;
 
     @include mobile430 {
         padding: 10px; 
@@ -33,7 +32,8 @@
         justify-content: center;
         flex-direction: column;
         align-items: center;
-        margin: auto; 
+        margin: auto;
+        overflow: hidden;
     }
 
     &-title {
