@@ -122,13 +122,13 @@ article {
     scroll-padding-top: 1px;
 }
 section {
-    height: 100dvh;
+    height: 100vh;
     scroll-snap-align: center;
     overflow: hidden;
     scroll-padding-top: 1px;
 
     @include mobile768 {
-        height: 100dvh;
+        height: 100vh;
     }
 }
 
