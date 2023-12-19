@@ -26,8 +26,7 @@
             color: $white-text-color;
 
             @include mobile576 {
-                margin: auto;/* 
-                text-align: right; */
+                text-align: right;
             }
 
             
