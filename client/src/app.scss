@@ -115,18 +115,20 @@ a {
     
 
 article {
-    height: 100vh;
-    scroll-snap-align:start;
+    height: 100dvh;
+    scroll-snap-align:start ;
     overflow: hidden;
     margin-top: 0;
 }
 section {
-    height: 100vh;
+    height: 100dvh;
     scroll-snap-align: center;
     overflow: hidden;
+    margin-top: 0;
+    top: 0;
 
     @include mobile768 {
-        min-height: 100vh;
+        min-height: 100dvh;
     }
 }
 
