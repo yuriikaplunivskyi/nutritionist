@@ -53,6 +53,11 @@
         @include mobile375 {
             margin: 0;
             padding: 5px ;
+            grid-template-areas:
+            " title title "
+            "text text"
+            " slider slider"
+            " slider slider";
         }
     }
     &-imgContainer {
@@ -149,7 +154,7 @@
         }
 
         @include mobile375 {
-            margin-top: 10px;
+            margin: 0;
             padding-left: 85px;
             font-size: 24px;
         }

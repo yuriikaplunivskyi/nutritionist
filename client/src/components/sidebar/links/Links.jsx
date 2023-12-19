@@ -51,7 +51,7 @@ const Links = () => {
                             whileHover={{ scale: 1.1 }}
                             whileTap={{ scale: 0.9 }}
                         >
-                            <HashLink to={`#${item.path}`} smooth="true">
+                            <HashLink to={`#${item.path.toLowerCase()}`} smooth>
                                 {item.title}
                             </HashLink>
                         </motion.span>
