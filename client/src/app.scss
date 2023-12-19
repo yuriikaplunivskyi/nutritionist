@@ -130,7 +130,7 @@ section {
     scroll-padding-top: 1px;
 
     @include mobile768 {
-        height: 100vh;
+        height: 100%;
     }
 }
 
