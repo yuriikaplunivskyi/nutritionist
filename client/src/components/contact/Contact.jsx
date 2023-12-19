@@ -29,15 +29,13 @@ const Contact = () => {
     });
     const isInView = useInView(ref, { margin:"-100px" });
     const [isKeyboardOpen, setIsKeyboardOpen] = useState(false);
+
     useEffect(() => {
         const handleResize = () => {
-        const windowHeight = window.innerHeight;
+        const viewportHeight = window.visualViewport.height;
+        const documentHeight = document.documentElement.clientHeight;
 
-        const keyboardHeight = windowHeight - document.documentElement.clientHeight;
-
-        const isOpen = keyboardHeight > 200;
-
-        setIsKeyboardOpen(isOpen);
+        setIsKeyboardOpen(viewportHeight < documentHeight);
     };
 
     window.addEventListener('resize', handleResize);
