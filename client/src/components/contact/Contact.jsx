@@ -1,5 +1,5 @@
 import "./contact.scss";
-import { useRef} from "react";
+import { useEffect, useRef, useState} from "react";
 import { motion, useInView } from "framer-motion";
 import { useForm } from "react-hook-form";
 import useContactForm from "../../hooks/useContactForm";
@@ -24,13 +24,28 @@ const variants = {
 const Contact = () => {
     const ref = useRef();
     const { formRef, error, success, handleSubmit, validationSchema } = useContactForm();
-    
     const { register, handleSubmit: hookFormHandleSubmit, formState: { errors } } = useForm({
         resolver: validationSchema,
     });
-
     const isInView = useInView(ref, { margin:"-100px" });
+    const [isKeyboardOpen, setIsKeyboardOpen] = useState(false);
+    useEffect(() => {
+        const handleResize = () => {
+        const windowHeight = window.innerHeight;
 
+        const keyboardHeight = windowHeight - document.documentElement.clientHeight;
+
+        const isOpen = keyboardHeight > 200;
+
+        setIsKeyboardOpen(isOpen);
+    };
+
+    window.addEventListener('resize', handleResize);
+
+    return () => {
+        window.removeEventListener('resize', handleResize);
+    };
+    }, []);
 
     return (
         <motion.div 
@@ -53,7 +68,7 @@ const Contact = () => {
                 </motion.div>
 
             </motion.div>
-            <div className="formContainer">
+            <div className="formContainer" style={{ bottom: isKeyboardOpen ? '200px' : '0' }}>
                 <motion.div
                     className="phoneSvg"
                     initial={{ opacity: 1 }}

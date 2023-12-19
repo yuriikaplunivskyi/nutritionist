@@ -46,7 +46,7 @@ const Links = () => {
             ( 
                 items.map((item, index) => (
                     <li key={index}>
-                        <HashLink to={`#${item.path.toLowerCase()}`} smooth>
+                        <HashLink to={`${item.path.toLowerCase()}`} smooth>
                             <motion.span
                                 variants={itemVariants}
                                 whileHover={{ scale: 1.1 }}
