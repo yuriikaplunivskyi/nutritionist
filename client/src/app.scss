@@ -119,19 +119,17 @@ article {
     width: 100%;
     scroll-snap-align: center;
     overflow: hidden;
+    scroll-padding-top: 1px;
 }
 section {
     height: 100dvh;
     scroll-snap-align: center;
     overflow: hidden;
+    scroll-padding-top: 1px;
 
     @include mobile768 {
         height: 100dvh;
     }
-
-    /* @include mobile576 {
-        margin-bottom: 50px;
-    } */
 }
 
 
