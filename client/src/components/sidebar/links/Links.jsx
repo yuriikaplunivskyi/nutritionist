@@ -30,11 +30,11 @@ const itemVariants = {
 
 const Links = () => {
     const items = [
-        { path: "homepage", title: "Головна" },
-        { path: "about", title: "Про мене" },
-        { path: "reviews", title: "Як я працюю" },
-        { path: "services", title: "Послуги" },
-        { path: "contacts", title: "Контакти" },
+        { path: "#homepage", title: "Головна" },
+        { path: "#about", title: "Про мене" },
+        { path: "#reviews", title: "Як я працюю" },
+        { path: "#services", title: "Послуги" },
+        { path: "#contacts", title: "Контакти" },
     ];
 
     const location = useLocation();
