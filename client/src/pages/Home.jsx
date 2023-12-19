@@ -33,9 +33,9 @@ function Home() {
             <section id="services">
                 <LazyServices/>
             </section>
-            {/* <section id="contacts">
+            <section id="contacts">
                 <LazyContact/>
-            </section> */}
+            </section>
             </Suspense>
         </main>
     )
