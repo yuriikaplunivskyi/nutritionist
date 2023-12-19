@@ -116,6 +116,7 @@
 
         @include mobile430 {
             padding: 10px 0;
+            scroll-snap-align: start;
         }
 
         .phoneSvg {
