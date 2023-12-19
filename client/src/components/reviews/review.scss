@@ -105,13 +105,13 @@
 
                 img {
                     width: 100%;
-                    height: 35%;
+                    height: 100%;
                     object-fit: cover;
                     border-radius: 30px;
 
-                    @include mobile768 {
+                    /* @include mobile768 {
                         object-fit: cover;
-                    }
+                    } */
 
                 }
             }

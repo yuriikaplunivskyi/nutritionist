@@ -115,8 +115,8 @@ a {
     
 
 article {
-    width: 100%;
-    scroll-snap-align: center;
+    height: 100vh;
+    scroll-snap-align:start;
     overflow: hidden;
     margin-top: 0;
 }
