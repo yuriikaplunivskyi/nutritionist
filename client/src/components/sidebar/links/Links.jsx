@@ -51,7 +51,7 @@ const Links = () => {
                                 whileHover={{ scale: 1.1 }}
                                 whileTap={{ scale: 0.9 }}
                             >
-                                <HashLink to={`${item.path}`} smooth>{item.title}</HashLink>
+                                <a href={`${item.path}`} >{item.title}</a>
                             </motion.span>
                     </li>
 
@@ -62,7 +62,7 @@ const Links = () => {
                         whileHover={{ scale: 1.1 }}
                         whileTap={{ scale: 0.9 }}
                     >
-                    <Link to="/">Головна</Link>
+                    <Link to="/#services">Головна</Link>
                 </motion.span>
             )}
         </motion.ul>
