@@ -33,8 +33,7 @@ const Services = () => {
     }; */
 
     if (loading) {
-        return <div>
-                    <span>Loading</span>
+        return <div className="loading">
                     <img src={dotsLoading} alt='loading'/>
                 </div>;
         }

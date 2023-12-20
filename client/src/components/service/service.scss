@@ -18,14 +18,6 @@
         padding: 10px 10px;/* 
         height: calc(100vh - 30px); */
     }
-
-    &-loading {
-        margin: auto;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        max-width: 40px;
-    }
     
     &-container{
         backdrop-filter: blur(5px);

@@ -33,7 +33,7 @@ const Service = () => {
     const selectedService = serviceData.find((service) => service.path === serviceId);
 
     if (!selectedService) {
-        return <div className="service-loading">
+        return <div className="loading">
                     <img src={dotsLoading} alt='loading'/>
                 </div>;
     }
