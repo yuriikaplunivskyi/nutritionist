@@ -115,14 +115,14 @@ a {
     
 
 article {
-    height: 100dvh;
+    height: 100vh;
     scroll-snap-align:start ;
     overflow: hidden;
     margin-top: 0;
 }
 section {
-    height: 100dvh;
-    scroll-snap-align: center;
+    height: 100vh;
+    scroll-snap-align: start;
     overflow: hidden;
     margin-top: 0;
     margin-bottom: 0;
@@ -130,7 +130,7 @@ section {
     bottom: 0;
 
     @include mobile768 {
-        min-height: 100dvh;
+        min-height: 100vh;
     }
 }
 
