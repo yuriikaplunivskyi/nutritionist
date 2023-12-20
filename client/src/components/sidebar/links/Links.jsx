@@ -48,10 +48,12 @@ const Links = () => {
                     <li key={index}>
                             <motion.span
                                 variants={itemVariants}
-                                whileHover={{ scale: 1.1 }}
-                                whileTap={{ scale: 0.9 }}
+                                onHoverStart={{ scale: 1.1 }}
+                                onHoverEnd={{ scale: 1 }}
+                                onTapStart={{ scale: 0.9 }}
+                                onTapEnd={{ scale: 1 }}
                             >
-                                <HashLink to={`${item.path.toLowerCase()}`} smooth>{item.title}</HashLink>
+                                <HashLink to={`${item.path}`} smooth>{item.title}</HashLink>
                             </motion.span>
                     </li>
 
