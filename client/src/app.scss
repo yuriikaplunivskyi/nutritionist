@@ -125,7 +125,9 @@ section {
     scroll-snap-align: center;
     overflow: hidden;
     margin-top: 0;
+    margin-bottom: 0;
     top: 0;
+    bottom: 0;
 
     @include mobile768 {
         min-height: 100dvh;
