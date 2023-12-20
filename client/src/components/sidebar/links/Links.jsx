@@ -43,15 +43,17 @@ const Links = () => {
     return (
         <motion.ul className="links" variants={variants}>
             {isHomepage ? 
-            (items.map((item, index) => (
-                <HashLink key={index} as="a" to={`${item.path}`} smooth>
-                    <motion.li variants={itemVariants}
-                    whileHover={{ scale: 1.1 }}
-                    whileTap={{ scale: 0.9 }}>
-                        {item.title}
+                (items.map((item, index) => (
+                    <motion.li key={index} 
+                        variants={itemVariants}
+                        whileHover={{ scale: 1.1 }}
+                        whileTap={{ scale: 0.9 }}
+                        >
+                        <HashLink  as="a" to={`${item.path}`} smooth>
+                            {item.title}
+                        </HashLink>
                     </motion.li>
-                </HashLink>
-            ))
+                ))
             ) : (
                 <motion.span
                         variants={itemVariants}
