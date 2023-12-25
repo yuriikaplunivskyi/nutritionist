@@ -50,11 +50,11 @@ const Service = () => {
             whileInView="animate" variants={variants}>
             <h2 className="service-title">{selectedService.title}</h2>
             {/* <img className="service-icon" src={selectedService.icon} alt={`"icon" ${selectedService.title}`} /> */}
-            <p className="service-text">{selectedService.content}</p>
+            <p className="service-text">{selectedService.descr}</p>
             <ol>
                 <span>Як проходить</span>
                 {selectedService.passing.map((pass) => (
-                <li key={pass.id}>{pass.option}</li>
+                <li key={pass.id}>{pass.stage}</li>
                 ))}
             </ol>
 
