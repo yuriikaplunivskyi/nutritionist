@@ -38,6 +38,11 @@ app.get("/services", (req, res) => {
     })
 })
 
+app.post("/services", (req, res) => {
+    const q = 
+    "INSERT INTO service (`title`, `descr`, `passing`, `prices`, `warnings`, `path`, `icon`) VALUE(?)"
+})
+
 app.listen(8800, () => {
     console.log("Connected to backend!")
 })
