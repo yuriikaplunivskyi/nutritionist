@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react';
+import axios from 'axios';
 
 const fakeServiceData = [
     {
@@ -265,9 +266,56 @@ const useServiceData = () => {
     const [loading, setLoading] = useState(true);
 
     useEffect(() => {
-        const fetchServiceData = async () => {
+        const fetchAllServiceData = async () => {
             try {
-                const response = await fetch('URL_ДО_API');
+                const response = await axios.get("http://localhost:8800/services");
+                const parsedData = response.data.map(item => {
+                    return {
+                        ...item,
+                        passing: JSON.parse(item.passing),
+                        prices: JSON.parse(item.prices),
+                        warnings: JSON.parse(item.warnings),
+                    };
+                });
+    
+                setServiceData(parsedData);
+                console.log(response.data);
+    
+                setLoading(false);
+            } catch (error) {
+                console.log(error);
+                console.error('Error fetching service data:', error);
+                setServiceData(fakeServiceData);
+                setLoading(false);
+            }
+        };
+    
+        fetchAllServiceData();
+    }, []);
+    
+
+
+    return { serviceData, loading };
+};
+
+export default useServiceData;
+
+/*
+    useEffect(() => {
+        const fetchAllServiceData = async () => {
+            try {
+                const response = await axios.get("http://localhost:8800/services");
+                const parsedData = response.data.map(item => {
+                    return {
+                        ...item,
+                        passing: JSON.parse(item.passing),
+                        prices: JSON.parse(item.prices),
+                        warnings: JSON.parse(item.warnings),
+                    };
+                });
+
+                setServiceData(parsedData);
+                console.log(response.data);
                 if (!response.ok) {
                     throw new Error('Network response was not ok');
                 }
@@ -279,7 +327,7 @@ const useServiceData = () => {
                 } else {
                     console.error('Invalid JSON response:', data);
                     setServiceData(fakeServiceData);
-                }
+                } 
 
                 setLoading(false);
             } catch (error) {
@@ -289,10 +337,5 @@ const useServiceData = () => {
             }
         };
 
-        fetchServiceData();
-    }, []);
-
-    return { serviceData, loading };
-};
-
-export default useServiceData;
+        fetchAllServiceData();
+    }, []);*/ 

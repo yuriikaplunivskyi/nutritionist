@@ -27,8 +27,8 @@ const useContactForm = () => {
     const [error, setError] = useState(null);
     const [success, setSuccess] = useState(false);
 
-    const sendEmail = useCallback((data) => {
-        emailjs
+    const sendEmail = useCallback(async (data) => {
+        await emailjs
         .sendForm(
         'service_jg9jdpa',
         'template_fm6flo8',
@@ -44,9 +44,11 @@ const useContactForm = () => {
             }, 3000);
             },
             (error) => {
+                console.log(error)
             setError(true);
             }
         );
+        
     }, []);
 
     return {
