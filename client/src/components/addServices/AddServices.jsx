@@ -46,6 +46,7 @@ const AddServices = () => {
         setService({ ...service, prices: updatedPrices });
     };
 
+
     const handleWarningsChange = (index, value) => {
         const updatedWarnings = [...service.warnings];
         updatedWarnings[index] = value;
@@ -68,7 +69,6 @@ const AddServices = () => {
             <input type="text" name="title" placeholder="Назва послуги"/>
             <input type="text" name="descr" placeholder="Назва послуги"/>
             <input type="text" name="path" placeholder="Назва послуги"/>
-            <input type="image" name="icon" placeholder="Назва послуги"/>
             <div>
                 <h6>Passing</h6>
                 {service.passing.map((item, index) => (
