@@ -40,16 +40,16 @@ const AddServices = () => {
         setService({ ...service, prices: [...service.prices, ""] });
     };
 
-    const handleRemoveWa = (index) => {
-        const updatedWa = [...service.warnings];
-        updatedWarnings.splice(index, 1);
-        setService({ ...service, warnings: updatedWa });
+    const handleRemovePrices = (index) => {
+        const updatedPrices = [...service.prices];
+        updatedPrices.splice(index, 1);
+        setService({ ...service, prices: updatedPrices });
     };
 
     const handleWarningsChange = (index, value) => {
         const updatedWarnings = [...service.warnings];
         updatedWarnings[index] = value;
-        setService({ ...service, warnings: updatedPrices });
+        setService({ ...service, warnings: updatedWarnings });
     };
 
     const handleAddWarnings = () => {
