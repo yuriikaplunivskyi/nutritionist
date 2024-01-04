@@ -30,9 +30,9 @@ function Home() {
             <section >
                 <LazyParallax type="services"/>
             </section>
-            {/* <section id="services">
+            <section id="services">
                 <LazyServices/>
-            </section> */}
+            </section>
             <section id="contacts">
                 <LazyContact/>
             </section>
