@@ -47,14 +47,17 @@ const AddServices = () => {
     };
 
 
-    const handleWarningsChange = (index, value) => {
+    const handleWarningsChange = (index, field, value) => {
         const updatedWarnings = [...service.warnings];
-        updatedWarnings[index] = value;
+        updatedWarnings[index][field] = value;
         setService({ ...service, warnings: updatedWarnings });
     };
 
     const handleAddWarnings = () => {
-        setService({ ...service, warnings: [...service.warnings, ""] });
+        setService({
+            ...service,
+            warnings: [...service.warnings, { title: "", content: "" }],
+        });
     };
 
     const handleRemoveWarnings = (index) => {
@@ -100,14 +103,20 @@ const AddServices = () => {
                 <button onClick={handleAddPrices}>Додати Prices</button>
             </div>
             <div>
-                <h6>Passing</h6>
+                <h6>Warnings</h6>
                 {service.warnings.map((item, index) => (
                     <div key={index}>
                         <input
                             type="text"
-                            value={item}
-                            onChange={(e) => handleWarningsChange(index, e.target.value)}
-                            placeholder={`Warnings ${index + 1}`}
+                            value={item.title}
+                            onChange={(e) => handleWarningsChange(index, "title", e.target.value)}
+                            placeholder={`Title ${index + 1}`}
+                        />
+                        <input
+                            type="text"
+                            value={item.content}
+                            onChange={(e) => handleWarningsChange(index, "content", e.target.value)}
+                            placeholder={`Content ${index + 1}`}
                         />
                         <button onClick={() => handleRemoveWarnings(index)}>Видалити</button>
                     </div>
