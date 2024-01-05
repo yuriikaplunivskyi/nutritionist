@@ -24,74 +24,28 @@ const AddServices = () => {
             [name]: value,
         }));
     };
+
+    const handleArrayChange = (index, field, value, arrayName) => {
+        const updatedArray = [...service[arrayName]];
+        updatedArray[index][field] = value;
+        setService({ ...service, [arrayName]: updatedArray });
+    };
     
-
-    const handlePassingChange = (index, field, value) => {
-        const updatedPassing = [...service.passing];
-        updatedPassing[index][field] = value;
-        setService({ ...service, passing: updatedPassing });
-    };
-
-    const handleAddPassing = () => {
+    const handleAddArray = (arrayName, newItem) => {
         setService({
             ...service,
-            passing: [
-                ...service.passing,
-                { stage: "", id: service.passing.length + 1 },
+            [arrayName]: [
+                ...service[arrayName],
+                newItem,
             ],
         });
     };
-
-    const handleRemovePassing = (index) => {
-        const updatedPassing = [...service.passing];
-        updatedPassing.splice(index, 1);
-        setService({ ...service, passing: updatedPassing });
+    
+    const handleRemoveArray = (index, arrayName) => {
+        const updatedArray = [...service[arrayName]];
+        updatedArray.splice(index, 1);
+        setService({ ...service, [arrayName]: updatedArray });
     };
-
-    const handlePricesChange = (index, field, value) => {
-        const updatedPrices = [...service.prices];
-        updatedPrices[index][field] = value;
-        setService({ ...service, prices: updatedPrices });
-    };
-
-    const handleAddPrices = () => {
-        setService({
-            ...service,
-            prices: [
-                ...service.prices,
-                { price: "", id: service.prices.length + 1 },
-            ],
-        });
-    };
-
-    const handleRemovePrices = (index) => {
-        const updatedPrices = [...service.prices];
-        updatedPrices.splice(index, 1);
-        setService({ ...service, prices: updatedPrices });
-    };
-
-    const handleWarningsChange = (index, field, value) => {
-        const updatedWarnings = [...service.warnings];
-        updatedWarnings[index][field] = value;
-        setService({ ...service, warnings: updatedWarnings });
-    };
-
-    const handleAddWarnings = () => {
-        setService({
-            ...service,
-            warnings: [
-                ...service.warnings,
-                { title: "", content: "", id: service.warnings.length + 1 },
-            ],
-        });
-    };
-
-    const handleRemoveWarnings = (index) => {
-        const updatedWarnings = [...service.warnings];
-        updatedWarnings.splice(index, 1);
-        setService({ ...service, warnings: updatedWarnings });
-    };
-
     
 
     const handleClick = async e => {
@@ -121,13 +75,13 @@ const AddServices = () => {
                             <input
                                 type="text"
                                 value={item.stage}
-                                onChange={(e) => handlePassingChange(index, "stage", e.target.value)}
+                                onChange={(e) => handleArrayChange(index, "stage", e.target.value, 'passing')}
                                 placeholder={`Passing ${index + 1}`}
                             />
-                            <button className="formAddServices-delete btn" onClick={() => handleRemovePassing(index)}>Видалити</button>
+                            <button className="formAddServices-delete btn" onClick={() => handleRemoveArray(index, 'passing')}>Видалити</button>
                         </div>
                     ))}
-                    <button className="formAddServices-add btn" onClick={handleAddPassing}>Додати Passing</button>
+                    <button className="formAddServices-add btn" onClick={() => handleAddArray('passing', { stage: "", id: service.passing.length + 1 })}>Додати Passing</button>
                 </div>
                 <div>
                     <h6>Prices</h6>
@@ -136,13 +90,13 @@ const AddServices = () => {
                             <input
                                 type="text"
                                 value={item.price}
-                                onChange={(e) => handlePricesChange(index, "price", e.target.value)}
+                                onChange={(e) => handleArrayChange(index, "price", e.target.value, 'prices')}
                                 placeholder={`Prices ${index + 1}`}
                             />
-                            <button className="formAddServices-delete btn" onClick={() => handleRemovePrices(index)}>Видалити</button>
+                            <button className="formAddServices-delete btn" onClick={() => handleRemoveArray(index, 'prices')}>Видалити</button>
                         </div>
                     ))}
-                    <button className="formAddServices-add btn" onClick={handleAddPrices}>Додати Prices</button>
+                    <button className="formAddServices-add btn" onClick={() => handleAddArray('prices', { price: "", id: service.prices.length + 1 })}>Додати Prices</button>
                 </div>
                 <div>
                     <h6>Warnings</h6>
@@ -151,19 +105,19 @@ const AddServices = () => {
                             <input
                                 type="text"
                                 value={item.title}
-                                onChange={(e) => handleWarningsChange(index, "title", e.target.value)}
+                                onChange={(e) => handleArrayChange(index, "title", e.target.value, 'warnings')}
                                 placeholder={`Title ${index + 1}`}
                             />
                             <input
                                 type="text"
                                 value={item.content}
-                                onChange={(e) => handleWarningsChange(index, "content", e.target.value)}
+                                onChange={(e) => handleArrayChange(index, "content", e.target.value, 'warnings')}
                                 placeholder={`Content ${index + 1}`}
                             />
-                            <button className="formAddServices-delete btn" onClick={() => handleRemoveWarnings(index)}>Видалити</button>
+                            <button className="formAddServices-delete btn" onClick={() => handleRemoveArray(index, 'warnings')}>Видалити</button>
                         </div>
                     ))}
-                    <button className="formAddServices-add btn" onClick={handleAddWarnings}>Додати Warnings</button>
+                    <button className="formAddServices-add btn" onClick={() => handleAddArray('warnings', { title: "", content: "", id: service.warnings.length + 1 })}>Додати Warnings</button>
                 </div>
 
                 <button className="formAddServices-send btn" onClick={handleClick}>Відправити на сервер</button>
