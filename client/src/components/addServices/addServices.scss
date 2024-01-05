@@ -1,0 +1,38 @@
+.formAddServices {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 100%;
+    h6 {
+        font-size: 30px;
+        
+    }
+    input, textarea {
+        width: 700px;
+        display: flex;
+        padding: 20px;
+        margin: 20px 0;
+        
+        border-radius: 5px;
+    }
+    
+    .btn {
+        height: 50px;
+        color: white;
+        margin: 5px;
+        border-radius: 5px;
+        padding: 5px 20px;
+    }
+
+    &-delete {
+        background-color: red;
+    }
+    &-add {
+        background-color: green;
+    }
+
+    &-send {
+        background-color: rgb(221, 6, 185) ;
+    }
+}

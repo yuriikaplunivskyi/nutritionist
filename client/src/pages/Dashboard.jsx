@@ -13,10 +13,9 @@ const DashboardPage = () => {
             <Cursor/>
             <Suspense fallback={<div className="loader-container"><Loader/></div>}>
             <LazyNavbar/>
-            <section className="notfound">
-                <AddServices/>
-                <Link className="notfound-btn" to="/">Повернутися на головну</Link>
-            </section>
+            <AddServices/>
+            <Link className="notfound-btn" to="/">Повернутися на головну</Link>
+            
             </Suspense>
         </>
     )
