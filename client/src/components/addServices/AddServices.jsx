@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 
 import "./addServices.scss"
 
@@ -52,22 +52,18 @@ const AddServices = () => {
         e.preventDefault();
         try {
             await axios.post("http://localhost:8800/services", service);
-            console.log(service);
             setService(initStateService);
-            
-
         } catch (error) {
             console.log(error);
         }
     }
-
     return (
         <div className='formAddServices'>
             <div className="container">
                 <h6>Додай нову послугу</h6>
-                <input type="text" name="title" onChange={handleChange} placeholder="Назва послуги"/>
-                <textarea cols="30" rows="10"  name="descr" onChange={handleChange} placeholder="Опис послуги"/>
-                <input type="text" name="path" onChange={handleChange} placeholder="Шлях до послуги"/>
+                <input type="text" name="title" value={service.title} onChange={handleChange} placeholder="Назва послуги"/>
+                <textarea cols="30" rows="10" value={service.descr} name="descr" onChange={handleChange} placeholder="Опис послуги"/>
+                <input type="text" name="path" value={service.path} onChange={handleChange} placeholder="Шлях до послуги"/>
                 <div>
                     <h6>Passing</h6>
                     {service.passing.map((item, index) => (
