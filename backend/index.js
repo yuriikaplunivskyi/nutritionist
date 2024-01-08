@@ -80,6 +80,16 @@ app.post("/services", (req, res) => {
     });
 });
 
+app.delete("/services/:id", (req, res) => {
+    const serviceId = req.params.id;
+    const q = ("DELETE FROM services WHERE id ?")
+
+    db.query(q, [serviceId], (err, data) => {
+        if (err) return res.json(err);
+        return res.json("Service has been deleted created");
+    })
+})
+
 app.listen(8800, () => {
     console.log("Connected to backend!")
 })
