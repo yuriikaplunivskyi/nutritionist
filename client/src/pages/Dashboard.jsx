@@ -4,6 +4,7 @@ import "./notfound.scss";
 import  {lazy, Suspense } from "react";
 import { Link } from "react-router-dom";
 import AddServices from "../components/addServices/AddServices";
+import ChangeShowAllServices from "../components/changeShowAllServices/changeShowAllServices";
 export const LazyNavbar = lazy(() => import("../components/navbar/Navbar"));
 /* export const LazyCursor = lazy(() => import("../components/cursor/Cursor")); */
 
@@ -13,6 +14,7 @@ const DashboardPage = () => {
             <Cursor/>
             <Suspense fallback={<div className="loader-container"><Loader/></div>}>
             <LazyNavbar/>
+            <ChangeShowAllServices/>
             <AddServices/>
             <Link className="notfound-btn" to="/">Повернутися на головну</Link>
             
