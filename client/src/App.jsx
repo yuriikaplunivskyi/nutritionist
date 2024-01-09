@@ -6,6 +6,7 @@ import Home from "./pages/Home";
 import ServicePage from "./pages/ServicePage";
 import Dashboard from "./pages/Dashboard";
 import NotFound from "./pages/NotFound";
+import Update from "./components/update/Update";
 
 const App = () => {
   return (
@@ -13,6 +14,7 @@ const App = () => {
       <Route path="/" element={<Home />}/>
       <Route path="/service/:serviceId" element={<ServicePage />} />
       <Route path="/dashboard" element={<Dashboard />} />
+      <Route path="/update/:id" element={<Update />} />
       <Route path="*" element={<NotFound />} />
     </Routes>
   );
