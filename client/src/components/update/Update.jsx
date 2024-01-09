@@ -1,7 +1,6 @@
 import axios from 'axios';
 import { useState } from 'react';
 
-import "./addServices.scss"
 
 const Update = () => {
 
