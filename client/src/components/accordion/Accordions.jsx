@@ -28,7 +28,7 @@ const Accordions = ({data}) => {
                             <p>{item.content}</p>
                         </div>
                 </div>
-                )): console.log("error data accordions")}
+                )): console.log(`error data in Accordions`)}
             </div>
         </>
     )

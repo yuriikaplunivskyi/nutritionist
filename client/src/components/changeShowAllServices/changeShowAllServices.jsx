@@ -1,38 +1,52 @@
+import axios from 'axios';
 import useServiceData from '../../hooks/useServiceData';
 import Accordions from "../accordion/Accordions";
+import "./changeShowAllServices.scss"
+import { Link } from 'react-router-dom';
 
 const ChangeShowAllServices = () => {
 
     const { serviceData } = useServiceData();
 
+    const handleDelete = async (id) => {
+        try {
+            console.log(id)
+            await axios.delete("http://localhost:8800/services/"+id);
+            window.location.reload();
+        } catch (error) {
+            console.log("What the error", error);
+        }
+    }
 return (
     <>
-    {serviceData.map((item) => (
-        <div className="service" key={item.id}>
+    {serviceData.map((service) => (
+        <div className="serviceAdmin" key={service.id}>
             <div className="service-container" >
                 <div className="service-textContainer">
-                <h2 className="service-title">{item.title}</h2>
+                <h2 className="service-title">{service.title}</h2>
                 {/* <img className="service-icon" src={selectedService.icon} alt={`"icon" ${selectedService.title}`} /> */}
-                <p className="service-text">{item.descr}</p>
+                <p className="service-text">{service.descr}</p>
                 <ol>
                     <span>Як проходить</span>
-                    {item.passing.map((pass) => (
+                    {service.passing.map((pass) => (
                     <li key={pass.id}>{pass.stage}</li>
                     ))}
                 </ol>
 
                 <ul>
                     <span className="service-price-title"> Вартість: </span>
-                    {item.prices.map((price) => (
+                    {service.prices.map((price) => (
                     <li className="service-price" key={price.id}>{price.price}</li>
                     ))}
                 </ul>
                 </div>
-                <Accordions data={item.warnings} />
-                <span>{item.path}</span>
+                <Accordions data={service.warnings} />
+                <span>{service.path}</span>
             </div>
-        <button onClick={() => handleDelete(item.id)}>Видалити</button>
-        <button>Змінити</button>
+            <div className="serviceAdmin-btnWrapper">
+                <button className="serviceAdmin-delete btn" onClick={() => handleDelete(service.id)}>Видалити</button>
+                <button className="serviceAdmin-change btn"><Link to={`/update/${service.id}`} >Змінити</Link></button>
+            </div>
         </div>
     ))}
     </>
