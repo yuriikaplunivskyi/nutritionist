@@ -53,7 +53,7 @@ app.post("/services", (req, res) => {
         JSON.stringify(req.body.warnings),
         req.body.path,
         req.body.icon,
-    ] 
+    ];
         /* [
     `Супровід з тренувань`,
     `Супровід з тренувань  у режимі онлайн - це індивідуальна програма тренувань спрямована на досягнення ваших цілей. Я як фітнес-тренерка надаю вам персональні рекомендації  та розробляю для вас програму тренувань та підтримую вас, допомагаючи вам крок за кроком досягти бажаного результату. Важливою частиною цього супроводу є постійна підтримка та зворотній зв'язок для досягнення успіху у вашій меті.`,
@@ -82,12 +82,12 @@ app.post("/services", (req, res) => {
 
 app.delete("/services/:id", (req, res) => {
     const serviceId = req.params.id;
-    const q = ("DELETE FROM services WHERE id ?")
+    const q = ("DELETE FROM service WHERE id=?");
 
     db.query(q, [serviceId], (err, data) => {
         if (err) return res.json(err);
-        return res.json("Service has been deleted created");
-    })
+        return res.json("Service has been deleted Successfully");
+    });
 })
 
 app.listen(8800, () => {
