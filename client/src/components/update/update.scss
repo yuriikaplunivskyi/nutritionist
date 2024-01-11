@@ -1,0 +1,43 @@
+.updateForm {
+    background-color: #948b8b;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    .container {
+        max-width: 1366px;
+        min-width: 50%;
+        padding: 10px;
+    }
+    h6 {
+        font-size: 30px;
+        
+    }
+    input, textarea {
+        width: 100%;
+        display: flex;
+        padding: 20px;
+        margin: 20px 0;
+        
+        border-radius: 5px;
+    }
+    
+    .btn {
+        height: 50px;
+        color: white;
+        margin: 5px;
+        border-radius: 5px;
+        padding: 5px 20px;
+    }
+
+    &-delete {
+        background-color: red;
+    }
+    &-add {
+        background-color: green;
+    }
+
+    &-send {
+        background-color: rgb(12, 12, 12) ;
+        
+    }
+}
