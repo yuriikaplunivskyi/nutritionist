@@ -9,10 +9,10 @@ const AddServices = () => {
         title:"",
         descr:"",
         path:"",
-        icon:"",
         passing: [],
         prices: [],
         warnings: [],
+        icon:"",
     };
 
     const [service, setService] = useState(initStateService);
