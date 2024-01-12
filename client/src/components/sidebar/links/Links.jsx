@@ -60,7 +60,7 @@ const Links = () => {
                         whileHover={{ scale: 1.1 }}
                         whileTap={{ scale: 0.9 }}
                     >
-                    <Link to="/#services">Головна</Link>
+                    <Link to="/">Головна</Link>
                 </motion.span>
             )}
         </motion.ul>
