@@ -129,11 +129,8 @@ section {
     scroll-snap-align: center;
     overflow: hidden;
     margin: auto;
-    display: flex;
-    justify-content: center;
-    align-items: center;
     @include mobile768 {
-        height: 100svh;
+        height: 100dvh;
         scroll-snap-align: start;
     }
 }
