@@ -128,11 +128,10 @@ section {
     height: 100vh;
     scroll-snap-align: center;
     overflow: hidden;
-    margin-top: 0;
-    margin-bottom: 0;
-    top: 0;
-    bottom: 0;
-
+    margin: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     @include mobile768 {
         height: 100svh;
         scroll-snap-align: start;
