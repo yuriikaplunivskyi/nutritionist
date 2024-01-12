@@ -134,7 +134,7 @@ section {
     bottom: 0;
 
     @include mobile768 {
-        height: 100dvh;
+        height: 100svh;
         scroll-snap-align: start;
     }
 }
