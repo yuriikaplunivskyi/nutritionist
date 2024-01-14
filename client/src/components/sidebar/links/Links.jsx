@@ -52,7 +52,6 @@ const Links = () => {
                         <HashLink  as="a" to={`${item.path}`} scroll={(el) => el.scrollIntoView({ behavior: 'auto', block: 'end' })}>
                             {item.title}
                         </HashLink>
-                        {/* <a href={item.path}>{item.title}</a> */}
                     </motion.li>
                 ))
             ) : (
