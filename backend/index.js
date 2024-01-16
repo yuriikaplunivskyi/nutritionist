@@ -1,6 +1,20 @@
 import express from "express";
 import mysql from "mysql";
 import cors from "cors";
+import jwt from "jsonwebtoken";
+
+function authenticateToken(req, res, next) {
+    const authHeader = req.headers["authorization"];
+    const token = authHeader && authHeader.split(" ")[1];
+    if (token == null) return res.sendStatus(401); 
+
+
+    jwt.verify(token, process.env.USERFRONT_PUBLIC_KEY, (err, auth) => {
+        if (err) return res.sendStatus(403); 
+        req.auth = auth;
+        next();
+    });
+}
 
 const app = express();
 

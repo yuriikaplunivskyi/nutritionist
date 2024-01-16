@@ -1,6 +1,6 @@
 import axios from 'axios';
-import useServiceData from '../../hooks/useServiceData';
-import Accordions from "../accordion/Accordions";
+import useServiceData from '../../../hooks/useServiceData';
+import Accordions from "../../accordion/Accordions";
 import "./changeShowAllServices.scss"
 import { Link } from 'react-router-dom';
 

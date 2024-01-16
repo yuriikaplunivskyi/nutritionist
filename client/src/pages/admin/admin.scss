@@ -1,0 +1,44 @@
+.admin {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    min-height: 100vh;
+    gap: 50px;
+    nav  {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        ul {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-around;
+            flex-wrap: wrap;
+            gap: 20px;
+            li {
+                list-style: none;
+                font-size: 25px;
+                :hover {
+                    text-decoration: underline;
+                    transition: .15s ease-in;
+                    color: white;
+                }
+            }
+        }
+    }
+}
+
+.form-admin {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100dvh;
+    gap: 20px;
+    flex-direction: column;
+
+    &__back {
+        padding: 10px 20px;
+        border: 1px solid black;
+        border-radius: 15px;
+    }
+}
