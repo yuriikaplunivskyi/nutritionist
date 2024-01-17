@@ -18,14 +18,25 @@ const App = () => {
       <Route path="/" element={<Home />}/>
       <Route path="/service/:serviceId" element={<ServicePage />} />
       <Route path="/admin" element={<Admin />} />
-      <Route path="/admin/signup" element={<Signup />} />
       <Route path="/admin/reset" element={<PasswordReset />} />
-      <Route path="/admin/dashboard" 
+      <Route 
+        path="/admin/signup" 
+        element={<RequireAuth>
+                  <Signup />
+                </RequireAuth>} 
+      />
+      <Route 
+        path="/admin/dashboard" 
         element={ <RequireAuth>
                     <Dashboard />
                   </RequireAuth>} 
       />
-      <Route path="/admin/update/:id" element={<Update />} />
+      <Route 
+        path="/admin/update/:id" 
+        element={<RequireAuth>
+                  <Update />
+                </RequireAuth>} 
+      />
       <Route path="*" element={<NotFound />} />
     </Routes>
   );
