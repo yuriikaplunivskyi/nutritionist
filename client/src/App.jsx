@@ -4,7 +4,7 @@ import "./app.scss";
 
 import Home from "./pages/Home";
 import ServicePage from "./pages/ServicePage";
-import Dashboard from "./pages/Dashboard";
+import Dashboard from "./pages/dashboard/Dashboard";
 import NotFound from "./pages/NotFound";
 import Update from "./components/dashboard/update/Update";
 import PasswordReset from "./components/authorization/passwordReset/PasswordReset";

@@ -85,10 +85,9 @@ const Services = () => {
                         
                         <Link 
                             className="box-btn-container" 
-                            to={{ pathname: `/service/${item.path}`}}/* 
-                            onClick={() => handleServiceClick(item)} */
+                            to={{ pathname: `/service/${item.path}`}}
                             >
-                            <img className="box-icon" src={item.icon} alt={`"icon" ${item.title}`} />
+                            {/* <img className="box-icon" src={item.icon} alt={`"icon" ${item.title}`} /> */}
                             <button>Переглянути</button>
                         </Link>
                         

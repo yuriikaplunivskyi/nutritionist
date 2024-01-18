@@ -5,7 +5,7 @@ const PasswordReset = () => {
     return (
         <div className="form-admin">
             <PasswordResetForm/>
-            <Link className="form-admin__back" to="/admin">Назад</Link>
+            <Link className="form-admin__back" to="/admin/dashboard">Назад</Link>
         </div>
     )
 }

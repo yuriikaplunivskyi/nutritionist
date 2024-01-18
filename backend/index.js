@@ -1,7 +1,7 @@
 import express from "express";
 import mysql from "mysql";
 import cors from "cors";
-import jwt from "jsonwebtoken";
+/* import jwt from "jsonwebtoken";
 
 function authenticateToken(req, res, next) {
     const authHeader = req.headers["authorization"];
@@ -14,7 +14,7 @@ function authenticateToken(req, res, next) {
         req.auth = auth;
         next();
     });
-}
+} */
 
 const app = express();
 
@@ -118,7 +118,7 @@ app.delete("/services/:id", (req, res) => {
 
 app.put("/services/:id", (req, res) => {
     const serviceId = req.params.id;
-    const q = "UPDATE service SET `title`=?, `descr`=?, `path`=?, `icon`=?, `passing`=?, `prices`=?, `warnings`=? WHERE id = ?";
+    const q = "UPDATE service SET `title`=?, `descr`=?, `path`=?, `icon`=?, `passing`=?, `prices`=?, `warnings`=? WHERE id=?";
 
     const values = [
         req.body.title,

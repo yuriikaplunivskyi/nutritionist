@@ -19,7 +19,7 @@ const Update = () => {
 
     const location = useLocation();
 
-    const serviceId = location.pathname.split("/")[2];
+    const serviceId = location.pathname.split("/")[3];
     const [service, setService] = useState(initStateService);
 
     const handleChange = (e) => {
@@ -98,10 +98,10 @@ const Update = () => {
                                     onChange={(e) => handleArrayChange(index, "stage", e.target.value, 'passing')}
                                     placeholder={`Passing ${index + 1}`}
                                 />
-                                <button className="updateForm-delete btn" onClick={() => handleRemoveArray(index, 'passing')}>Видалити</button>
+                                <button className="delete btn" onClick={() => handleRemoveArray(index, 'passing')}>Видалити</button>
                             </div>
                         ))}
-                        <button className="updateForm-add btn" onClick={() => handleAddArray('passing', { stage: "", id: service.passing.length + 1 })}>Додати Passing</button>
+                        <button className="add btn" onClick={() => handleAddArray('passing', { stage: "", id: service.passing.length + 1 })}>Додати Passing</button>
                     </div>
                     <div>
                         <h6>Prices</h6>
@@ -113,10 +113,10 @@ const Update = () => {
                                     onChange={(e) => handleArrayChange(index, "price", e.target.value, 'prices')}
                                     placeholder={`Prices ${index + 1}`}
                                 />
-                                <button className="updateForm-delete btn" onClick={() => handleRemoveArray(index, 'prices')}>Видалити</button>
+                                <button className="delete btn" onClick={() => handleRemoveArray(index, 'prices')}>Видалити</button>
                             </div>
                         ))}
-                        <button className="updateForm-add btn" onClick={() => handleAddArray('prices', { price: "", id: service.prices.length + 1 })}>Додати Prices</button>
+                        <button className="add btn" onClick={() => handleAddArray('prices', { price: "", id: service.prices.length + 1 })}>Додати Prices</button>
                     </div>
                     <div>
                         <h6>Warnings</h6>
@@ -134,15 +134,15 @@ const Update = () => {
                                     onChange={(e) => handleArrayChange(index, "content", e.target.value, 'warnings')}
                                     placeholder={`Content ${index + 1}`}
                                 />
-                                <button className="updateForm-delete btn" onClick={() => handleRemoveArray(index, 'warnings')}>Видалити</button>
+                                <button className="delete btn" onClick={() => handleRemoveArray(index, 'warnings')}>Видалити</button>
                             </div>
                         ))}
-                        <button className="updateForm-add btn" onClick={() => handleAddArray('warnings', { title: "", content: "", id: service.warnings.length + 1 })}>Додати Warnings</button>
+                        <button className="add btn" onClick={() => handleAddArray('warnings', { title: "", content: "", id: service.warnings.length + 1 })}>Додати Warnings</button>
                     </div>
 
-                    <button className="updateForm-send btn" onClick={handleClick}>Внести зміни</button>
+                    <button className="send btn" onClick={handleClick}>Внести зміни</button>
                 </div>
-                <Link to="/dashboard">Повернутися в адмінку</Link>
+                <Link className="btn" to="/admin/dashboard">Повернутися в адмінку</Link>
         </div>
     )
 }

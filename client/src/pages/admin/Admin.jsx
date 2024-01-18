@@ -10,21 +10,15 @@ const Admin = () => {
                 <nav>
                 <ul>
                     <li>
-                    <Link to="/">Home</Link>
+                    <Link to="/">Головна</Link>
                     </li>
                     <li>
-                    <Link to="/admin/signup">Signup</Link>
-                    </li>
-                    <li>
-                    <Link to="/admin/reset">Reset</Link>
-                    </li>
-                    <li>
-                    <Link to="/admin/dashboard">Dashboard</Link>
+                    <Link to="/admin/dashboard">Адмін-панель</Link>
                     </li>
                 </ul>
                 </nav>
                 <LoginForm/>
-                <button onClick={Userfront.logout}>Logout</button>
+                <button className="btn" onClick={Userfront.logout}>Logout</button>
             </div>
     )
 }

@@ -45,7 +45,7 @@ return (
             </div>
             <div className="serviceAdmin-btnWrapper">
                 <button className="serviceAdmin-delete btn" onClick={() => handleDelete(service.id)}>Видалити</button>
-                <button className="serviceAdmin-change btn"><Link to={`/update/${service.id}`} >Змінити</Link></button>
+                <button className="serviceAdmin-change btn"><Link to={`/admin/update/${service.id}`} >Змінити</Link></button>
             </div>
         </div>
     ))}

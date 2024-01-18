@@ -1,11 +1,24 @@
 .updateForm {
-    background-color: #948b8b;
     display: flex;
+    flex-direction: column-reverse;
     justify-content: center;
     align-items: center;
+    min-height: 100vh;
+    padding: 50px 0;
+    .delete {
+        background-color: red;
+    }
+    .add {
+        background-color: green;
+    }
+
+    .send {
+        background-color: rgb(12, 12, 12) ;
+        
+    }
     .container {
         max-width: 1366px;
-        min-width: 50%;
+        min-width: 70%;
         padding: 10px;
     }
     h6 {
@@ -22,22 +35,28 @@
     }
     
     .btn {
+        text-align: center;
         height: 50px;
         color: white;
         margin: 5px;
         border-radius: 5px;
-        padding: 5px 20px;
+        padding: auto 20px;
     }
 
-    &-delete {
-        background-color: red;
-    }
-    &-add {
-        background-color: green;
-    }
-
-    &-send {
-        background-color: rgb(12, 12, 12) ;
-        
-    }
+    /* 
+    a {
+        margin-top: 50px;
+        padding: 10px 20px;
+        background-color: transparent;
+        border-radius: 5px;
+        font-size: 22px;
+        border: 1px solid black;
+        &:hover {
+            background-color: #040404;
+            color: rgb(250, 250, 250);
+            border: 1px solid rgb(255, 255, 255);
+            transition: .15s ease-in;
+        }
+    } */
 }
+
