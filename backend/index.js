@@ -1,20 +1,9 @@
 import express from "express";
 import mysql from "mysql";
 import cors from "cors";
-/* import jwt from "jsonwebtoken";
+import multer from "multer";
+import path from "path";
 
-function authenticateToken(req, res, next) {
-    const authHeader = req.headers["authorization"];
-    const token = authHeader && authHeader.split(" ")[1];
-    if (token == null) return res.sendStatus(401); 
-
-
-    jwt.verify(token, process.env.USERFRONT_PUBLIC_KEY, (err, auth) => {
-        if (err) return res.sendStatus(403); 
-        req.auth = auth;
-        next();
-    });
-} */
 
 const app = express();
 
@@ -136,6 +125,100 @@ app.put("/services/:id", (req, res) => {
         return res.json("Service has been updated Successfully");
     });
 });
+
+db.query(`
+    CREATE TABLE IF NOT EXISTS certificates (
+        id INT AUTO_INCREMENT,
+        img_path VARCHAR(255),
+        school VARCHAR(255),
+        title VARCHAR(255),
+        PRIMARY KEY(id)
+    )
+`, (err, result) => {
+    if (err) throw err;
+    console.log("Certificates table created");
+});
+
+const certificateStorage = multer.diskStorage({
+    destination: './public/uploads/',
+    filename: function(req, file, cb){
+        cb(null, file.fieldname + '-' + Date.now() + path.extname(file.originalname));
+    }
+});
+
+const certificateUpload = multer({
+    storage: certificateStorage,
+    limits:{fileSize: 2000000},
+}).single('certificateImage');
+
+app.post('/uploadCertificate', (req, res) => {
+    certificateUpload(req, res, (err) => {
+        if (err) {
+            res.json({ msg: err });
+        } else {
+            if (req.file == undefined) {
+                res.json({ msg: 'Error: No File Selected!' });
+            } else {
+                const imgPath = `uploads/${req.file.filename}`;
+                res.json({
+                    msg: 'File Uploaded!',
+                    file: imgPath
+                });
+
+                const insertQuery = "INSERT INTO certificates (`img_path`, `school`, `title`) VALUES (?, ?, ?)";
+                const certificateValues = [imgPath, req.body.school, req.body.title];
+
+                db.query(insertQuery, certificateValues, (insertErr, insertData) => {
+                    if (insertErr) {
+                        console.error("Error inserting certificate into database: ", insertErr);
+                    } else {
+                        console.log("Certificate data inserted into the database");
+                    }
+                });
+            }
+        }
+    });
+});
+
+app.get("/certificates", (req, res) => {
+    const selectQuery = "SELECT * FROM certificates";
+    db.query(selectQuery, (err, data) => {
+        if (err) return res.json(err);
+        else res.json(data);
+    });
+});
+
+app.post("/certificates", (req, res) => {
+    const insertQuery = "INSERT INTO certificates (`img_path`, `school`, `title`) VALUES (?, ?, ?)";
+    const certificateValues = [req.body.img_path, req.body.school, req.body.title];
+
+    db.query(insertQuery, certificateValues, (err, data) => {
+        if (err) return res.json(err);
+        return res.json("Certificate has been created");
+    });
+});
+
+app.delete("/certificates/:id", (req, res) => {
+    const certificateId = req.params.id;
+    const deleteQuery = "DELETE FROM certificates WHERE id=?";
+
+    db.query(deleteQuery, [certificateId], (err, data) => {
+        if (err) return res.json(err);
+        return res.json("Certificate has been deleted successfully");
+    });
+});
+
+app.put("/certificates/:id", (req, res) => {
+    const certificateId = req.params.id;
+    const updateQuery = "UPDATE certificates SET `img_path`=?, `school`=?, `title`=? WHERE id=?";
+    const certificateValues = [req.body.img_path, req.body.school, req.body.title, certificateId];
+
+    db.query(updateQuery, certificateValues, (err, data) => {
+        if (err) return res.json(err);
+        return res.json("Certificate has been updated successfully");
+    });
+});
+
 
 
 app.listen(8800, () => {
