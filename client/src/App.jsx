@@ -6,7 +6,7 @@ import Home from "./pages/Home";
 import ServicePage from "./pages/ServicePage";
 import Dashboard from "./pages/dashboard/Dashboard";
 import NotFound from "./pages/NotFound";
-import Update from "./components/dashboard/update/Update";
+import UpdateService from "./components/dashboard/updateService/UpdateService";
 import PasswordReset from "./components/authorization/passwordReset/PasswordReset";
 import Admin from "./pages/admin/Admin";
 import Signup from "./components/authorization/signup/Signup";
@@ -34,7 +34,7 @@ const App = () => {
       <Route 
         path="/admin/update/:id" 
         element={<RequireAuth>
-                  <Update />
+                  <UpdateService />
                 </RequireAuth>} 
       />
       <Route path="*" element={<NotFound />} />

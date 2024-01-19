@@ -126,19 +126,6 @@ app.put("/services/:id", (req, res) => {
     });
 });
 
-db.query(`
-    CREATE TABLE IF NOT EXISTS certificates (
-        id INT AUTO_INCREMENT,
-        img_path VARCHAR(255),
-        school VARCHAR(255),
-        title VARCHAR(255),
-        PRIMARY KEY(id)
-    )
-`, (err, result) => {
-    if (err) throw err;
-    console.log("Certificates table created");
-});
-
 const certificateStorage = multer.diskStorage({
     destination: './public/uploads/',
     filename: function(req, file, cb){

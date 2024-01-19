@@ -7,6 +7,8 @@ import ChangeShowAllServices from "../../components/dashboard/changeShowAllServi
 export const LazyNavbar = lazy(() => import("../../components/navbar/Navbar"));
 
 import "./dashboard.scss";
+import AddCertificateForm from "../../components/dashboard/addCertificateForm/AddCertificateForm";
+import ChangeShowAllCertificate from "../../components/dashboard/changeShowAllCertificate/ChangeShowAllCertificate";
 
 const DashboardPage = () => {
     const [activeTab, setActiveTab] = useState('');
@@ -24,12 +26,15 @@ const DashboardPage = () => {
             
             <div className="dashboard_tabWrapper">
                 <button className="btn" onClick={() => setActiveTab('changeServices')}>Змінити доступні послуги</button>
-                <button className="btn" onClick={() => setActiveTab('addServices')}>Додати нові послуги</button>
+                <button className="btn" onClick={() => setActiveTab('addServices')}>Додати нову послугу</button>
+                <button className="btn" onClick={() => setActiveTab('changeCertificate')}>Змінити доступні сертифікати</button>
+                <button className="btn" onClick={() => setActiveTab('addCertificate')}>Додати новий сертифікат</button>
             </div>
 
             {activeTab === 'changeServices' && <ChangeShowAllServices/>}
+            {activeTab === 'changeCertificate' && <ChangeShowAllCertificate/>}
             {activeTab === 'addServices' && <AddServices/>}
-            
+            {activeTab === 'addCertificate' && <AddCertificateForm/>}
             </Suspense>
         </div>
     )

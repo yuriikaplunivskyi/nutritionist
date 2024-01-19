@@ -1,11 +1,11 @@
 import axios from 'axios';
 import { useEffect, useState } from 'react';
-import "./update.scss";
+import "./updateService.scss";
 import { useLocation } from 'react-router-dom';
 import { Link } from 'react-router-dom';
 
 
-const Update = () => {
+const UpdateService = () => {
 
     const initStateService = {
         title:"",
@@ -147,4 +147,4 @@ const Update = () => {
     )
 }
 
-export default Update;
+export default UpdateService;

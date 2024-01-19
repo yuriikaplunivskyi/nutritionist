@@ -290,8 +290,6 @@ const useServiceData = () => {
     
         fetchAllServiceData();
     }, []);
-    
-
 
     return { serviceData, loading };
 };
