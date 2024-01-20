@@ -1,24 +1,31 @@
 .dashboard {
-    &_tabWrapper, &_navWrapper {
+    height: 100vh;
+    margin: 0;
+    .navbar {
+        padding: 10px 0;
+        height: 5vh;
+    }
+    &_nav {
         display: flex;
         justify-content: center;
         align-items: center;
         flex-wrap: wrap;
         gap: 10px;
-        margin: 30px;
+        padding: 10px 0;
     }
+    
     .btn {
         padding: 10px 20px;
         border-radius: 5px;
-        font-size: 22px;
+        font-size: 20px;
         border: 1px solid black;
-        height: 100%;
+        height: min-content;
         &:hover {
             background-color: #f4f6f9;
             color: black;
         }
     }
-    &_navWrapper :nth-child(2) {
+    &_nav :nth-child(2) {
         background-color: rgb(255, 235, 57);
         &:hover {
             background-color: rgb(248, 164, 9);
@@ -26,7 +33,7 @@
             border: 1px solid white;
         }
     }
-    &_navWrapper :nth-child(3) {
+    &_nav :nth-child(3) {
         background-color: rgb(180, 255, 5);
         &:hover {
             background-color: rgb(39, 221, 54);
@@ -34,7 +41,7 @@
             border: 1px solid white;
         }
     }
-    &_navWrapper :last-child {
+    &_nav :last-child {
         background-color: red;
         &:hover {
             background-color: rgb(71, 3, 3);
@@ -42,8 +49,10 @@
             border: 1px solid white;
         }
     }
-    &_tabWrapper {
-        justify-content: space-evenly;
+
+    &_tabs {
+        height: 5vh;
+        justify-content: flex-start;
         .btn {
             padding: 20px 30px;
             background-color: #fcfcfc;
@@ -53,5 +62,21 @@
                 border: 1px solid white;
             }
         }
+    }
+    &__window {
+        position: relative;
+        display: grid;
+        grid-template-columns: 1fr 5fr;
+        height: 85vh;
+    }
+
+    &_tabs,
+    &__content {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        padding: 10px;
+        overflow-y: auto;
+        height: 100%;
     }
 }
