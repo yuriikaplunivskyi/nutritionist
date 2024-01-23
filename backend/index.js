@@ -1,10 +1,14 @@
+import fs from 'fs';
 import express from "express";
 import mysql from "mysql";
 import cors from "cors";
 import multer from "multer";
 import path from "path";
+import { fileURLToPath } from 'url';
+import { dirname } from 'path';
 
-
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = dirname(__filename);
 const app = express();
 
 const db = mysql.createConnection({
@@ -44,7 +48,6 @@ app.get("/services", (req, res) => {
     })
 })
 
-// Додати цей маршрут перед рештою маршрутів
 app.get("/services/:id", (req, res) => {
     const serviceId = req.params.id;
     const q = `
@@ -126,12 +129,30 @@ app.put("/services/:id", (req, res) => {
     });
 });
 
+app.use("/public/uploads", express.static(path.join(__dirname, "public/uploads")));
+app.use("/public", express.static(path.join(__dirname, "public")));
+
+app.use((req, res, next) => {
+    res.setHeader("Access-Control-Allow-Origin", "*");
+    res.setHeader("Access-Control-Allow-Methods", "GET, POST, PUT, DELETE");
+    res.setHeader("Access-Control-Allow-Headers", "Content-Type");
+    res.setHeader("Access-Control-Allow-Credentials", "true");
+
+    next();
+});
+
+
+
 const certificateStorage = multer.diskStorage({
     destination: './public/uploads/',
     filename: function(req, file, cb){
-        cb(null, file.fieldname + '-' + Date.now() + path.extname(file.originalname));
+        const uniqueSuffix = Date.now() + '-' + Math.round(Math.random() * 1E9);
+        const originalname = path.parse(file.originalname).name;
+        const filename = `${originalname}-${uniqueSuffix}${path.extname(file.originalname)}`;
+        cb(null, filename);
     }
 });
+
 
 const certificateUpload = multer({
     storage: certificateStorage,
@@ -175,6 +196,22 @@ app.get("/certificates", (req, res) => {
     });
 });
 
+app.get("/certificates/:id", (req, res) => {
+    const certificateId = req.params.id;
+    const selectQuery = "SELECT * FROM certificates WHERE id=?";
+    
+    db.query(selectQuery, [certificateId], (err, data) => {
+        if (err) return res.json(err);
+        
+        if (data.length === 0) {
+            return res.status(404).json({ error: "Certificate not found" });
+        }
+
+        res.json(data[0]);
+    });
+});
+
+
 app.post("/certificates", (req, res) => {
     const insertQuery = "INSERT INTO certificates (`img_path`, `school`, `title`) VALUES (?, ?, ?)";
     const certificateValues = [req.body.img_path, req.body.school, req.body.title];
@@ -184,6 +221,7 @@ app.post("/certificates", (req, res) => {
         return res.json("Certificate has been created");
     });
 });
+
 
 app.delete("/certificates/:id", (req, res) => {
     const certificateId = req.params.id;
@@ -195,14 +233,39 @@ app.delete("/certificates/:id", (req, res) => {
     });
 });
 
-app.put("/certificates/:id", (req, res) => {
-    const certificateId = req.params.id;
-    const updateQuery = "UPDATE certificates SET `img_path`=?, `school`=?, `title`=? WHERE id=?";
-    const certificateValues = [req.body.img_path, req.body.school, req.body.title, certificateId];
 
-    db.query(updateQuery, certificateValues, (err, data) => {
-        if (err) return res.json(err);
-        return res.json("Certificate has been updated successfully");
+app.put("/certificates/:id", certificateUpload, (req, res) => {
+    const certificateId = req.params.id;
+    const selectQuery = "SELECT * FROM certificates WHERE id=?";
+
+    db.query(selectQuery, [certificateId], (selectErr, selectData) => {
+        if (selectErr) return res.json(selectErr);
+
+        if (selectData.length === 0) {
+            return res.status(404).json({ error: "Certificate not found" });
+        }
+
+        const oldImagePath = path.join(__dirname, 'public', selectData[0].img_path);
+        if (fs.existsSync(oldImagePath)) {
+            fs.unlinkSync(oldImagePath);
+        }
+
+        let updateQuery;
+        let certificateValues;
+
+        if (req.file) {
+            const imgPath = `uploads/${req.file.filename}`;
+            updateQuery = "UPDATE certificates SET `img_path`=?, `school`=?, `title`=? WHERE id=?";
+            certificateValues = [imgPath, req.body.school, req.body.title, certificateId];
+        } else {
+            updateQuery = "UPDATE certificates SET `school`=?, `title`=? WHERE id=?";
+            certificateValues = [req.body.school, req.body.title, certificateId];
+        }
+
+        db.query(updateQuery, certificateValues, (updateErr, updateData) => {
+            if (updateErr) return res.json(updateErr);
+            return res.json("Certificate has been updated successfully");
+        });
     });
 });
 

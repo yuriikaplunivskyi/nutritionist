@@ -3,7 +3,7 @@ import  {lazy, Suspense, useState } from "react";
 import { Link } from "react-router-dom";
 import Userfront from "@userfront/toolkit/react";
 import AddServices from "../../components/dashboard/addServices/AddServices";
-import ChangeShowAllServices from "../../components/dashboard/changeShowAllServices/ChangeShowAllServices";
+import ChangeShowAllServices from "../../components/dashboard/changeShowAllServices/changeShowAllServices";
 export const LazyNavbar = lazy(() => import("../../components/navbar/Navbar"));
 
 import "./dashboard.scss";

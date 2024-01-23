@@ -4,6 +4,7 @@
     .navbar {
         padding: 10px 0;
         height: 5vh;
+        margin: 0;
     }
     &_nav {
         display: flex;
@@ -11,13 +12,13 @@
         align-items: center;
         flex-wrap: wrap;
         gap: 10px;
-        padding: 10px 0;
     }
     
     .btn {
-        padding: 10px 20px;
+        padding: 10px ;
         border-radius: 5px;
-        font-size: 20px;
+        font-size: 18px;
+        font-weight: 100;
         border: 1px solid black;
         height: min-content;
         &:hover {
@@ -54,8 +55,9 @@
         height: 5vh;
         justify-content: flex-start;
         .btn {
-            padding: 20px 30px;
             background-color: #fcfcfc;
+            font-size: 13px;
+            padding: auto;
             &:hover {
                 background-color: rgb(161, 161, 161);
                 color: white;
@@ -64,7 +66,6 @@
         }
     }
     &__window {
-        position: relative;
         display: grid;
         grid-template-columns: 1fr 5fr;
         height: 85vh;

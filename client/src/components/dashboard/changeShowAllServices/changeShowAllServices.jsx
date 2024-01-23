@@ -1,12 +1,16 @@
+import "./changeShowAllServices.scss"
+
 import axios from 'axios';
 import useServiceData from '../../../hooks/useServiceData';
 import Accordions from "../../accordion/Accordions";
-import "./changeShowAllServices.scss"
-import { Link } from 'react-router-dom';
+import UpdateService from "../updateService/UpdateService";
+import { useState } from "react";
 
 const ChangeShowAllServices = () => {
 
     const { serviceData } = useServiceData();
+
+    const [selectedServiceId, setSelectedServiceId] = useState(null);
 
     const handleDelete = async (id) => {
         try {
@@ -17,9 +21,15 @@ const ChangeShowAllServices = () => {
             console.log("What the error", error);
         }
     }
+    const handleUpdate = (id) => {
+        setSelectedServiceId(id);
+    }
 return (
     <>
-    {serviceData.map((service) => (
+    {selectedServiceId ? (
+        <UpdateService serviceId={selectedServiceId} setSelectedServiceId={setSelectedServiceId} />
+    ) : (
+    serviceData.map((service) => (
         <div className="serviceAdmin" key={service.id}>
             <div className="service-container" >
                 <div className="service-textContainer">
@@ -45,9 +55,10 @@ return (
             </div>
             <div className="serviceAdmin-btnWrapper">
                 <button className="serviceAdmin-delete btn" onClick={() => handleDelete(service.id)}>Видалити</button>
-                <button className="serviceAdmin-change btn"><Link to={`/admin/update/${service.id}`} >Змінити</Link></button>
+                <button className="serviceAdmin-change btn" onClick={() => handleUpdate(service.id)}>Змінити</button>
             </div>
         </div>
+    )
     ))}
     </>
 )

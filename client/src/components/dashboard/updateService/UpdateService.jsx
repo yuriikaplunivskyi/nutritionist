@@ -1,11 +1,10 @@
 import axios from 'axios';
 import { useEffect, useState } from 'react';
 import "./updateService.scss";
-import { useLocation } from 'react-router-dom';
 import { Link } from 'react-router-dom';
 
 
-const UpdateService = () => {
+const UpdateService = ({ serviceId, setSelectedServiceId }) => {
 
     const initStateService = {
         title:"",
@@ -17,9 +16,6 @@ const UpdateService = () => {
         icon:"",
     };
 
-    const location = useLocation();
-
-    const serviceId = location.pathname.split("/")[3];
     const [service, setService] = useState(initStateService);
 
     const handleChange = (e) => {
@@ -77,6 +73,7 @@ const UpdateService = () => {
         try {
             await axios.put("http://localhost:8800/services/"+ serviceId, service);
             setService(initStateService);
+            setSelectedServiceId(null);
         } catch (error) {
             console.log(error);
         }
@@ -142,7 +139,7 @@ const UpdateService = () => {
 
                     <button className="send btn" onClick={handleClick}>Внести зміни</button>
                 </div>
-                <Link className="btn" to="/admin/dashboard">Повернутися в адмінку</Link>
+                <Link className="btn" to="/admin/dashboard">Повернутися </Link>
         </div>
     )
 }
