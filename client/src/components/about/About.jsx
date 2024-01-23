@@ -1,7 +1,8 @@
 import "./about.scss";
-import { useRef} from "react";
+import { useEffect, useRef, useState} from "react";
 import { motion, useInView } from "framer-motion";
 import Slider from "../slider/Slider";
+import axios from "axios";
 
 const slides = [
     {
@@ -75,6 +76,30 @@ const About = () => {
   const ref = useRef();
   const isInView = useInView(ref, {margin: "-50px"})
 
+  const [data, setData] = useState([]);
+  const [loading, setLoading] = useState(true);
+
+    useEffect(() => {
+        const fetchData = async () => {
+            try {
+                const response = await axios.get("http://localhost:8800/certificates");
+                
+    
+                setData(response.data);
+                console.log(response.data);
+    
+                setLoading(false);
+            } catch (error) {
+                console.log(error);
+                console.error('Error fetching service data:', error);
+                setData(slides);
+                setLoading(false);
+            }
+        };
+    
+        fetchData();
+    }, []);
+
     return (
         <div className="about">
             <motion.div 
@@ -83,11 +108,11 @@ const About = () => {
               animate={ isInView && "animate"} 
               initial="initial" 
               ref={ref} 
-              whileInView="animate" >
+              whileInView="animate">
                 <motion.div className="about-imgContainer">
                     <motion.img src="./img/whoami.jpg" alt="eee" />
                 </motion.div>
-                <Slider slides={slides}/>
+                <Slider slides={data}/>
                 <motion.h3 className="about-title">Я сертифікований фітнес-тренер та нутриціолог</motion.h3>
                 <motion.p className="about-text">Вже більше 2-х років я прививаю любов до спорту та збалансованого харчуванню своїм клієнтам. допомагаю людям робити здоровий вибір у харчуванні та житті, набувати фігури мрії, повертати енергію та значно покращувати здоров&apos;я. Я можу вам показати великі можливості збалансованого харчування, а не обмеження, привити любов до фізичної активності без болей і втоми</motion.p>
             </motion.div>

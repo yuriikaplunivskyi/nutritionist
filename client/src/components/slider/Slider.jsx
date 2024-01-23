@@ -52,13 +52,13 @@ const Slider = (props) => {
                         animate={{
                             opacity: index === i ? 1 : 0,
                             x: index === i ? 0 : (i > index ? 300 : -300),
-                            y: index === i ? 0 : (i > index ? 50 : 50)
+                            z: index === i ? 0 : (i > index ? 50 : 50)
                         }}
                         exit={{ opacity: 0, x: i > index ? 300 : -300 }}
                         transition={{ duration: .5 }}
                     >
                         <div className="slide-imgContainer">
-                            <img src={item.img} alt={`Slide ${i}`} />
+                            <img src={`http://localhost:8800/public/${item.img_path}`} alt={`Slide ${i}`} />
                         </div>
                         <div className="slide-textContainer">
                             <span>{item.school}</span>

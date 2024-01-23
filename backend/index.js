@@ -247,7 +247,11 @@ app.put("/certificates/:id", certificateUpload, (req, res) => {
 
         const oldImagePath = path.join(__dirname, 'public', selectData[0].img_path);
         if (fs.existsSync(oldImagePath)) {
-            fs.unlinkSync(oldImagePath);
+            try {
+                fs.unlinkSync(oldImagePath);
+            } catch (err) {
+                console.error(`Error deleting file ${oldImagePath}:`, err);
+            }
         }
 
         let updateQuery;
@@ -268,6 +272,7 @@ app.put("/certificates/:id", certificateUpload, (req, res) => {
         });
     });
 });
+
 
 
 
