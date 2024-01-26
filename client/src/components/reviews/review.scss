@@ -152,6 +152,7 @@
                     width: 200px;
                     margin-left: 0;
                     filter: invert(1);
+                    mix-blend-mode: color-dodge;
                     padding: 10px;
                     border-color: $white-color; 
                     border: 6px solid;
