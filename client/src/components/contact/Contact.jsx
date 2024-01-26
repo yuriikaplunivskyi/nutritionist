@@ -66,7 +66,7 @@ const Contact = () => {
                 </motion.div>
 
             </motion.div>
-            <div className="formContainer" style={{ bottom: isKeyboardOpen ? '200px' : '0' }}>
+            <div className="formContainer" style={{ marginBottom: isKeyboardOpen ? '200px' : '0' }}>
                 <motion.div
                     className="phoneSvg"
                     initial={{ opacity: 1 }}
