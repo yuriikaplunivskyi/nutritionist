@@ -49,7 +49,7 @@ const Links = () => {
                         whileHover={{ scale: 1.1 }}
                         whileTap={{ scale: 0.9 }}
                         >
-                        <HashLink  as="a" to={`${item.path}`} scroll={(el) => el.scrollIntoView({ behavior: 'auto', block: 'end' })}>
+                        <HashLink  as="a" to={`${item.path}`} scroll={el => setTimeout(() => el.scrollIntoView({ behavior: 'auto', block: 'end' }), 0)}>
                             {item.title}
                         </HashLink>
                     </motion.li>
