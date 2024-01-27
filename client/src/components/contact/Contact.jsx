@@ -146,7 +146,7 @@ const Contact = () => {
                         <textarea 
                             name="message" 
                             id="message" 
-                            rows={8} 
+                            rows="4"
                             placeholder="Повідомлення"
                             className={`input ${errors && errors.message ? 'error' : ''}`}
                             {...register('message')}
