@@ -30,28 +30,33 @@ const Contact = () => {
     const isInView = useInView(ref, { margin:"-100px" });
 
 
+    const [isLoaded, setIsLoaded] = useState(false);
+
     useEffect(() => {
-        const handleFocus = () => {
-        document.body.style.scrollSnapType = 'none';
-    };
-
-    const handleBlur = () => {
-        document.body.style.scrollSnapType = 'y mandatory';
-    };
-
-    const inputs = document.querySelectorAll('input, textarea');
-    inputs.forEach(input => {
-        input.addEventListener('focus', handleFocus);
-        input.addEventListener('blur', handleBlur);
-    });
-
-    return () => {
-        inputs.forEach(input => {
-        input.removeEventListener('focus', handleFocus);
-        input.removeEventListener('blur', handleBlur);
-        });
-    };
+        window.onload = () => {
+            setIsLoaded(true);
+        };
     }, []);
+
+    useEffect(() => {
+        if (isLoaded) {
+            const handleFocus = () => document.body.style.scrollSnapType = 'none';
+            const handleBlur = () => document.body.style.scrollSnapType = 'y mandatory';
+
+            const inputs = document.querySelectorAll('input, textarea');
+            inputs.forEach(input => {
+                input.addEventListener('focus', handleFocus);
+                input.addEventListener('blur', handleBlur);
+            });
+
+            return () => {
+                inputs.forEach(input => {
+                    input.removeEventListener('focus', handleFocus);
+                    input.removeEventListener('blur', handleBlur);
+                });
+            };
+        }
+    }, [isLoaded]);
 
     return (
         <motion.div 
