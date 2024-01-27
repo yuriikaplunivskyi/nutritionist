@@ -49,12 +49,12 @@ const Contact = () => {
                 input.addEventListener('blur', handleBlur);
             });
 
-            return () => {
+            /* return () => {
                 inputs.forEach(input => {
                     input.removeEventListener('focus', handleFocus);
                     input.removeEventListener('blur', handleBlur);
                 });
-            };
+            }; */
         }
     }, [isLoaded]);
 
