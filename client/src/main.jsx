@@ -6,11 +6,9 @@ import Loader from './components/loader/Loader.jsx';
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
-    <RouterProvider fallbackElement={<Loader/>}>
-      <Router >
+      <Router fallbackElement={<Loader/>}>
           <App />
       </Router>
-    </RouterProvider>
   </React.StrictMode>,
 );
 
