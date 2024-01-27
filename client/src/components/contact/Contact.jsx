@@ -33,9 +33,9 @@ const Contact = () => {
     const [isLoaded, setIsLoaded] = useState(false);
 
     useEffect(() => {
-        window.onload = () => {
-            setIsLoaded(true);
-        };
+        const handleLoad = () => setIsLoaded(true);
+        window.addEventListener('DOMContentLoaded', handleLoad);
+        return () => window.removeEventListener('DOMContentLoaded', handleLoad);
     }, []);
 
     useEffect(() => {

@@ -1,9 +1,11 @@
+import  {lazy, Suspense } from "react";
 import { Route, Routes } from "react-router-dom";
 
 import "./app.scss";
 
-import Home from "./pages/Home";
-import ServicePage from "./pages/ServicePage";
+import Loader from "./components/loader/Loader";
+export const Home = lazy(() => import("./pages/Home"));
+export const ServicePage = lazy(() => import("./pages/ServicePage"));
 import Dashboard from "./pages/dashboard/Dashboard";
 import NotFound from "./pages/NotFound";
 import UpdateService from "./components/dashboard/updateService/UpdateService";
@@ -12,10 +14,13 @@ import Admin from "./pages/admin/Admin";
 import Signup from "./components/authorization/signup/Signup";
 import RequireAuth from "./components/authorization/RequireAuth";
 
+
 const App = () => {
   return (
     <Routes >
-      <Route path="/" element={<Home />}/>
+        <Route path="/" element={<Suspense fallback={<div className="loader-container"><Loader/></div>}>
+        <Home />
+      </Suspense>}/>
       <Route path="/service/:serviceId" element={<ServicePage />} />
       <Route path="/admin" element={<Admin />} />
       <Route path="/admin/reset" element={<PasswordReset />} />
