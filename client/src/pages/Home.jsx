@@ -1,42 +1,37 @@
-import Loader from "../components/loader/Loader";
 import Cursor from "../components/cursor/Cursor";
-import  {lazy, Suspense } from "react";
-export const LazyHero = lazy(() => import("../components/hero/Hero"));
-export const LazyNavbar = lazy(() => import("../components/navbar/Navbar"));
-/* export const LazyCursor = lazy(() => import("../components/cursor/Cursor")); */
+import Hero from "../components/hero/Hero";
+import Navbar from "../components/navbar/Navbar";
 
-export const LazyAbout = lazy(() => import("../components/about/About"));
-export const LazyReview = lazy(() => import("../components/reviews/Review"));
-export const LazyServices = lazy(() => import("../components/services/Services"));
-export const LazyContact = lazy(() => import("../components/contact/Contact"));
-export const LazyParallax = lazy(() => import("../components/parallax/Parallax"));
+import About from "../components/about/About";
+import Review from "../components/reviews/Review";
+import Services from "../components/services/Services";
+import Contact from "../components/contact/Contact";
+import Parallax from "../components/parallax/Parallax";
 function Home() {
     return (
         <main>
             <Cursor/>
-            <Suspense fallback={<div className="loader-container"><Loader/></div>}>
 
             <section id="homepage">
-                <LazyNavbar/>
-                <LazyHero/>
+                <Navbar/>
+                <Hero/>
             </section> 
             <section id="about">
-                <LazyParallax type="reviews"/>
+                <Parallax type="reviews"/>
             </section>
             <section >
-                <LazyAbout/>
+                <About/>
             </section>
-            <LazyReview id="reviews" />
+            <Review id="reviews" />
             <section >
-                <LazyParallax type="services"/>
+                <Parallax type="services"/>
             </section>
             <section id="services">
-                <LazyServices/>
+                <Services/>
             </section>
             <section id="contacts">
-                <LazyContact/>
+                <Contact/>
             </section>
-            </Suspense>
         </main>
     )
 }
