@@ -28,20 +28,28 @@ const Contact = () => {
         resolver: validationSchema,
     });
     const isInView = useInView(ref, { margin:"-100px" });
-    const [isKeyboardOpen, setIsKeyboardOpen] = useState(false);
+
 
     useEffect(() => {
-        const handleResize = () => {
-        const viewportHeight = window.visualViewport.height;
-        const documentHeight = document.documentElement.clientHeight;
-
-        setIsKeyboardOpen(viewportHeight < documentHeight);
+        const handleFocus = () => {
+        document.body.style.scrollSnapType = 'none';
     };
 
-    window.addEventListener('resize', handleResize);
+    const handleBlur = () => {
+        document.body.style.scrollSnapType = 'y mandatory';
+    };
+
+    const inputs = document.querySelectorAll('input, textarea');
+    inputs.forEach(input => {
+        input.addEventListener('focus', handleFocus);
+        input.addEventListener('blur', handleBlur);
+    });
 
     return () => {
-        window.removeEventListener('resize', handleResize);
+        inputs.forEach(input => {
+        input.removeEventListener('focus', handleFocus);
+        input.removeEventListener('blur', handleBlur);
+        });
     };
     }, []);
 
@@ -66,7 +74,7 @@ const Contact = () => {
                 </motion.div>
 
             </motion.div>
-            <div className="formContainer" style={{ marginBottom: isKeyboardOpen ? '200px' : '0' }}>
+            <div className="formContainer" >
                 <motion.div
                     className="phoneSvg"
                     initial={{ opacity: 1 }}
