@@ -30,16 +30,16 @@ const Contact = () => {
     const isInView = useInView(ref, { margin:"-100px" });
 
 
-    const [isLoaded, setIsLoaded] = useState(false);
+    /*const [isLoaded, setIsLoaded] = useState(false);
 
-    useEffect(() => {
+     useEffect(() => {
         const handleLoad = () => setIsLoaded(true);
         window.addEventListener('DOMContentLoaded', handleLoad);
         return () => window.removeEventListener('DOMContentLoaded', handleLoad);
-    }, []);
+    }, []); */
 
     useEffect(() => {
-        if (isLoaded) {
+        if (isInView) {
             const handleFocus = () => document.body.style.scrollSnapType = 'none';
             const handleBlur = () => document.body.style.scrollSnapType = 'y mandatory';
 
@@ -56,7 +56,7 @@ const Contact = () => {
                 });
             }; */
         }
-    }, [isLoaded]);
+    }, [isInView]);
 
     return (
         <motion.div 
