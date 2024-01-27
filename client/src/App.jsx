@@ -13,9 +13,11 @@ import PasswordReset from "./components/authorization/passwordReset/PasswordRese
 import Admin from "./pages/admin/Admin";
 import Signup from "./components/authorization/signup/Signup";
 import RequireAuth from "./components/authorization/RequireAuth";
+import useRestoreScrollSnap from "./hooks/useRestoreScrollSnap";
 
 
 const App = () => {
+  useRestoreScrollSnap();
   return (
     <Routes >
         <Route path="/" element={
