@@ -4,6 +4,7 @@ import { Routes, Route } from "react-router-dom";
 import "./app.scss";
 
 import Loader from "./components/loader/Loader";
+/* import Home from "./pages/Home"; */
 export const Home = lazy(() => import("./pages/Home"));
 export const ServicePage = lazy(() => import("./pages/ServicePage"));
 import Dashboard from "./pages/dashboard/Dashboard";
@@ -21,12 +22,12 @@ const App = () => {
         <Route path="/" element={
           <Suspense fallback={<div className="loader-container"><Loader/></div>}>
             <Home />
-          </Suspense>}
+          </Suspense> }
         />
         <Route path="/service/:serviceId" element={
           <Suspense fallback={<div className="loader-container"><Loader /></div>}>
             <ServicePage />
-          </Suspense>}
+          </Suspense> }
         />
         <Route path="/admin" element={<Admin />} />
         <Route path="/admin/reset" element={<PasswordReset />} />

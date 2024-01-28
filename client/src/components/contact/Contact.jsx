@@ -31,22 +31,23 @@ const Contact = () => {
 
 
     useEffect(() => {
-        const handleFocus = () => document.body.style.scrollSnapType = 'none';
-        const handleBlur = () => document.body.style.scrollSnapType = 'y mandatory';
-
+        const handleTouchStart = () => document.body.style.scrollSnapType = 'none';
+        const handleTouchEnd = () => document.body.style.scrollSnapType = 'y mandatory';
+    
         const inputs = document.querySelectorAll('input, textarea');
         inputs.forEach(input => {
-            input.addEventListener('focus', handleFocus);
-            input.addEventListener('blur', handleBlur);
+            input.addEventListener('touchstart', handleTouchStart, { passive: false });
+            input.addEventListener('touchend', handleTouchEnd, { passive: false });
         });
-
+    
         return () => {
             inputs.forEach(input => {
-                input.removeEventListener('focus', handleFocus);
-                input.removeEventListener('blur', handleBlur);
+                input.removeEventListener('touchstart', handleTouchStart, { passive: false });
+                input.removeEventListener('touchend', handleTouchEnd, { passive: false });
             });
         };
     }, []);
+    
 
     return (
         <motion.div 
