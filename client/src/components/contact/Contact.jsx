@@ -30,7 +30,7 @@ const Contact = () => {
     const isInView = useInView(ref, { margin:"-100px" });
 
 
-    useEffect(() => {
+    /* useEffect(() => {
         const handleTouchStart = () => document.body.style.scrollSnapType = 'none';
         const handleTouchEnd = () => document.body.style.scrollSnapType = 'y mandatory';
     
@@ -46,7 +46,14 @@ const Contact = () => {
                 input.removeEventListener('touchend', handleTouchEnd, { passive: false });
             });
         };
-    }, []);
+    }, []); */
+    useEffect(() => {
+        if (isInView) {
+            document.body.style.scrollSnapType = 'y mandatory';
+        } else {
+            document.body.style.scrollSnapType = 'none';
+        }
+    }, [isInView]);
     
 
     return (
