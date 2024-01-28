@@ -77,7 +77,7 @@ const About = () => {
   const isInView = useInView(ref, {margin: "-50px"})
 
   const [data, setData] = useState([]);
-  const [loading, setLoading] = useState(true);
+/*   const [loading, setLoading] = useState(true); */
 
     useEffect(() => {
         const fetchData = async () => {
@@ -88,12 +88,12 @@ const About = () => {
                 setData(response.data);
                 console.log(response.data);
     
-                setLoading(false);
+                /* setLoading(false); */
             } catch (error) {
                 console.log(error);
                 console.error('Error fetching service data:', error);
                 setData(slides);
-                setLoading(false);
+                /* setLoading(false); */
             }
         };
     

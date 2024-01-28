@@ -1,5 +1,5 @@
 import "./contact.scss";
-import { useEffect, useRef, useState} from "react";
+import { useEffect, useRef} from "react";
 import { motion, useInView } from "framer-motion";
 import { useForm } from "react-hook-form";
 import useContactForm from "../../hooks/useContactForm";
@@ -31,24 +31,22 @@ const Contact = () => {
 
 
     useEffect(() => {
-        /* if (isInView) { */
-            const handleFocus = () => document.body.style.scrollSnapType = 'none';
-            const handleBlur = () => document.body.style.scrollSnapType = 'y mandatory';
+        const handleFocus = () => document.body.style.scrollSnapType = 'none';
+        const handleBlur = () => document.body.style.scrollSnapType = 'y mandatory';
 
-            const inputs = document.querySelectorAll('input, textarea');
+        const inputs = document.querySelectorAll('input, textarea');
+        inputs.forEach(input => {
+            input.addEventListener('focus', handleFocus);
+            input.addEventListener('blur', handleBlur);
+        });
+
+        return () => {
             inputs.forEach(input => {
-                input.addEventListener('focus', handleFocus);
-                input.addEventListener('blur', handleBlur);
+                input.removeEventListener('focus', handleFocus);
+                input.removeEventListener('blur', handleBlur);
             });
-
-            return () => {
-                inputs.forEach(input => {
-                    input.removeEventListener('focus', handleFocus);
-                    input.removeEventListener('blur', handleBlur);
-                });
-            };
-        /* } */
-    }, [/* isInView */]);
+        };
+    }, []);
 
     return (
         <motion.div 
