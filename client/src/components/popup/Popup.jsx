@@ -25,7 +25,7 @@ const Popup = ({onClose, item}) => {
                 container.removeEventListener("scroll", handleScroll);
             };
             }
-        }, [containerRef]);
+    }, [containerRef]);
 
 
     const handleBackgroundClick = e => {

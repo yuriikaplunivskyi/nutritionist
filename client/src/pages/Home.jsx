@@ -22,7 +22,7 @@ function Home() {
             <section >
                 <About/>
             </section>
-            {/* <Review id="reviews" /> */}
+            <Review id="reviews" />
             <section >
                 <Parallax type="services"/>
             </section>
