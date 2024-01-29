@@ -29,9 +29,9 @@ function Home() {
             <section id="services">
                 <Services/>
             </section>
-            <section id="contacts">
+            {/* <section id="contacts">
                 <Contact/>
-            </section>
+            </section> */}
         </main>
     )
 }

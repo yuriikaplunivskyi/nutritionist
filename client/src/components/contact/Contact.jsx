@@ -30,7 +30,7 @@ const Contact = () => {
     const isInView = useInView(ref, { margin:"-100px" });
 
 
-    /* useEffect(() => {
+    useEffect(() => {
         const handleTouchStart = () => document.body.style.scrollSnapType = 'none';
         const handleTouchEnd = () => document.body.style.scrollSnapType = 'y mandatory';
     
@@ -38,23 +38,25 @@ const Contact = () => {
         inputs.forEach(input => {
             input.addEventListener('touchstart', handleTouchStart, { passive: false });
             input.addEventListener('touchend', handleTouchEnd, { passive: false });
+            console.log("render listener")
         });
     
         return () => {
             inputs.forEach(input => {
                 input.removeEventListener('touchstart', handleTouchStart, { passive: false });
                 input.removeEventListener('touchend', handleTouchEnd, { passive: false });
+                console.log("remove listener")
             });
         };
-    }, []); */
-    useEffect(() => {
+    }, []);
+    /* useEffect(() => {
         if (isInView) {
             document.body.style.scrollSnapType = 'y mandatory';
         } else {
             document.body.style.scrollSnapType = 'none';
         }
     }, [isInView]);
-    
+     */
 
     return (
         <motion.div 
