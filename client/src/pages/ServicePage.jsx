@@ -16,7 +16,7 @@ const ServicePage = () => {
             <Suspense fallback={<div className="loader-container"><Loader/></div>}>
                 <LazyNavbar />
                 <LazyService />
-                {/* <LazyFormService/> */}
+                <LazyFormService/>
             </Suspense>
             </>
         </div>

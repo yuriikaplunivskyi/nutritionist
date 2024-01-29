@@ -22,16 +22,16 @@ function Home() {
             <section >
                 <About/>
             </section>
-            <Review id="reviews" />
+            {/* <Review id="reviews" /> */}
             <section >
                 <Parallax type="services"/>
             </section>
             <section id="services">
                 <Services/>
             </section>
-            {/* <section id="contacts">
+            <section id="contacts">
                 <Contact/>
-            </section> */}
+            </section>
         </main>
     )
 }
