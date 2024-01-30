@@ -1,29 +1,5 @@
 @import "./variables.scss";
 
-main{
-    scroll-snap-type: x mandatory;
-    scroll-behavior: smooth;
-    /* scroll-behavior: auto; */
-}
-
-* {
-    padding: 0;
-    margin: 0;
-    box-sizing: border-box;
-    font-family: 'Alumni Sans', sans-serif;
-    font-family: 'Comfortaa', sans-serif;
-    font-family: 'Lobster', sans-serif;
-    font-family: 'Tektur', sans-serif;
-}
-
-body {
-    background: $pink-main-text-color;
-}
-
-a {
-    text-decoration: none;
-    color: inherit;
-}
 /* .container {
     width: 1220px;
     margin: 0 auto;
@@ -115,9 +91,37 @@ a {
     }
     
 
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: 'Alumni Sans', sans-serif;
+    font-family: 'Comfortaa', sans-serif;
+    font-family: 'Lobster', sans-serif;
+    font-family: 'Tektur', sans-serif;
+}
+
+body {
+    background: $pink-main-text-color;
+    
+}
+
+main {
+    height: 100vh;
+    overflow: scroll;
+    scroll-snap-type: y mandatory;
+    scroll-behavior: smooth;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+
 article {
     height: 100vh;
-    scroll-snap-align:start ;
+    scroll-snap-align: center ;
     overflow: hidden;
     margin-top: 0;
     @include mobile768 {
@@ -127,7 +131,7 @@ article {
 }
 section {
     height: 100svh;
-    scroll-snap-align: center;
+    scroll-snap-align: start;
     overflow: hidden;
     margin: auto;
     @include mobile768 {
