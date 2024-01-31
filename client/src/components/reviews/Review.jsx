@@ -84,6 +84,7 @@ const Review = ({mainRef}) => {
 
     const {scrollYProgress} = useScroll(
         {
+        container: mainRef,
         target: ref,
         offset:["end end", "start start"]
     });
