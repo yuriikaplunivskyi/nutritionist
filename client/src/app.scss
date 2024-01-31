@@ -126,7 +126,7 @@ article {
     margin-top: 0;
     @include mobile768 {
         height: 100dvh;
-        scroll-snap-align: center;
+        scroll-snap-align: start;
     }
 }
 section {
