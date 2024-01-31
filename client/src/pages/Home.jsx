@@ -1,4 +1,4 @@
-import { useScroll } from "framer-motion";
+
 import { useRef } from "react";
 
 import Cursor from "../components/cursor/Cursor";
@@ -12,8 +12,7 @@ import Contact from "../components/contact/Contact";
 import Parallax from "../components/parallax/Parallax";
 
 function Home() {
-    const mainRef = useRef(null);
-    const { scrollY } = useScroll({ container: mainRef });
+    const mainRef = useRef();
 
     return (
         <main ref={mainRef}>
