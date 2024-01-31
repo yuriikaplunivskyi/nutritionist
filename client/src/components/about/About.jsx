@@ -55,26 +55,32 @@ const slides = [
     }
     ];
 
-const variants = {
-    initial: {
-        x: -200,
-        y: 10,
-        opacity:0
+const itemVariants = {
+  initial: {
+    y: 20,
+    opacity: 0,
+  },
+  animate: {
+    y: 0,
+    opacity: 1,
+    transition: {
+      duration: 1,
     },
-    animate: {
-        x: 0,
-        opacity: 1,
-        y: 0,
-        transition: {
-            duration: 1,
-            staggerChildren: 0.5
-        }
-    }
-}
+  },
+};
+
+const containerVariants = {
+  initial: {},
+  animate: {
+    transition: {
+      staggerChildren: 0.5, 
+    },
+  },
+};
 
 const About = () => {
   const ref = useRef();
-  const isInView = useInView(ref, {margin: "-50px"})
+  const isInView = useInView(ref, {margin: "0px"})
 
   const [data, setData] = useState([]);
 /*   const [loading, setLoading] = useState(true); */
@@ -104,17 +110,18 @@ const About = () => {
         <div className="about">
             <motion.div 
               className="wrapper"
-              variants={variants} 
+              variants={containerVariants} 
               animate={ isInView && "animate"} 
               initial="initial" 
               ref={ref} 
               whileInView="animate">
-                <motion.div className="about-imgContainer">
+                <motion.h3 variants={itemVariants} className="about-title">Я сертифікований фітнес-тренер та нутриціолог</motion.h3>
+                <motion.div variants={itemVariants} className="about-imgContainer">
                     <motion.img src="./img/whoami.jpg" alt="eee" />
                 </motion.div>
-                <Slider slides={data}/>
-                <motion.h3 className="about-title">Я сертифікований фітнес-тренер та нутриціолог</motion.h3>
-                <motion.p className="about-text">Вже більше 2-х років я прививаю любов до спорту та збалансованого харчуванню своїм клієнтам. допомагаю людям робити здоровий вибір у харчуванні та житті, набувати фігури мрії, повертати енергію та значно покращувати здоров&apos;я. Я можу вам показати великі можливості збалансованого харчування, а не обмеження, привити любов до фізичної активності без болей і втоми</motion.p>
+                <Slider variants={itemVariants} slides={data}/>
+
+                <motion.p variants={itemVariants} className="about-text">Вже більше 2-х років я прививаю любов до спорту та збалансованого харчуванню своїм клієнтам. допомагаю людям робити здоровий вибір у харчуванні та житті, набувати фігури мрії, повертати енергію та значно покращувати здоров&apos;я. Я можу вам показати великі можливості збалансованого харчування, а не обмеження, привити любов до фізичної активності без болей і втоми</motion.p>
             </motion.div>
         </div>
     )
