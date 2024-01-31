@@ -1,4 +1,3 @@
-
 import { useRef } from "react";
 
 import Cursor from "../components/cursor/Cursor";
@@ -12,8 +11,11 @@ import Contact from "../components/contact/Contact";
 import Parallax from "../components/parallax/Parallax";
 
 function Home() {
+
     const mainRef = useRef();
 
+    console.log(mainRef);
+    
     return (
         <main ref={mainRef}>
             <Cursor/>

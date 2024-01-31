@@ -7,7 +7,7 @@ const Parallax = ({type, mainRef}) => {
     const ref = useRef();
 
     const {scrollYProgress} = useScroll({
-        container: mainRef,
+        container: mainRef.current,
         target: ref,
         offset: ["start start", "end start"]
     });

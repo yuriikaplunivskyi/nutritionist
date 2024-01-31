@@ -55,8 +55,9 @@ const Single = ({item, mainRef}) => {
 
     const {scrollYProgress} = useScroll(
         {
-        container: mainRef,
+        container: mainRef.current,
         target: ref,
+        layoutEffect: false,
     });
 
     const y = useTransform(scrollYProgress, [0,1 ], [-300, 300]) 
@@ -84,8 +85,9 @@ const Review = ({mainRef}) => {
 
     const {scrollYProgress} = useScroll(
         {
-        container: mainRef,
+        container: mainRef.current,
         target: ref,
+        layoutEffect: false,
         offset:["end end", "start start"]
     });
 
