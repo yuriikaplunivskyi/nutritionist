@@ -2,11 +2,12 @@ import { useRef } from "react";
 import "./parallax.scss";
 import { motion, useScroll, useTransform } from "framer-motion";
 
-const Parallax = ({type}) => {
+const Parallax = ({type, mainRef}) => {
 
     const ref = useRef();
 
     const {scrollYProgress} = useScroll({
+        container: mainRef,
         target: ref,
         offset: ["start start", "end start"]
     });

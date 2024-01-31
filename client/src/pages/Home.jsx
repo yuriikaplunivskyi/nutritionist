@@ -1,3 +1,6 @@
+import { useScroll } from "framer-motion";
+import { useRef } from "react";
+
 import Cursor from "../components/cursor/Cursor";
 import Hero from "../components/hero/Hero";
 import Navbar from "../components/navbar/Navbar";
@@ -7,9 +10,13 @@ import Review from "../components/reviews/Review";
 import Services from "../components/services/Services";
 import Contact from "../components/contact/Contact";
 import Parallax from "../components/parallax/Parallax";
+
 function Home() {
+    const mainRef = useRef(null);
+    const { scrollY } = useScroll({ container: mainRef });
+
     return (
-        <main>
+        <main ref={mainRef}>
             <Cursor/>
 
             <section id="homepage">
@@ -17,14 +24,14 @@ function Home() {
                 <Hero/>
             </section> 
             <section id="about">
-                <Parallax type="reviews"/>
+                <Parallax type="reviews" mainRef={mainRef}/>
             </section>
             <section >
                 <About/>
             </section>
-            <Review id="reviews" />
+            <Review id="reviews" mainRef={mainRef} />
             <section >
-                <Parallax type="services"/>
+                <Parallax type="services" mainRef={mainRef}/>
             </section>
             <section id="services">
                 <Services/>

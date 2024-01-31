@@ -49,12 +49,13 @@ const items = [
 ]
 
 
-const Single = ({item}) => {
+const Single = ({item, mainRef}) => {
 
     const ref = useRef(); 
 
     const {scrollYProgress} = useScroll(
         {
+        container: mainRef,
         target: ref,
     });
 
@@ -77,7 +78,7 @@ const Single = ({item}) => {
     )
 }
 
-const Review = () => {
+const Review = ({mainRef}) => {
 
     const ref = useRef()
 
@@ -101,7 +102,7 @@ const Review = () => {
             </div>
             
             {items.map(item => (
-                <Single item={item} key={item.id} />
+                <Single item={item} key={item.id} mainRef={mainRef}/>
             ))}
             
         </div>

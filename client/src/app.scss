@@ -103,12 +103,12 @@
 
 body {
     background: $pink-main-text-color;
-    
+    overflow: hidden;
 }
 
 main {
     height: 100vh;
-    overflow: scroll;
+    overflow-y: scroll;
     scroll-snap-type: y mandatory;
     scroll-behavior: smooth;
 }
@@ -126,7 +126,7 @@ article {
     margin-top: 0;
     @include mobile768 {
         height: 100dvh;
-        scroll-snap-align: start;
+        scroll-snap-align: center;
     }
 }
 section {
