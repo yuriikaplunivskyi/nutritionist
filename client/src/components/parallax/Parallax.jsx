@@ -5,10 +5,9 @@ import { motion, useScroll, useTransform } from "framer-motion";
 const Parallax = ({type, mainRef}) => {
 
     const ref = useRef();
-    const containerRef = mainRef ?? { current: null };
 
     const {scrollYProgress} = useScroll({
-        container: containerRef.current,
+        container: mainRef,
         target: ref,
         layoutEffect: false,
         offset: ["start start", "end start"]
