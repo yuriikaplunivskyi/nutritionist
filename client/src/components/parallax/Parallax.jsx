@@ -18,7 +18,10 @@ const Parallax = ({type, mainRef}) => {
     const yBg = useTransform(scrollYProgress, [0, 1], ["0%", "100%"]);
 
     const yRotate = useTransform(scrollYProgress, [0, 1], [0, 720]);
-
+    console.log("scrollYProgress", scrollYProgress);
+    console.log("yText", yText.get());
+    console.log("yBg", yBg.get());
+    console.log("yRotate", yRotate.get());
     return (
         <div 
             className="parallax" 
