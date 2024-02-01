@@ -80,14 +80,14 @@
             }
 
             .imageContainer {
-                flex: .7;
+                flex: 1;
                 display: flex;
                 align-items: center;
                 justify-content: center;
 
-                @include laptop1280 {
+                /* @include laptop1280 {
                     flex: .5;
-                }
+                } */
 
                 @include mobile768 {
                     width: 100%;
@@ -166,15 +166,13 @@
                     @include mobile768 {
                         height: 100px;
                         width: 100px;
-                        border: none;
-                        padding: 0;
+                        
                     }
 
 
                     @include mobile576 {
                         height: 80px;
                         width: 80px;
-                        border: none;
                     }
 
                     @include mobile375 {

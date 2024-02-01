@@ -68,10 +68,12 @@ const Single = ({item, mainRef}) => {
                 <div className="wrapper">
                     <div className="imageContainer" ref={ref}>
                         <img src={item.img} alt={item.id} />
+                        
                     </div>
+                    
                     <motion.div className="textContainer" style={{ y}}>
-                        <motion.img src={item.icon} alt={item.id}/>
                         <p>{item.desc}</p>
+                        <img src={item.icon} alt={item.id}/>
                     </motion.div>  
                 </div>
             </div>
