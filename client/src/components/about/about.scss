@@ -35,11 +35,12 @@
 
         }
 
-        @include mobile768 {
+        @include tablet1024 {
             grid-template-areas:
-            " img img "
-            " title  title "
-            "text  text slider slider ";
+                "title  img  img " 
+                "slider text text" 
+                "slider text text" 
+                "slider text text";
         }
         
         @include mobile576 {
@@ -47,6 +48,7 @@
             " img  img"
             " title title "
             "text text"
+            " slider slider"
             " slider slider";
         }
 
@@ -61,49 +63,41 @@
         }
     }
     &-imgContainer {
-        position: relative;
         grid-area: img;
         max-width:100%;
-        max-height: 100%;
         min-width:100%;
         min-height: 100%;
+        max-height: 350px;
         display: flex;
         justify-content: center;
         align-items: center;
+        overflow: hidden;
+        border-radius: 9% 81% 8% 72% / 85% 11% 79% 15% ;
+        
+        box-shadow: 10px 1px 86px 21px  rgba(255,255,255,0.52);
+
+        @include tablet1024 {
+            min-height: 65%;
+            max-height: 45%;
+        }
+
+        @include mobile576 {
+            max-height: 250px;
+        }
 
         @include mobile375 {
             display: none;
         }
 
         img {
-            margin-top: 0;
-            object-fit: cover;
-            object-position: center 35%;
-            max-width:100%;
-            max-height: 300px;
-            min-width:100%;
-            min-height: auto;
+            object-fit:scale-down;
+            max-width: fit-content;
             filter: grayscale(15%);
-            border-radius:  500px 500px 500px 50px ;
-            box-shadow: 10px 1px 86px 21px  rgba(255,255,255,0.52);
-            
-            /* @include laptop1280 {
-                max-width: 450px;
-            } */
-    
-            @include tablet1024 {
-                width: 320px;
-                height: 220px;
-            }
-
-            @include mobile768 {
-                max-height: 200px;
-                border-radius: 500px 500px 0px;
-            }
+            width: 100%;
+            object-position: right 50px;
 
             @include mobile576 {
                 min-width: 100%;
-                max-height: 80px;
                 margin-right: 0;
                 margin-top: 0;
             }
@@ -148,15 +142,14 @@
         }
 
         @include mobile430 {
-            font-size: 30px;
+            font-size: 34px;
             line-height: 30px;
-            margin-top: 40px;
         }
 
         @include mobile375 {
             margin: 0;
             padding-left: 85px;
-            font-size: 24px;
+            
         }
     }
 
