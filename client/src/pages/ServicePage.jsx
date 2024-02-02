@@ -10,16 +10,14 @@ export const LazyFormService = lazy(() => import("../components/formService/Form
 const ServicePage = () => {
 
     return (
-        <div>
-            <>
+        <main >
             <Cursor/>
             <Suspense fallback={<div className="loader-container"><Loader/></div>}>
                 <LazyNavbar />
                 <LazyService />
                 <LazyFormService/>
             </Suspense>
-            </>
-        </div>
+        </main>
     )
 }
 

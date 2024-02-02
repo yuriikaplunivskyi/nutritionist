@@ -14,7 +14,7 @@ function Home() {
 
     const mainRef = useRef();
 
-    console.log(mainRef);
+    
     
     return (
         <main ref={mainRef}>

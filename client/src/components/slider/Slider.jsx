@@ -5,19 +5,31 @@ import "./slider.scss";
 const Slider = (props) => {
     const [index, setCurrentIndex] = useState(0);
     let startX = 0;
+    let pointerId = null;
 
-    const handleTouchStart = (e) => {
-        startX = e.touches[0].clientX;
+    const handlePointerDown = (e) => {
+        startX = e.clientX;
+        pointerId = e.pointerId;
+        e.target.setPointerCapture(pointerId);
     };
 
-    const handleTouchMove = (e) => {
-        const currentX = e.touches[0].clientX;
-        const deltaX = startX - currentX;
+    const handlePointerMove = (e) => {
+        if (e.pointerId === pointerId) {
+            const currentX = e.clientX;
+            const deltaX = startX - currentX;
 
-        if (deltaX > 50) {
-            goToNextSlide();
-        } else if (deltaX < -50) {
-            goToPrevSlide();
+            if (deltaX > 50) {
+                goToNextSlide();
+            } else if (deltaX < -50) {
+                goToPrevSlide();
+            }
+        }
+    };
+
+    const handlePointerUp = (e) => {
+        if (e.pointerId === pointerId) {
+            e.target.releasePointerCapture(pointerId);
+            pointerId = null;
         }
     };
 
@@ -36,8 +48,9 @@ const Slider = (props) => {
     return (
         <div
             className="slider carousel-container"
-            onTouchStart={handleTouchStart}
-            onTouchMove={handleTouchMove}
+            onPointerDown={handlePointerDown}
+            onPointerMove={handlePointerMove}
+            onPointerUp={handlePointerUp}
         >
             <button className="prev-button" onClick={goToPrevSlide}>
                 &#10094;
@@ -48,17 +61,20 @@ const Slider = (props) => {
                     <motion.div
                         key={item.id}
                         className={`slide ${index === i ? "active" : ""}`}
-                        initial={{ opacity: 0, x: 300}}
+                        initial={{ opacity: 0, x: 300 }}
                         animate={{
                             opacity: index === i ? 1 : 0,
-                            x: index === i ? 0 : (i > index ? 300 : -300),
-                            z: index === i ? 0 : (i > index ? 50 : 50)
+                            x: index === i ? 0 : i > index ? 300 : -300,
+                            z: index === i ? 0 : i > index ? 50 : 50,
                         }}
                         exit={{ opacity: 0, x: i > index ? 300 : -300 }}
-                        transition={{ duration: .5 }}
+                        transition={{ duration: 0.5 }}
                     >
                         <div className="slide-imgContainer">
-                            <img src={`http://localhost:8800/public/${item.img_path}`} alt={`Slide ${i}`} />
+                            <img
+                                src={`http://localhost:8800/public/${item.img_path}`}
+                                alt={`Slide ${i}`}
+                            />
                         </div>
                         <div className="slide-textContainer">
                             <span>{item.school}</span>

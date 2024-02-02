@@ -112,13 +112,13 @@
                 align-items:center;
                 z-index: 2;
 
-                @include mobile375 {
-                    flex-direction: column;
+                @include mobile576 {
+                    flex-direction: column-reverse;
                     justify-content: space-between;
-                    gap: 10px;
+                    gap: 20px;
                     align-items: flex-start;
                 }
-                span {
+                a {
                     padding:10px 15px;
                     background-color: transparent;
                     border: none;
@@ -198,12 +198,9 @@
         }
 
         @include mobile375 {
-            height: 65%;
-        }
-
-        @include mobile320 {
             height: 60%;
         }
+
 
         img {
             width: 100%;

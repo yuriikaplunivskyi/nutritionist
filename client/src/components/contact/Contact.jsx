@@ -38,14 +38,12 @@ const Contact = () => {
         inputs.forEach(input => {
             input.addEventListener('touchstart', handleTouchStart, { passive: false });
             input.addEventListener('touchend', handleTouchEnd, { passive: false });
-            console.log("render listener")
         });
     
         return () => {
             inputs.forEach(input => {
                 input.removeEventListener('touchstart', handleTouchStart, { passive: false });
                 input.removeEventListener('touchend', handleTouchEnd, { passive: false });
-                console.log("remove listener")
             });
         };
     }, []);
