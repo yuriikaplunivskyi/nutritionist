@@ -12,13 +12,13 @@ const Navbar = () => {
             <div className="wrapper">
                 <ul className="social">
                     <li>
-                        <a href="#"><img src={instagramIcon} alt="instagram" /></a>
+                        <a href="https://www.instagram.com/kateryna_kaplunivska?igsh=NXF5NzBwMHcxczEw"><img src={instagramIcon} alt="instagram" /></a>
                         </li>
                     <li>
-                        <a href="#"><img  src={tiktokIcon} alt="tiktok" /></a>
+                        <a href="https://www.tiktok.com/@kateryna_kaplunivska?_t=8jaFid5BF4v&_r=1"><img  src={tiktokIcon} alt="tiktok" /></a>
                         </li>
                     <li>
-                        <a href="#"><img src={telegramIcon} alt="telegram" /></a>
+                        <a href="https://t.me/kateryna_kaplunivska"><img src={telegramIcon} alt="telegram" /></a>
                         </li>
                 </ul>
             </div>

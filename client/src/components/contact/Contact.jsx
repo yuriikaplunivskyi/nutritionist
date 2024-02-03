@@ -47,14 +47,7 @@ const Contact = () => {
             });
         };
     }, []);
-    /* useEffect(() => {
-        if (isInView) {
-            document.body.style.scrollSnapType = 'y mandatory';
-        } else {
-            document.body.style.scrollSnapType = 'none';
-        }
-    }, [isInView]);
-     */
+    
 
     return (
         <motion.div 
@@ -74,6 +67,10 @@ const Contact = () => {
                 <motion.div className="item" variants={variants}>
                     <h3>Telegram:</h3>
                     <a href="https://t.me/kateryna_kaplunivska">@kateryna_kaplunivska</a>
+                </motion.div>
+                <motion.div className="item" variants={variants}>
+                    <h3>Instagram:</h3>
+                    <a href="https://www.instagram.com/kateryna_kaplunivska?igsh=NXF5NzBwMHcxczEw">@kateryna_kaplunivska</a>
                 </motion.div>
 
             </motion.div>
