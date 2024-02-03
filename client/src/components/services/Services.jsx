@@ -28,16 +28,6 @@ const Services = () => {
     const isInView = useInView(ref, {margin: "-50px"});
     const { serviceData, loading } = useServiceData();
 
-    /* const handleServiceClick = (selectedService) => {
-        localStorage.setItem('selectedService', JSON.stringify(selectedService));
-    }; */
-
-    if (loading) {
-        return <div className="loading">
-                    <img src={dotsLoading} alt='loading'/>
-                </div>;
-        }
-
     return (
         <div className="services-container">
         <motion.div 
@@ -68,32 +58,39 @@ const Services = () => {
                     <button>Що робимо?</button>
                 </div>
             </motion.div>
-            <motion.div className="listContainer" 
-                variants={variants} 
-                animate={ isInView && "animate"} 
-                initial="initial" 
-                ref={ref} 
-                whileInView="animate" 
-            >
-                {serviceData.map((item) => 
-                        (
-                        <motion.div 
-                            className="box"
-                            key={item.id}
-                        >
-                        <h2 className="box-title">{item.title}</h2>
-                        
-                        <Link 
-                            className="box-btn-container" 
-                            to={{ pathname: `/service/${item.path}`}}
+
+            {loading ? (
+                <div className="loading" style={{height: "100%"}}>
+                    <img style={{width: "40px"}} src={dotsLoading} alt="loading"/>
+                </div>
+            ) : (
+                <motion.div className="listContainer" 
+                    variants={variants} 
+                    animate={ isInView && "animate"} 
+                    initial="initial" 
+                    ref={ref} 
+                    whileInView="animate" 
+                >
+                    {serviceData.map((item) => 
+                            (
+                            <motion.div 
+                                className="box"
+                                key={item.id}
                             >
-                            {/* <img className="box-icon" src={item.icon} alt={`"icon" ${item.title}`} /> */}
-                            <button>Переглянути</button>
-                        </Link>
-                        
-                    </motion.div>)
-                )}
-            </motion.div>
+                            <h2 className="box-title">{item.title}</h2>
+                            
+                            <Link 
+                                className="box-btn-container" 
+                                to={{ pathname: `/service/${item.path}`}}
+                                >
+                                {/* <img className="box-icon" src={item.icon} alt={`"icon" ${item.title}`} /> */}
+                                <button>Переглянути</button>
+                            </Link>
+                            
+                        </motion.div>)
+                    )}
+                </motion.div>
+            )}
         </motion.div>
         </div>
     )

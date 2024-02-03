@@ -64,7 +64,7 @@ const itemVariants = {
     y: 0,
     opacity: 1,
     transition: {
-      duration: 1,
+      duration: 0.5,
     },
   },
 };

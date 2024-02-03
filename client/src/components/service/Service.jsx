@@ -33,9 +33,9 @@ const Service = () => {
     const selectedService = serviceData.find((service) => service.path === serviceId);
 
     if (!selectedService) {
-        return <div className="loading">
-                    <img src={dotsLoading} alt='loading'/>
-                </div>;
+        return <div className="loading" style={{height: "100%"}}>
+                    <img style={{width: "40px"}} src={dotsLoading} alt="loading"/>
+                </div>
     }
 
     return (
