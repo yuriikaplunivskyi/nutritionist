@@ -66,7 +66,7 @@
         grid-area: img;
         max-width:100%;
         min-width:100%;
-        min-height: 100%;
+        min-height: 300px;
         max-height: 350px;
         display: flex;
         justify-content: center;
@@ -76,12 +76,13 @@
         
         box-shadow: 10px 1px 86px 21px  rgba(255,255,255,0.52);
 
-        @include tablet1024 {
-            min-height: 65%;
-            max-height: 45%;
-        }
+        /* @include tablet1024 {
+            min-height: 45%;
+            max-height: 65%;
+        } */
 
         @include mobile576 {
+            min-height: 120px;
             max-height: 250px;
         }
 
@@ -94,12 +95,10 @@
             max-width: fit-content;
             filter: grayscale(15%);
             width: 100%;
-            object-position: right 50px;
+            object-position: right 80px;
 
             @include mobile576 {
-                min-width: 100%;
-                margin-right: 0;
-                margin-top: 0;
+                object-position: right 40px;
             }
 
         }
