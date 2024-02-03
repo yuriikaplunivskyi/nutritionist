@@ -1,6 +1,6 @@
 import "./hero.scss"
 import { motion } from "framer-motion";
-import { HashLink } from 'react-router-hash-link';
+import { Link } from "react-router-dom";
 
 const textVariants = {
     initial: {
@@ -51,12 +51,12 @@ const Hero = () => {
                     <motion.h2 variants={textVariants}>Катерина Каплунівська</motion.h2>
                     <motion.h1 variants={textVariants}>Персональний тренер та нутриціолог</motion.h1>
                     <motion.div variants={textVariants} className="buttons">
-                        <motion.span variants={textVariants}>
-                            <HashLink to={`#about`} smooth>Про мене</HashLink>
-                        </motion.span>
-                        <motion.span variants={textVariants}>
-                            <HashLink to={`#contacts`} smooth>Зв&#39;язатися зі мною</HashLink>
-                        </motion.span>
+                        <motion.div>
+                        <Link variants={textVariants} to={`#about`}>Про мене</Link>
+                        </motion.div>
+                        <motion.div>
+                        <Link variants={textVariants} to={`#contacts`}>Зв&#39;язатися зі мною</Link>
+                        </motion.div>
                     </motion.div>
                     <motion.img 
                         variants={textVariants}

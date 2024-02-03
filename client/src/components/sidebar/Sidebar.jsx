@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Links  from "./links/Links";
 import { motion } from "framer-motion";
 import "./sidebar.scss";
@@ -26,6 +26,20 @@ const variants = {
 
 const Sidebar = () => {
     const [open, setOpen] = useState(false)
+
+    useEffect(() => {
+        const handleClickOutside = (event) => {
+            if (open && !event.target.closest(".sidebar")) {
+                setOpen(false);
+            }
+        };
+    
+        document.addEventListener("click", handleClickOutside);
+    
+        return () => {
+            document.removeEventListener("click", handleClickOutside);
+        };
+    }, [open]);
 
     return (
         <motion.div className="sidebar" animate={open ? "open": "closed"}>

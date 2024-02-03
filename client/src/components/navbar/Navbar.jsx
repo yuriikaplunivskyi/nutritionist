@@ -1,7 +1,6 @@
 import "./navbar.scss";
 import Sidebar from "../sidebar/Sidebar";
 
-import facebookIcon from "/img/facebook.svg";
 import instagramIcon from "/img/instagram.svg";
 import telegramIcon from "/img/telegram.svg";
 import tiktokIcon from "/img/tiktok.svg";
@@ -12,9 +11,6 @@ const Navbar = () => {
         <Sidebar />
             <div className="wrapper">
                 <ul className="social">
-                    <li>
-                        <a href="#"><img src={facebookIcon} alt="facebook" /></a>
-                        </li>
                     <li>
                         <a href="#"><img src={instagramIcon} alt="instagram" /></a>
                         </li>
