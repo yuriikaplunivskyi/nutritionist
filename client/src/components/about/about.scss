@@ -83,7 +83,7 @@
 
         @include mobile576 {
             min-height: 120px;
-            max-height: 250px;
+            max-height: 160px;
         }
 
         @include mobile375 {
@@ -95,10 +95,13 @@
             max-width: fit-content;
             filter: grayscale(15%);
             width: 100%;
-            object-position: right 80px;
+            object-position: center;
 
             @include mobile576 {
-                object-position: right 40px;
+                object-position: center 80px;
+            }
+            @include mobile576 {
+                object-position: center 60px;
             }
 
         }
