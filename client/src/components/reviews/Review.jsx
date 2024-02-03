@@ -72,8 +72,8 @@ const Single = ({item, mainRef}) => {
                     </div>
                     
                     <motion.div className="textContainer" style={{ y}}>
-                        <p>{item.desc}</p>
                         <img src={item.icon} alt={item.id}/>
+                        <p>{item.desc}</p>
                     </motion.div>  
                 </div>
             </div>
