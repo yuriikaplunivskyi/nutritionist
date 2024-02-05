@@ -95,7 +95,7 @@
             max-width: fit-content;
             filter: grayscale(15%);
             width: 100%;
-            object-position: center;
+            object-position: center 70px;
 
             @include mobile576 {
                 object-position: center 80px;

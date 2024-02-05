@@ -1,9 +1,9 @@
 import "./navbar.scss";
 import Sidebar from "../sidebar/Sidebar";
 
-import instagramIcon from "/img/instagram.svg";
-import telegramIcon from "/img/telegram.svg";
-import tiktokIcon from "/img/tiktok.svg";
+import instagramIcon from "/icon/instagram.svg";
+import telegramIcon from "/icon/telegram.svg";
+import tiktokIcon from "/icon/tiktok.svg";
 
 const Navbar = () => {
     return (

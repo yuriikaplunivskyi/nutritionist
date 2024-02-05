@@ -50,7 +50,7 @@ const Services = () => {
                 variants={variants}
                 >
                 <div className="title">        
-                    <img src="./img/banana.JPG" alt="people" />
+                    <img src="./img/banana.webp" alt="people" />
                     <h2><motion.b whileHover={{color: "#0f0a0a"}}>Унікальні</motion.b> ідеї</h2>
                 </div>
                 <div className="title">

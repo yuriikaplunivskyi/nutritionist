@@ -117,7 +117,7 @@ const About = () => {
               whileInView="animate">
                 <motion.h3 variants={itemVariants} className="about-title">Я сертифікований фітнес-тренер та нутриціолог</motion.h3>
                 <motion.div variants={itemVariants} className="about-imgContainer">
-                    <motion.img src="./img/whoami.jpg" alt="eee" />
+                    <motion.img src="./img/whoami.webp" alt="who I am" />
                 </motion.div>
                 <Slider variants={itemVariants} slides={data}/>
 
