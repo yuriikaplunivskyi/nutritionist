@@ -76,7 +76,7 @@ const Hero = () => {
                 NUTRITIONIST PERSONAL COACH HEALTH COACH  ---------------------------------------------            </motion.div>
             
             <div className="imageContainer">
-                <img  src="./img/hero.png" alt="hero img" />
+                <img  src="./img/hero.avif" alt="hero img" />
             </div>
         </div>
     )
