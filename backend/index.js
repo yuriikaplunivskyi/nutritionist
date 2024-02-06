@@ -13,6 +13,17 @@ const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
 const app = express();
 
+app.use((req, res, next) => {
+    res.setHeader("Access-Control-Allow-Origin", "*");
+    res.setHeader("Access-Control-Allow-Methods", "GET, POST, PUT, DELETE");
+    res.setHeader("Access-Control-Allow-Headers", "Content-Type");
+    res.setHeader("Access-Control-Allow-Credentials", "true");
+
+    next();
+});
+app.use(cors());
+
+
 const db = mysql.createConnection({
     host: process.env.DB_HOST,
     user: process.env.DB_USERNAME,
@@ -61,7 +72,6 @@ db.connect((err) => {
 });
 
 app.use(express.json());
-app.use(cors());
 //if trouble with auth use this in MySQL Workbench
 //ALTER USER 'root'@'localhost' IDENTIFIED WITH 'mysql_native_password' BY 'Bogoduchiv1996';
 
@@ -173,16 +183,6 @@ app.put("/services/:id", (req, res) => {
 
 app.use("/public/uploads", express.static(path.join(__dirname, "public/uploads")));
 app.use("/public", express.static(path.join(__dirname, "public")));
-
-app.use((req, res, next) => {
-    res.setHeader("Access-Control-Allow-Origin", "*");
-    res.setHeader("Access-Control-Allow-Methods", "GET, POST, PUT, DELETE");
-    res.setHeader("Access-Control-Allow-Headers", "Content-Type");
-    res.setHeader("Access-Control-Allow-Credentials", "true");
-
-    next();
-});
-
 
 
 const certificateStorage = multer.diskStorage({
