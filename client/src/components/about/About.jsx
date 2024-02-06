@@ -88,7 +88,7 @@ const About = () => {
     useEffect(() => {
         const fetchData = async () => {
             try {
-                const response = await axios.get("http://localhost:8800/certificates");
+                const response = await axios.get("https://nutritionist-kate.onrender.com/certificates");
                 
     
                 setData(response.data);

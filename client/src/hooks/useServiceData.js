@@ -266,7 +266,7 @@ const useServiceData = () => {
     useEffect(() => {
         const fetchAllServiceData = async () => {
             try {
-                const response = await axios.get("http://localhost:8800/services");
+                const response = await axios.get("https://nutritionist-kate.onrender.com/services");
                 const parsedData = response.data.map(item => {
                     return {
                         ...item,

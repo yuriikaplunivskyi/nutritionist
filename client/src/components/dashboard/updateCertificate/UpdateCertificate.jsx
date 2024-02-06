@@ -29,7 +29,7 @@ const UpdateCertificate = ({ certificateId, setSelectedCertificateId }) => {
     useEffect(() => {
         const fetchCertificate = async () => {
             try {
-                const response = await axios.get(`http://localhost:8800/certificates/${certificateId}`);
+                const response = await axios.get(`https://nutritionist-kate.onrender.com/certificates/${certificateId}`);
                 setCertificate(response.data);
             } catch (error) {
                 if (error.response && error.response.status === 404) {

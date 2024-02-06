@@ -12,7 +12,7 @@ const ChangeShowAllCertificate = () => {
     useEffect(() => {
         const fetchAllCertificateData = async () => {
             try {
-                const response = await axios.get("http://localhost:8800/certificates");
+                const response = await axios.get("https://nutritionist-kate.onrender.com/certificates");
                 setCertificate(response.data);
             } catch (error) {
                 console.log(error);

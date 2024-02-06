@@ -15,7 +15,7 @@ const ChangeShowAllServices = () => {
     const handleDelete = async (id) => {
         try {
             console.log(id)
-            await axios.delete("http://localhost:8800/services/"+id);
+            await axios.delete("https://nutritionist-kate.onrender.com/services/"+id);
             window.location.reload();
         } catch (error) {
             console.log("What the error", error);

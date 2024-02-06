@@ -50,7 +50,7 @@ const UpdateService = ({ serviceId, setSelectedServiceId }) => {
     useEffect(() => {
         const fetchData = async () => {
             try {
-                const response = await axios.get(`http://localhost:8800/services/${serviceId}`);
+                const response = await axios.get(`https://nutritionist-kate.onrender.com/services/${serviceId}`);
                 console.log(response.data);
                 const parsedData = {
                     ...response.data,

@@ -40,7 +40,7 @@ const AddCertificateForm = () => {
         formDataForUpload.append('school', formData.school);
         formDataForUpload.append('title', formData.title);
 
-        const response = await axios.post('http://localhost:8800/uploadCertificate', formDataForUpload, {
+        const response = await axios.post('https://nutritionist-kate.onrender.com/uploadCertificate', formDataForUpload, {
             headers: {
                 'Content-Type': 'multipart/form-data',
             },
