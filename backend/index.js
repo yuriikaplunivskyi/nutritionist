@@ -18,6 +18,46 @@ const db = mysql.createConnection({
     database: "services",
 });
 
+const createTables = () => {
+    const createServiceTableQuery = `
+        CREATE TABLE IF NOT EXISTS service (
+            id INT AUTO_INCREMENT PRIMARY KEY,
+            title VARCHAR(255),
+            descr TEXT,
+            path VARCHAR(255),
+            icon VARCHAR(255),
+            passing TEXT,
+            prices TEXT,
+            warnings TEXT
+        );
+    `;
+
+    const createCertificatesTableQuery = `
+        CREATE TABLE IF NOT EXISTS certificates (
+            id INT AUTO_INCREMENT PRIMARY KEY,
+            img_path VARCHAR(255),
+            school VARCHAR(255),
+            title VARCHAR(255)
+        );
+    `;
+
+    db.query(createServiceTableQuery, (err) => {
+        if (err) throw err;
+        console.log("Service table created or already exists");
+    });
+
+    db.query(createCertificatesTableQuery, (err) => {
+        if (err) throw err;
+        console.log("Certificates table created or already exists");
+    });
+};
+
+db.connect((err) => {
+    if (err) throw err;
+
+    createTables();
+});
+
 app.use(express.json());
 app.use(cors());
 //if trouble with auth use this in MySQL Workbench
