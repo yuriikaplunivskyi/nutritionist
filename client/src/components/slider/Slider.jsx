@@ -72,7 +72,7 @@ const Slider = (props) => {
                     >
                         <div className="slide-imgContainer">
                             <img
-                                src={`http://localhost:8800/public/${item.img_path}`}
+                                src={`https://nutritionist-kate.onrender.com/${item.img_path}`}
                                 alt={`Slide ${i}`}
                             />
                         </div>
