@@ -6,16 +6,18 @@ import multer from "multer";
 import path from "path";
 import { fileURLToPath } from 'url';
 import { dirname } from 'path';
+import dotenv from 'dotenv';
 
+dotenv.config();
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
 const app = express();
 
 const db = mysql.createConnection({
-    host:"localhost",
-    user:"root",
-    password:"Bogoduchiv1996",
-    database: "services",
+    host: process.env.DB_HOST,
+    user: process.env.DB_USERNAME,
+    password: process.env.DB_PASSWORD,
+    database: process.env.DB_DBNAME,
 });
 
 const createTables = () => {
@@ -314,9 +316,9 @@ app.put("/certificates/:id", certificateUpload, (req, res) => {
 });
 
 
+const port = process.env.PORT || 8800;
 
-
-app.listen(8800, () => {
+app.listen(port, () => {
     console.log("Connected to backend!")
 })
 
