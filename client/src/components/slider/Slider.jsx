@@ -57,7 +57,7 @@ const Slider = (props) => {
             </button>
 
             <div className="carousel-slideCard">
-                {props.slides.map((item, i) => (
+                {Array.isArray(props.slides) && props.slides.map((item, i) => (
                     <motion.div
                         key={item.id}
                         className={`slide ${index === i ? "active" : ""}`}
