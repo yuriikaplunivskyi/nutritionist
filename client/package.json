@@ -6,11 +6,11 @@
   "type": "commonjs",
   "scripts": {
     "dev": "vite",
-    "build": "vite build ",
+    "build": "vite build",
     "lint": "eslint . --ext js,jsx --report-unused-disable-directives --max-warnings 0",
     "preview": "vite preview",
     "predeploy": "npm run build",
-    "deploy": " gh-pages -d dist -b gh-pages"
+    "deploy": "gh-pages -d dist -b gh-pages"
   },
   "dependencies": {
     "@emailjs/browser": "^3.11.0",
@@ -36,5 +36,13 @@
     "eslint-plugin-react-refresh": "0.4.3",
     "gh-pages": "^6.1.0",
     "vite": "^4.5.0"
+  },
+  "cpanel": {
+    "tasks": {
+      "deploy": [
+        "export DEPLOYPATH=public_html",
+        "/bin/cp -Rf $SOURCE_DIR/dist/* $DEPLOYPATH"
+      ]
+    }
   }
 }
