@@ -51,7 +51,7 @@ const AddServices = () => {
     const handleClick = async e => {
         e.preventDefault();
         try {
-            await axios.post("https://nutritionist-kate.onrender.com/services", service);
+            await axios.post(`${window.location.origin}/services`, service);
             setService(initStateService);
         } catch (error) {
             console.log(error);
