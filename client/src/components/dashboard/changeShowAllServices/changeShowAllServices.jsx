@@ -15,7 +15,7 @@ const ChangeShowAllServices = () => {
     const handleDelete = async (id) => {
         try {
             console.log(id)
-            await axios.delete(`${window.location.origin}/services/${id}`);
+            await axios.delete(`${window.location.origin}/api/services/${id}`);
             window.location.reload();
         } catch (error) {
             console.log("What the error", error);

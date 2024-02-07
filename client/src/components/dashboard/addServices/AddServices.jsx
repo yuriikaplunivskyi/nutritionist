@@ -51,7 +51,7 @@ const AddServices = () => {
     const handleClick = async e => {
         e.preventDefault();
         try {
-            await axios.post(`${window.location.origin}/services`, service);
+            await axios.post(`${window.location.origin}/api/services`, service);
             setService(initStateService);
         } catch (error) {
             console.log(error);

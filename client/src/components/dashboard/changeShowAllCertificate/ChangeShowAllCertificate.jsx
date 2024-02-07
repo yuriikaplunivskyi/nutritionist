@@ -12,7 +12,7 @@ const ChangeShowAllCertificate = () => {
     useEffect(() => {
         const fetchAllCertificateData = async () => {
             try {
-                const response = await axios.get(`${window.location.origin}/certificates`);
+                const response = await axios.get(`${window.location.origin}/api/certificates`);
                 setCertificate(response.data);
             } catch (error) {
                 console.log(error);

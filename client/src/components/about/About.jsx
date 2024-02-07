@@ -88,7 +88,7 @@ const About = () => {
     useEffect(() => {
         const fetchData = async () => {
             try {
-                const response = await axios.get(`${window.location.origin}/certificates`);
+                const response = await axios.get(`${window.location.origin}/api/certificates`);
                 
     
                 setData(response.data);

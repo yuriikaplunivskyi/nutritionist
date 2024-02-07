@@ -29,7 +29,7 @@ const UpdateCertificate = ({ certificateId, setSelectedCertificateId }) => {
     useEffect(() => {
         const fetchCertificate = async () => {
             try {
-                const response = await axios.get(`${window.location.origin}/certificates/${certificateId}`);
+                const response = await axios.get(`${window.location.origin}/api/certificates/${certificateId}`);
                 setCertificate(response.data);
             } catch (error) {
                 if (error.response && error.response.status === 404) {

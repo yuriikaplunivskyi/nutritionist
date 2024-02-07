@@ -50,7 +50,7 @@ const UpdateService = ({ serviceId, setSelectedServiceId }) => {
     useEffect(() => {
         const fetchData = async () => {
             try {
-                const response = await axios.get(`${window.location.origin}/services/${serviceId}`);
+                const response = await axios.get(`${window.location.origin}/api/services/${serviceId}`);
                 console.log(response.data);
                 const parsedData = {
                     ...response.data,
