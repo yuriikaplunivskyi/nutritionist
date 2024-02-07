@@ -7,49 +7,49 @@ import axios from "axios";
 const slides = [
     {
       id: 1, 
-      img: "./img/certificates/nodiet.png",
+      img_path: "/img/certificates/nodiet.png",
       school: "Nodiet school",
       title: "Нутриціологія"
     },
     {
       id: 2, 
-      img: "./img/certificates/iFit-group-fit.png",
+      img_path: "/img/certificates/iFit-group-fit.png",
       school: "iFIT",
       title: "Інструктор групових занять"
     },
     {
       id: 3, 
-      img: "./img/certificates/fa-bodyMobility.png",
+      img_path: "/img/certificates/fa-bodyMobility.png",
       school: "Fitness academy",
       title: "Body Mobility"
     },
     {
       id: 4, 
-      img: "./img/certificates/fa-dprpm.png",
+      img_path: "/img/certificates/fa-dprpm.png",
       school: "Fitness academy",
       title: "Діагностика, профілактика та вирішення проблеми м'язового дисбалансу"
     },
     {
       id: 5, 
-      img: "./img/certificates/fa-func_training.png",
+      img_path: "/img/certificates/fa-func_training.png",
       school: "Fitness academy",
       title: "Функціональний тренінг/НІІТ"
     },
     {
       id: 6, 
-      img: "./img/certificates/fa-pumpIt.png",
+      img_path: "/img/certificates/fa-pumpIt.png",
       school: "Fitness academy",
       title: "Силове тренування PUMP IT UP & TABS"
     },
     {
       id: 7, 
-      img: "./img/certificates/fa-master-trainer_2l.png",
+      img_path: "/img/certificates/fa-master-trainer_2l.png",
       school: "Fitness academy",
       title: "Майстер тренер тренажерної зали (рівень ІІ)"
     },
     {
       id: 8, 
-      img: "./img/certificates/fa-master-trainer_3l.png",
+      img_path: "/img/certificates/fa-master-trainer_3l.png",
       school: "Fitness academy",
       title: "Майстер тренер тренажерної зали (рівень ІІІ)"
     }
