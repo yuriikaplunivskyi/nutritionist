@@ -18,7 +18,6 @@ const Admin = () => {
                 </ul>
                 </nav>
                 <LoginForm/>
-                <button className="btn" onClick={Userfront.logout}>Logout</button>
             </div>
     )
 }
