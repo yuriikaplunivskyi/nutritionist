@@ -30,10 +30,10 @@ const useContactForm = () => {
     const sendEmail = useCallback(async (data) => {
         await emailjs
         .sendForm(
-        'service_jg9jdpa',
-        'template_fm6flo8',
+        'service_5ba7f09',
+        'template_fm5pkpe',
         formRef.current,
-        '-6q0vNkbrH6QslrGg'
+        'zeTYeWqqeXfemYx6M'
         )
         .then(
             (result) => {
