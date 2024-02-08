@@ -1,56 +1,53 @@
 import  {lazy, Suspense } from "react";
-import { Routes, Route } from "react-router-dom";
-
+import {  } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import Loader from './components/loader/Loader.jsx';
+import ScrollToAnchor from './hooks/ScrollToAnchor.js';
 import "./app.scss";
-
-import Loader from "./components/loader/Loader";
-/* import Home from "./pages/Home"; */
 export const Home = lazy(() => import("./pages/Home"));
 export const ServicePage = lazy(() => import("./pages/ServicePage"));
-import Dashboard from "./pages/dashboard/Dashboard";
-import NotFound from "./pages/NotFound";
-import UpdateService from "./components/dashboard/updateService/UpdateService";
-import PasswordReset from "./components/authorization/passwordReset/PasswordReset";
-import Admin from "./pages/admin/Admin";
-import Signup from "./components/authorization/signup/Signup";
+export const Dashboard = lazy(() => import("./pages/dashboard/Dashboard"));
+export const NotFound = lazy(() => import("./pages/NotFound"));
+export const UpdateService = lazy(() => import("./components/dashboard/updateService/UpdateService"));
+export const PasswordReset = lazy(() => import("./components/authorization/passwordReset/PasswordReset"));
+export const Admin = lazy(() => import("./pages/admin/Admin"));
+export const Signup = lazy(() => import("./components/authorization/signup/Signup"));
+
 import RequireAuth from "./components/authorization/RequireAuth";
 
 
 const App = () => {
   return (
-    <Routes >
-        <Route path="/" element={
-          <Suspense fallback={<div className="loader-container"><Loader/></div>}>
-            <Home />
-          </Suspense> }
-        />
-        <Route path="/service/:serviceId" element={
-          <Suspense fallback={<div className="loader-container"><Loader /></div>}>
-            <ServicePage />
-          </Suspense> }
-        />
-        <Route path="/admin" element={<Admin />} />
-        <Route path="/admin/reset" element={<PasswordReset />} />
-        <Route 
-          path="/admin/signup" 
-          element={<RequireAuth>
-                    <Signup />
-                  </RequireAuth>} 
-        />
-        <Route 
-          path="/admin/dashboard" 
-          element={ <RequireAuth>
-                      <Dashboard />
-                    </RequireAuth>} 
-        />
-        <Route 
-          path="/admin/update/:id" 
-          element={<RequireAuth>
-                    <UpdateService />
-                  </RequireAuth>} 
-        />
-        <Route path="*" element={<NotFound />} />
-    </Routes>
+    <Router fallbackElement={<Loader/>}>
+          <ScrollToAnchor/>
+      <Routes >
+          <Route path="/" element={
+            <Suspense fallback={<div className="loader-container"><Loader/></div>}>
+              <Home />
+            </Suspense> }
+          />
+          <Route path="*" element={<NotFound />} />
+          <Route path="/service/:serviceId" element={
+            <Suspense fallback={<div className="loader-container"><Loader /></div>}>
+              <ServicePage />
+            </Suspense> }
+          />
+          <Route path="/admin" element={<Suspense fallback={<div className="loader-container"><Loader /></div>}><Admin /></Suspense>} />
+          <Route path="/admin/reset" element={<Suspense fallback={<div className="loader-container"><Loader /></div>}><PasswordReset /></Suspense>} />
+          <Route 
+            path="/admin/signup" 
+            element={<Suspense fallback={<div className="loader-container"><Loader /></div>}><RequireAuth><Signup /></RequireAuth></Suspense>} 
+          />
+          <Route 
+            path="/admin/dashboard" 
+            element={ <Suspense fallback={<div className="loader-container"><Loader /></div>}><RequireAuth><Dashboard /></RequireAuth></Suspense>}/>
+          <Route 
+            path="/admin/update/:id" 
+            element={<Suspense fallback={<div className="loader-container"><Loader /></div>}><RequireAuth><UpdateService /></RequireAuth></Suspense>} 
+          />
+      </Routes>
+    
+    </Router>
   );
 }; 
 
