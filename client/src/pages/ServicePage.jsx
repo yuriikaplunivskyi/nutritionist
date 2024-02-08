@@ -1,7 +1,7 @@
 import Loader from "../components/loader/Loader";
 import Cursor from "../components/cursor/Cursor";
 import { lazy, Suspense } from "react";
-import useServiceData from '../../hooks/useServiceData';
+import useServiceData from '../hooks/useServiceData';
 
 const LazyService = lazy(() => import("../components/service/Service"));
 const LazyNavbar = lazy(() => import("../components/navbar/Navbar"));
