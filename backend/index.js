@@ -1,6 +1,6 @@
 import fs from 'fs';
 import express from "express";
-import mysql from "mysql";
+import mariadb from "mariadb";
 import cors from "cors";
 import multer from "multer";
 import path from "path";
@@ -24,13 +24,14 @@ app.use(cors());
 }); */
 
 
-const db = mysql.createConnection({
+const pool = mariadb.createPool({
     host: process.env.DB_HOST,
     user: process.env.DB_USERNAME,
     password: process.env.DB_PASSWORD,
     database: process.env.DB_DBNAME,
 });
 
+const db = await pool.getConnection();
 const createTables = () => {
     const createServiceTableQuery = `
         CREATE TABLE IF NOT EXISTS service (
