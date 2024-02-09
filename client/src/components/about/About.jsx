@@ -91,7 +91,7 @@ const About = () => {
                 const response = await axios.get(`${window.location.origin}/api/certificates`);
                 
     
-                setData(response.data);
+                setData(Array.isArray(response.data));
                 console.log(response.data);
     
                 /* setLoading(false); */

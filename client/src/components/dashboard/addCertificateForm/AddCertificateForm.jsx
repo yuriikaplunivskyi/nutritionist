@@ -40,7 +40,7 @@ const AddCertificateForm = () => {
         formDataForUpload.append('school', formData.school);
         formDataForUpload.append('title', formData.title);
 
-        const response = await axios.post(`${window.location.origin}/uploadCertificate`, formDataForUpload, {
+        const response = await axios.post(`${window.location.origin}/api/uploadCertificate`, formDataForUpload, {
             headers: {
                 'Content-Type': 'multipart/form-data',
             },

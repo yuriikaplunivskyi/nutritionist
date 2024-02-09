@@ -12,7 +12,7 @@ const ChangeShowAllCertificate = () => {
     useEffect(() => {
         const fetchAllCertificateData = async () => {
             try {
-                const response = await axios.get(`${window.location.origin}/api/certificates`);
+                const response = await axios.get(`http://localhost:8800/certificates`);
                 setCertificate(response.data);
             } catch (error) {
                 console.log(error);
@@ -27,8 +27,10 @@ const ChangeShowAllCertificate = () => {
     const handleDelete = async (id) => {
         try {
             console.log(id)
-            await axios.delete(`http://localhost:8800/certificates/${id}`);
-            window.location.reload();
+            await axios.delete(`${window.location.origin}/api/certificates/${id}`);
+            setCertificate((prevData) =>
+                prevData.filter((certificate) => certificate.id !== id)
+            );
         } catch (error) {
             console.log("What the error", error);
         }

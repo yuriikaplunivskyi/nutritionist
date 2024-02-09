@@ -63,7 +63,6 @@ const Links = () => {
                     <Link to="/">Головна</Link>
                 </motion.span>
             )}
-            <Link to="/admin">Admin</Link>
         </motion.ul>
     );
 };

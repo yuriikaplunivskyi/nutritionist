@@ -4,19 +4,26 @@ import axios from 'axios';
 import useServiceData from '../../../hooks/useServiceData';
 import Accordions from "../../accordion/Accordions";
 import UpdateService from "../updateService/UpdateService";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 const ChangeShowAllServices = () => {
 
-    const { serviceData } = useServiceData();
+    const { serviceData: initialServiceData, setServiceData } = useServiceData();
 
     const [selectedServiceId, setSelectedServiceId] = useState(null);
+    const [serviceData, setLocalServiceData] = useState(initialServiceData);
+
+    useEffect(() => {
+        setLocalServiceData(initialServiceData);
+    }, [initialServiceData]);
 
     const handleDelete = async (id) => {
         try {
             console.log(id)
             await axios.delete(`${window.location.origin}/api/services/${id}`);
-            window.location.reload();
+            setLocalServiceData((prevData) =>
+                prevData.filter((service) => service.id !== id)
+            );
         } catch (error) {
             console.log("What the error", error);
         }

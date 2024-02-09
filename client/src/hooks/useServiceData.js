@@ -267,19 +267,25 @@ const useServiceData = () => {
         const fetchAllServiceData = async () => {
             try {
                 const response = await axios.get(`${window.location.origin}/api/services`);
-                const parsedData = response.data.map(item => {
-                    return {
-                        ...item,
-                        passing: JSON.parse(item.passing),
-                        prices: JSON.parse(item.prices),
-                        warnings: JSON.parse(item.warnings),
-                    };
-                });
-    
-                setServiceData(parsedData);
-                console.log(response.data);
-    
-                setLoading(false);
+                
+                if (Array.isArray(response.data)) {
+                    const parsedData = response.data.map(item => {
+                        return {
+                            ...item,
+                            passing: JSON.parse(item.passing),
+                            prices: JSON.parse(item.prices),
+                            warnings: JSON.parse(item.warnings),
+                        };
+                    });
+        
+                    setServiceData(parsedData);
+                    console.log(response.data);
+        
+                    setLoading(false);
+                } else {
+                    console.error('Invalid data structure received:', response.data);
+                    setLoading(false);
+                }
             } catch (error) {
                 console.log(error);
                 console.error('Error fetching service data:', error);
