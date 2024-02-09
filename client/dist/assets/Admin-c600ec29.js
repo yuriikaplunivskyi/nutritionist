@@ -1,0 +1,1 @@
+import{b as n,j as s,L as i,c as d}from"./index-9c5893c5.js";n.init("9ny6xqrb");const a=()=>s.jsxs("div",{className:"admin",children:[s.jsx("nav",{children:s.jsxs("ul",{children:[s.jsx("li",{children:s.jsx(i,{to:"/",children:"Головна"})}),s.jsx("li",{children:s.jsx(i,{to:"/admin/dashboard",children:"Адмін-панель"})})]})}),s.jsx(d,{})]});export{a as default};

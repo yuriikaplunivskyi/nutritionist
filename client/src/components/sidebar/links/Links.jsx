@@ -51,6 +51,7 @@ const Links = () => {
                         <Link to={`${item.path}`} >
                             {item.title}
                         </Link>
+                        
                     </motion.li>
                 ))
             ) : (
@@ -62,6 +63,7 @@ const Links = () => {
                     <Link to="/">Головна</Link>
                 </motion.span>
             )}
+            <Link to="/admin">Admin</Link>
         </motion.ul>
     );
 };
