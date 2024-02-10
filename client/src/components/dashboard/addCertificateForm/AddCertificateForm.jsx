@@ -40,7 +40,7 @@ const AddCertificateForm = () => {
         formDataForUpload.append('school', formData.school);
         formDataForUpload.append('title', formData.title);
 
-        const response = await axios.post(`${window.location.origin}/api/uploadCertificate`, formDataForUpload, {
+        const response = await axios.post(`${import.meta.env.VITE_REACT_APP_API_URL}/uploadCertificate`, formDataForUpload, {
             headers: {
                 'Content-Type': 'multipart/form-data',
             },
@@ -79,7 +79,7 @@ const AddCertificateForm = () => {
                     <button className='btn btn-add' type="submit">Відпраити дані</button>
                 </form>
 
-                {/* Відображаємо шлях до зображення після завантаження */}
+                
                 {formData.img_path && <img src={formData.img_path} alt="Certificate Preview" />}
             </div>
         </div>

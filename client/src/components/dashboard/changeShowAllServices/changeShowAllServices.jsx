@@ -20,7 +20,7 @@ const ChangeShowAllServices = () => {
     const handleDelete = async (id) => {
         try {
             console.log(id)
-            await axios.delete(`${window.location.origin}/api/services/${id}`);
+            await axios.delete(`${import.meta.env.VITE_REACT_APP_API_URL}/services/${id}`);
             setLocalServiceData((prevData) =>
                 prevData.filter((service) => service.id !== id)
             );

@@ -29,7 +29,7 @@ const UpdateCertificate = ({ certificateId, setSelectedCertificateId }) => {
     useEffect(() => {
         const fetchCertificate = async () => {
             try {
-                const response = await axios.get(`${window.location.origin}/api/certificates/${certificateId}`);
+                const response = await axios.get(`${import.meta.env.VITE_REACT_APP_API_URL}/certificates/${certificateId}`);
                 setCertificate(response.data);
             } catch (error) {
                 if (error.response && error.response.status === 404) {
@@ -54,7 +54,7 @@ const UpdateCertificate = ({ certificateId, setSelectedCertificateId }) => {
                 formDataForUpload.append('certificateImage', file);
             }
         
-            await axios.put(`http://localhost:8800/certificates/${certificateId}`, formDataForUpload, {
+            await axios.put(`${import.meta.env.VITE_REACT_APP_API_URL}/certificates/${certificateId}`, formDataForUpload, {
                 headers: {
                     'Content-Type': 'multipart/form-data',
                 },

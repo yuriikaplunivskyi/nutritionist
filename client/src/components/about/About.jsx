@@ -88,7 +88,7 @@ const About = () => {
     useEffect(() => {
         const fetchData = async () => {
             try {
-                const response = await axios.get(`${window.location.origin}/api/certificates`);
+                const response = await axios.get(`${import.meta.env.VITE_REACT_APP_API_URL}/certificates`);
                 
     
                 setData(Array.isArray(response.data));

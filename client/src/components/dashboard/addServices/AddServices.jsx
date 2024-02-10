@@ -51,7 +51,7 @@ const AddServices = () => {
     const handleClick = async e => {
         e.preventDefault();
         try {
-            await axios.post(`${window.location.origin}/api/services`, service);
+            await axios.post(`${import.meta.env.VITE_REACT_APP_API_URL}/services`, service);
             setService(initStateService);
         } catch (error) {
             console.log(error);

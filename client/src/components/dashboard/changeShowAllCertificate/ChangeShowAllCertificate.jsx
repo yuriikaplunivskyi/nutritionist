@@ -1,5 +1,3 @@
-// ChangeShowAllCertificate.js
-
 import axios from 'axios';
 import { useState, useEffect } from 'react';
 import "./changeShowAllCertificate.scss";
@@ -12,7 +10,7 @@ const ChangeShowAllCertificate = () => {
     useEffect(() => {
         const fetchAllCertificateData = async () => {
             try {
-                const response = await axios.get(`http://localhost:8800/certificates`);
+                const response = await axios.get(`${import.meta.env.VITE_REACT_APP_API_URL}/certificates`);
                 setCertificate(response.data);
             } catch (error) {
                 console.log(error);
@@ -27,7 +25,7 @@ const ChangeShowAllCertificate = () => {
     const handleDelete = async (id) => {
         try {
             console.log(id)
-            await axios.delete(`${window.location.origin}/api/certificates/${id}`);
+            await axios.delete(`${import.meta.env.VITE_REACT_APP_API_URL}/certificates/${id}`);
             setCertificate((prevData) =>
                 prevData.filter((certificate) => certificate.id !== id)
             );

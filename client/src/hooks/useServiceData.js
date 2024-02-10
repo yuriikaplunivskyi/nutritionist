@@ -266,7 +266,7 @@ const useServiceData = () => {
     useEffect(() => {
         const fetchAllServiceData = async () => {
             try {
-                const response = await axios.get(`${window.location.origin}/api/services`);
+                const response = await axios.get(`${import.meta.env.VITE_REACT_APP_API_URL}/services`);
                 
                 if (Array.isArray(response.data)) {
                     const parsedData = response.data.map(item => {

@@ -1,16 +1,14 @@
-import fs from 'fs';
-import express from "express";
-import mariadb from "mariadb";
-import cors from "cors";
-import multer from "multer";
-import path from "path";
-import { fileURLToPath } from 'url';
-import { dirname } from 'path';
-import dotenv from 'dotenv';
+const fs = require('fs');
+const express = require('express');
+const mysql = require('mysql');
+const cors = require('cors');
+const multer = require('multer');
+const path = require('path');
+/* const { fileURLToPath } = require('url');
+const { dirname } = require('path'); */
+const dotenv = require('dotenv');
 
 dotenv.config();
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = dirname(__filename);
 const app = express();
 
 app.use(cors());
@@ -24,14 +22,13 @@ app.use(cors());
 }); */
 
 
-const pool = mariadb.createPool({
+const db = mysql.createPool({
     host: process.env.DB_HOST,
     user: process.env.DB_USERNAME,
     password: process.env.DB_PASSWORD,
     database: process.env.DB_DBNAME,
 });
 
-const db = await pool.getConnection();
 const createTables = () => {
     const createServiceTableQuery = `
         CREATE TABLE IF NOT EXISTS service (
@@ -56,21 +53,31 @@ const createTables = () => {
     `;
 
     db.query(createServiceTableQuery, (err) => {
-        if (err) throw err;
-        console.log("Service table created or already exists");
+        if (err) {
+            console.error("Error creating service table:", err);
+        } else {
+            console.log("Service table created or already exists");
+        }
     });
 
     db.query(createCertificatesTableQuery, (err) => {
-        if (err) throw err;
-        console.log("Certificates table created or already exists");
+        if (err) {
+            console.error("Error creating certificates table:", err);
+        } else {
+            console.log("Certificates table created or already exists");
+        }
     });
 };
 
-db.connect((err) => {
-    if (err) throw err;
+db.getConnection((err, connection) => {
+    if (err) {
+        console.error("Error connecting to the database:", err);
+        throw err;
+    }
 
     createTables();
-});
+    connection.release();
+}); 
 
 app.use(express.json());
 //if trouble with auth use this in MySQL Workbench
@@ -120,7 +127,7 @@ app.get("/services/:id", (req, res) => {
     `;
 
     db.query(q, [serviceId], (err, data) => {
-        if (err) return res.json(err);
+        if (err) return res.json(err) ;
         
         if (data.length === 0) {
             return res.status(404).json({ error: "Service not found" });

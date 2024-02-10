@@ -50,7 +50,7 @@ const UpdateService = ({ serviceId, setSelectedServiceId }) => {
     useEffect(() => {
         const fetchData = async () => {
             try {
-                const response = await axios.get(`${window.location.origin}/api/services/${serviceId}`);
+                const response = await axios.get(`${import.meta.env.VITE_REACT_APP_API_URL}/services/${serviceId}`);
                 console.log(response.data);
                 const parsedData = {
                     ...response.data,
@@ -71,7 +71,7 @@ const UpdateService = ({ serviceId, setSelectedServiceId }) => {
     const handleClick = async e => {
         e.preventDefault();
         try {
-            await axios.put("http://localhost:8800/services/"+ serviceId, service);
+            await axios.put(`${import.meta.env.VITE_REACT_APP_API_URL}/services/${serviceId}`, service);
             setService(initStateService);
             setSelectedServiceId(null);
         } catch (error) {
