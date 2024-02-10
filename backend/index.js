@@ -83,11 +83,11 @@ app.use(express.json());
 //if trouble with auth use this in MySQL Workbench
 //ALTER USER 'root'@'localhost' IDENTIFIED WITH 'mysql_native_password' BY 'Bogoduchiv1996';
 
-app.get("/", (req,res) => {
+app.get("/api", (req,res) => {
     res.json("hello db")
 })
 
-app.get("/services", (req, res) => {
+app.get("/api/services", (req, res) => {
     const q = `
         SELECT
             id,
@@ -103,12 +103,18 @@ app.get("/services", (req, res) => {
     `;
 
     db.query(q, (err, data) => {
-        if (err) return res.json(err)
-        else res.json(data)
-    })
+        if (err) {
+            console.error("Error fetching services:", err);
+            return res.json(err);
+        }
+        
+        console.log("Response data:", data); // Log the data before sending
+
+        res.json(data);
+    });
 })
 
-app.get("/services/:id", (req, res) => {
+app.get("/api/services/:id", (req, res) => {
     const serviceId = req.params.id;
     const q = `
         SELECT
@@ -138,7 +144,7 @@ app.get("/services/:id", (req, res) => {
 });
 
 
-app.post("/services", (req, res) => {
+app.post("/api/services", (req, res) => {
     const q = 
     "INSERT INTO service (`title`, `descr`, `passing`, `prices`, `warnings`, `path`, `icon`) VALUE (?)";
 
@@ -158,7 +164,7 @@ app.post("/services", (req, res) => {
     });
 });
 
-app.delete("/services/:id", (req, res) => {
+app.delete("/api/services/:id", (req, res) => {
     const serviceId = req.params.id;
     const q = ("DELETE FROM service WHERE id=?");
 
@@ -168,7 +174,7 @@ app.delete("/services/:id", (req, res) => {
     });
 })
 
-app.put("/services/:id", (req, res) => {
+app.put("/api/services/:id", (req, res) => {
     const serviceId = req.params.id;
     const q = "UPDATE service SET `title`=?, `descr`=?, `path`=?, `icon`=?, `passing`=?, `prices`=?, `warnings`=? WHERE id=?";
 
@@ -209,7 +215,7 @@ const certificateUpload = multer({
     limits:{fileSize: 2000000},
 }).single('certificateImage');
 
-app.post('/uploadCertificate', (req, res) => {
+app.post('/api/uploadCertificate', (req, res) => {
     certificateUpload(req, res, (err) => {
         if (err) {
             res.json({ msg: err });
@@ -238,7 +244,7 @@ app.post('/uploadCertificate', (req, res) => {
     });
 });
 
-app.get("/certificates", (req, res) => {
+app.get("/api/certificates", (req, res) => {
     const selectQuery = "SELECT * FROM certificates";
     db.query(selectQuery, (err, data) => {
         if (err) return res.json(err);
@@ -246,7 +252,7 @@ app.get("/certificates", (req, res) => {
     });
 });
 
-app.get("/certificates/:id", (req, res) => {
+app.get("/api/certificates/:id", (req, res) => {
     const certificateId = req.params.id;
     const selectQuery = "SELECT * FROM certificates WHERE id=?";
     
@@ -262,7 +268,7 @@ app.get("/certificates/:id", (req, res) => {
 });
 
 
-app.post("/certificates", (req, res) => {
+app.post("/api/certificates", (req, res) => {
     const insertQuery = "INSERT INTO certificates (`img_path`, `school`, `title`) VALUES (?, ?, ?)";
     const certificateValues = [req.body.img_path, req.body.school, req.body.title];
 
@@ -273,7 +279,7 @@ app.post("/certificates", (req, res) => {
 });
 
 
-app.delete("/certificates/:id", (req, res) => {
+app.delete("/api/certificates/:id", (req, res) => {
     const certificateId = req.params.id;
     const deleteQuery = "DELETE FROM certificates WHERE id=?";
 
@@ -284,7 +290,7 @@ app.delete("/certificates/:id", (req, res) => {
 });
 
 
-app.put("/certificates/:id", certificateUpload, (req, res) => {
+app.put("/api/certificates/:id", certificateUpload, (req, res) => {
     const certificateId = req.params.id;
     const selectQuery = "SELECT * FROM certificates WHERE id=?";
 

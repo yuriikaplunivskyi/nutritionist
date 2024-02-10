@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import axios from 'axios';
-
+/* ${window.location.origin}/api */
 const fakeServiceData = [
     {
         title: 'Разова консультація',
