@@ -267,8 +267,10 @@ const useServiceData = () => {
         const fetchAllServiceData = async () => {
             try {
                 const response = await axios.get(`${import.meta.env.VITE_REACT_APP_API_URL}/services`);
-                
+                console.log(response);
+                console.log(response.data);
                 if (Array.isArray(response.data)) {
+                    
                     const parsedData = response.data.map(item => {
                         return {
                             ...item,
