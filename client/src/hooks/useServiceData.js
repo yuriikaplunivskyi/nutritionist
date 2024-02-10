@@ -288,7 +288,7 @@ const useServiceData = () => {
                 }
             } catch (error) {
                 console.log(error);
-                console.error('Error fetching service data:', error);
+                console.error('Error fetching service data:', error.response);
                 setServiceData(fakeServiceData);
                 setLoading(false);
             }
@@ -301,43 +301,3 @@ const useServiceData = () => {
 };
 
 export default useServiceData;
-
-/*
-    useEffect(() => {
-        const fetchAllServiceData = async () => {
-            try {
-                const response = await axios.get("http://localhost:8800/services");
-                const parsedData = response.data.map(item => {
-                    return {
-                        ...item,
-                        passing: JSON.parse(item.passing),
-                        prices: JSON.parse(item.prices),
-                        warnings: JSON.parse(item.warnings),
-                    };
-                });
-
-                setServiceData(parsedData);
-                console.log(response.data);
-                if (!response.ok) {
-                    throw new Error('Network response was not ok');
-                }
-
-                const data = await response.json();
-
-                if (Array.isArray(data) && data.length > 0) {
-                    setServiceData(data);
-                } else {
-                    console.error('Invalid JSON response:', data);
-                    setServiceData(fakeServiceData);
-                } 
-
-                setLoading(false);
-            } catch (error) {
-                console.error('Error fetching service data:', error);
-                setServiceData(fakeServiceData);
-                setLoading(false);
-            }
-        };
-
-        fetchAllServiceData();
-    }, []);*/ 
