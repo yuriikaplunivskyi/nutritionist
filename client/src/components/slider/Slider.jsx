@@ -72,7 +72,7 @@ const Slider = (props) => {
                     >
                         <div className="slide-imgContainer">
                             <img
-                                src={`${window.location.origin}${item.img_path}`}
+                                src={`${import.meta.env.VITE_REACT_APP_API_URL}/public/${item.img_path}`}
                                 alt={`Slide ${i}`}
                             />
                         </div>

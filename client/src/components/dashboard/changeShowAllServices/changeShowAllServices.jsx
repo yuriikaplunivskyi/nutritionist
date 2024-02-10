@@ -8,7 +8,7 @@ import { useEffect, useState } from "react";
 
 const ChangeShowAllServices = () => {
 
-    const { serviceData: initialServiceData, setServiceData } = useServiceData();
+    const { serviceData: initialServiceData } = useServiceData();
 
     const [selectedServiceId, setSelectedServiceId] = useState(null);
     const [serviceData, setLocalServiceData] = useState(initialServiceData);

@@ -83,18 +83,16 @@ const About = () => {
   const isInView = useInView(ref, {margin: "0px"})
 
   const [data, setData] = useState([]);
-/*   const [loading, setLoading] = useState(true); */
 
     useEffect(() => {
         const fetchData = async () => {
             try {
                 const response = await axios.get(`${import.meta.env.VITE_REACT_APP_API_URL}/certificates`);
-                
-    
-                setData(Array.isArray(response.data));
+
+                setData(response.data);
                 console.log(response.data);
     
-                /* setLoading(false); */
+                
             } catch (error) {
                 console.log(error);
                 console.error('Error fetching service data:', error);
