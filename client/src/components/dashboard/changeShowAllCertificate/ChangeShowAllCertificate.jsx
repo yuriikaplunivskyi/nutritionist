@@ -48,7 +48,7 @@ const ChangeShowAllCertificate = () => {
                         <div className="certificate__content">
                             <h5>{certificate.title}</h5>
                             <span>{certificate.school}</span>
-                            <img src={`${import.meta.env.VITE_REACT_APP_API_URL_IMG}/public/${certificate.img_path}`} alt={certificate.img_path} />
+                            <img src={`${import.meta.env.VITE_REACT_APP_API_URL_IMG}/${certificate.img_path}`} alt={certificate.img_path} />
                         </div>
 
                         <div className="certificate__btns">
