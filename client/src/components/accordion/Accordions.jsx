@@ -1,5 +1,6 @@
 import { useState } from "react";
 import "./accordions.scss";
+import dotsLoading from "/icon/dots-loading.gif";
 
 const Accordions = ({data}) => {
     const [activeIndex, setActiveIndex] = useState(null);
@@ -7,6 +8,13 @@ const Accordions = ({data}) => {
     const toggleAccordion = (index) => {
         setActiveIndex(index === activeIndex ? null: index);
     };
+
+    if (!data) {
+        console.log(`error data in Accordions`);
+        return <div className="loading" style={{height: "100%"}}>
+        <img style={{width: "40px"}} src={dotsLoading} alt="loading"/>
+    </div>; // або поверніть компонент завантаження, наприклад <Loading />
+    }
     
     return (
         <>
