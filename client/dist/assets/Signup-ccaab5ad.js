@@ -1,0 +1,1 @@
+import{j as s,u as a,L as i}from"./index-d3de2aaf.js";const n=()=>s.jsxs("div",{className:"form-admin",children:[s.jsx(a,{}),s.jsx(i,{className:"form-admin__back",to:"/admin",children:"Назад"})]});export{n as default};

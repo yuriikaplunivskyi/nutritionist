@@ -27,6 +27,7 @@ const db = mysql.createPool({
     user: process.env.DB_USERNAME,
     password: process.env.DB_PASSWORD,
     database: process.env.DB_DBNAME,
+    charset: 'utf8mb4',
 });
 
 const createTables = () => {
@@ -82,7 +83,7 @@ db.getConnection((err, connection) => {
 app.use(express.json());
 //if trouble with auth use this in MySQL Workbench
 //ALTER USER 'root'@'localhost' IDENTIFIED WITH 'mysql_native_password' BY 'Bogoduchiv1996';
-
+app.use('/uploads', express.static(path.join(__dirname, 'backend', 'public')));
 app.get("/api", (req,res) => {
     res.json("hello db")
 })
