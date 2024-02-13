@@ -1,4 +1,4 @@
-import { lazy, Suspense, useEffect } from "react";
+import { lazy, Suspense } from "react";
 import Loader from "../components/loader/Loader";
 import Cursor from "../components/cursor/Cursor";
 import useServiceData from '../hooks/useServiceData';
