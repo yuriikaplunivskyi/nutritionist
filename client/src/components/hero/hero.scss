@@ -198,6 +198,11 @@
             bottom: 0;
         }
 
+        @include mobile430 {
+            height: 65%;
+            left: 20px;
+        }
+
         @include mobile375 {
             height: 60%;
         }
