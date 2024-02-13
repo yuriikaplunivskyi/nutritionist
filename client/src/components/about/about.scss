@@ -76,8 +76,8 @@
         grid-area: img;
         max-width:100%;
         min-width:100%;
-        min-height: 300px;
-        max-height: 350px;
+        min-height: 250px;
+        max-height: 250px;
         display: flex;
         justify-content: center;
         align-items: center;
@@ -97,13 +97,17 @@
         }
 
         @include mobile430 {
+            display: none;
+        }
+
+        /* @include mobile430 {
             min-height: 120px;
             max-height: 120px;
         }
 
         @include mobile375 {
             display: none;
-        }
+        } */
 
         img {
             object-fit:scale-down;
@@ -144,7 +148,7 @@
         }
 
         @include tablet992 {
-            font-size: 55px;
+            font-size: 42px;
             line-height: 57px;
         }
 
@@ -160,8 +164,12 @@
             font-size: 45px;
             line-height: 45px;
         }
-
         @include mobile430 {
+            margin: 0;
+            padding-left: 85px;
+            
+        } 
+        /* @include mobile430 {
             font-size: 34px;
             line-height: 30px;
         }
@@ -170,7 +178,7 @@
             margin: 0;
             padding-left: 85px;
             
-        }
+        } */
     }
 
     &-text {

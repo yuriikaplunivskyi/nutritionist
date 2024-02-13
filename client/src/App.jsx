@@ -1,6 +1,6 @@
 import  {lazy, Suspense } from "react";
 import {  } from 'react-router-dom';
-import { HashRouter as Router, Routes, Route } from "react-router-dom";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Loader from './components/loader/Loader.jsx';
 import ScrollToAnchor from './hooks/ScrollToAnchor.js';
 import "./app.scss";
