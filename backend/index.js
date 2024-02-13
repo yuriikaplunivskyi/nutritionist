@@ -83,7 +83,7 @@ db.getConnection((err, connection) => {
 app.use(express.json());
 //if trouble with auth use this in MySQL Workbench
 //ALTER USER 'root'@'localhost' IDENTIFIED WITH 'mysql_native_password' BY 'Bogoduchiv1996';
-app.use('/uploads', express.static(path.join(__dirname, 'backend', 'public')));
+
 app.get("/api", (req,res) => {
     res.json("hello db")
 })
@@ -201,7 +201,7 @@ app.use("/public", express.static(path.join(__dirname, "public")));
 
 
 const certificateStorage = multer.diskStorage({
-    destination: './public/uploads/',
+    destination: MULTER_DESTINATION,
     filename: function(req, file, cb){
         const uniqueSuffix = Date.now() + '-' + Math.round(Math.random() * 1E9);
         const originalname = path.parse(file.originalname).name;
