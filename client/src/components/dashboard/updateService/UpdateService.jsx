@@ -82,9 +82,9 @@ const UpdateService = ({ serviceId, setSelectedServiceId }) => {
         <div className='updateForm'>
             <div className="container">
                     <h6>Змінити послугу</h6>
-                    <input type="text" name="title" value={service.title} onChange={handleChange} placeholder="Назва послуги"/>
-                    <textarea cols="30" rows="10" value={service.descr} name="descr" onChange={handleChange} placeholder="Опис послуги"/>
-                    <input type="text" name="path" value={service.path} onChange={handleChange} placeholder="Шлях до послуги"/>
+                    <input type="text" name="title" value={service.title} required onChange={handleChange} placeholder="Назва послуги"/>
+                    <textarea cols="30" rows="10" value={service.descr} required name="descr" onChange={handleChange} placeholder="Опис послуги"/>
+                    <input type="text" name="path" value={service.path} required onChange={handleChange} placeholder="Шлях до послуги"/>
                     <div>
                         <h6>Passing</h6>
                         {service.passing.map((item, index) => (
