@@ -4,6 +4,10 @@ import { motion, useInView } from "framer-motion";
 import { useForm } from "react-hook-form";
 import useContactForm from "../../hooks/useContactForm";
 
+import instagramIcon from "/icon/instagram.svg";
+import telegramIcon from "/icon/telegram.svg";
+import gmailIcon from "/icon/gmail.svg";
+
 const variants = {
     initial: {
         y: 500,
@@ -60,7 +64,7 @@ const Contact = () => {
 
                 <motion.h2>Попрацюємо разом</motion.h2>
 
-                <motion.div className="item" variants={variants}>
+{/*                 <motion.div className="item" variants={variants}>
                     <h3>E-mail:</h3>
                     <a href="mailto:katerynakaplunivska@gmail.com">kaplunivska.kateryna0@gmail.com</a>
                 </motion.div>
@@ -71,8 +75,18 @@ const Contact = () => {
                 <motion.div className="item" variants={variants}>
                     <h3>Instagram:</h3>
                     <a href="https://www.instagram.com/kateryna_kaplunivska?igsh=NXF5NzBwMHcxczEw">@kateryna_kaplunivska</a>
-                </motion.div>
-
+                </motion.div> */}
+                {/* <div className="iconContainer"> */}
+                    <motion.div className="item" variants={variants}>
+                        <a href="mailto:katerynakaplunivska@gmail.com"><img src={gmailIcon} alt="gmail icon"  /></a>
+                    </motion.div>
+                    <motion.div className="item" variants={variants}>
+                        <a href="https://t.me/kateryna_kaplunivska"><img src={telegramIcon} alt="telegram icon"  /></a>
+                    </motion.div>
+                    <motion.div className="item" variants={variants}>
+                        <a href="https://www.instagram.com/kateryna_kaplunivska?igsh=NXF5NzBwMHcxczEw"><img src={instagramIcon} alt="instagram icon"  /></a>
+                    </motion.div>
+                {/* </div> */}
             </motion.div>
             <div className="formContainer" >
                 <motion.div
