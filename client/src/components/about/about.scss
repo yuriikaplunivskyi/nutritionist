@@ -96,18 +96,16 @@
             max-height: 140px;
         }
 
-        @include mobile430 {
-            display: none;
-        }
+        
 
-        /* @include mobile430 {
-            min-height: 120px;
-            max-height: 120px;
+        @include mobile430 {
+            min-height: 100px;
+            max-height: 110px;
         }
 
         @include mobile375 {
             display: none;
-        } */
+        }
 
         img {
             object-fit:scale-down;
@@ -164,12 +162,8 @@
             font-size: 45px;
             line-height: 45px;
         }
+        
         @include mobile430 {
-            margin: 0;
-            padding-left: 85px;
-            
-        } 
-        /* @include mobile430 {
             font-size: 34px;
             line-height: 30px;
         }
@@ -178,7 +172,7 @@
             margin: 0;
             padding-left: 85px;
             
-        } */
+        }
     }
 
     &-text {
