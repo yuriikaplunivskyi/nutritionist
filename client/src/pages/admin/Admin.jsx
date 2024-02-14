@@ -15,6 +15,9 @@ const Admin = () => {
                     <li>
                     <Link to="/admin/dashboard">Адмін-панель</Link>
                     </li>
+                    <li>
+                    <Link to="/admin/reset">Відновити пароль</Link>
+                    </li>
                 </ul>
                 </nav>
                 <LoginForm/>
