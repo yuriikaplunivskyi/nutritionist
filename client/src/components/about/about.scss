@@ -42,8 +42,16 @@
                 "slider text text" 
                 "slider text text";
         }
+
+        /* @include mobile576 {
+            grid-template-areas:
+                "img  title" 
+                "slider text text" 
+                "slider text text" 
+                "slider text text";
+        } */
         
-        @include mobile430 {
+        @include mobile576{
             gap: 0;
             grid-template-areas:
             " img  img"
@@ -68,6 +76,10 @@
             grid-template-areas:
             " title title "
             "text text"
+            " slider slider"
+            " slider slider"
+            " slider slider"
+            " slider slider"
             " slider slider"
             " slider slider";
         }
@@ -118,7 +130,7 @@
                 object-position: center 80px;
             }
             @include mobile576 {
-                object-position: center 60px;
+                object-position: center 100px;
             }
             @include mobile430 {
                 object-position: center 80px;
@@ -159,12 +171,12 @@
         }
 
         @include mobile576 {
-            font-size: 45px;
-            line-height: 45px;
-        }
-        
-        @include mobile430 {
             font-size: 34px;
+            line-height: 30px;
+        }
+
+        @include mobile430 {
+            font-size: 31px;
             line-height: 30px;
         }
 
