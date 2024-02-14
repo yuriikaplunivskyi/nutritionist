@@ -201,7 +201,7 @@ app.use("/public", express.static(path.join(__dirname, "public")));
 
 
 const certificateStorage = multer.diskStorage({
-    destination: MULTER_DESTINATION,
+    destination: process.env.MULTER_DESTINATION,
     filename: function(req, file, cb){
         const uniqueSuffix = Date.now() + '-' + Math.round(Math.random() * 1E9);
         const originalname = path.parse(file.originalname).name;

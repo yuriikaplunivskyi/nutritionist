@@ -30,14 +30,14 @@
         padding: 5px 20px;
     }
 
-    &-delete {
+    .delete {
         background-color: red;
     }
-    &-add {
+    .add {
         background-color: green;
     }
 
-    &-send {
+    .send {
         background-color: rgb(221, 6, 185) ;
     }
 }
