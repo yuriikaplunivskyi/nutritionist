@@ -1,5 +1,4 @@
 import  {lazy, Suspense } from "react";
-import {  } from 'react-router-dom';
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Loader from './components/loader/Loader.jsx';
 import ScrollToAnchor from './hooks/ScrollToAnchor.js';
@@ -19,7 +18,7 @@ import RequireAuth from "./components/authorization/RequireAuth";
 const App = () => {
 
   return (
-    <Router fallbackElement={<Loader/>}>
+    <Router  basename="/" fallbackElement={<Loader/>}>
           <ScrollToAnchor/>
       <Routes >
           <Route path="/" element={
