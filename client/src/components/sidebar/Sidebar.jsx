@@ -58,7 +58,7 @@ const Sidebar = () => {
         <motion.div className="bg" variants={variants}>
             <Links />
         </motion.div>
-        <ToggleButton id="menu button" setOpen={setOpen} />
+        <ToggleButton id="menu button" aria-label="menu navigation button" setOpen={setOpen} />
         </motion.div>
     );
 };
